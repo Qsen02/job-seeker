@@ -13,4 +13,5 @@ export interface UserAttributes {
     email: string;
     fullName: string;
     role: "admin" | "user";
+    accessToken: string;
 }

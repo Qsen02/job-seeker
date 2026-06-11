@@ -11,6 +11,7 @@ export function setCors() {
 			"Access-Control-Allow-Headers",
 			"Content-type,X-Authorization",
 		);
+		res.setHeader("Access-Control-Allow-Credentials", "true");
 		next();
 	};
 }
