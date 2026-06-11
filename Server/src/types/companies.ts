@@ -6,6 +6,9 @@ export interface Company {
     description: string;
     location: string;
     logo: string;
+    phone: string;
+    email: string;
+    address: string;
     jobs: Types.ObjectId[];
     owner: Types.ObjectId;
 }
