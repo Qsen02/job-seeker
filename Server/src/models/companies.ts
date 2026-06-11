@@ -5,7 +5,16 @@ const companiesSchema = new mongoose.Schema<Company>(
 	{
 		name: { type: String, required: true },
 		description: { type: String, required: true },
-		logo: { type: String, required: true },
+		logo: {
+			publicId: {
+				type: String,
+				required: true,
+			},
+			url: {
+				type: String,
+				required: true,
+			},
+		},
 		email: { type: String, required: true },
 		phone: { type: String, required: true },
 		address: { type: String, required: true },

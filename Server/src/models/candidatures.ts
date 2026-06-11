@@ -8,7 +8,16 @@ const candidatureSchema = new mongoose.Schema<Candidature>(
 		status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
 		description: { type: String, required: true },
 		link: { type: String, required: true },
-        cv: { type: String, required: true },
+        cv: {
+			publicId: {
+				type: String,
+				required: true,
+			},
+			url: {
+				type: String,
+				required: true,
+			},
+		},
 	},
 	{ timestamps: { createdAt: "created_at", updatedAt: "updated_at" } },
 );
