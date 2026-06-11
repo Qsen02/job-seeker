@@ -7,5 +7,7 @@ export interface Candidature {
     userId: Types.ObjectId;
     jobId: Types.ObjectId;
     cv: string;
+    description: string;
+    link: string;
     status: CandidatureStatus;
 }

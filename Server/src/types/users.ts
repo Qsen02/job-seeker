@@ -7,3 +7,10 @@ export interface User {
     fullName: string;
     role: "admin" | "user";
 }
+
+export interface UserAttributes {
+    _id: string;
+    email: string;
+    fullName: string;
+    role: "admin" | "user";
+}

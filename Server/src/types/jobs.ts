@@ -7,10 +7,13 @@ export interface DescriptionItem {
     content: string;
 }
 
+export type JobLevelType = "junior" | "mid" | "senior";
+
 export interface Job { 
     _id: Types.ObjectId;
     title: string;
     description: DescriptionItem[];
+    level: JobLevelType;
     companyId: Types.ObjectId;
     candidatures: Types.ObjectId[];
     type: JobType;

@@ -11,6 +11,11 @@ const jobSchema = new mongoose.Schema<Job>(
             }],
             required: true,
         },
+		level: {
+			type: String,
+			enum: ["junior", "mid", "senior"],
+			required: true,
+		},
 		companyId: { type: Types.ObjectId, ref: "Companies", required: true },
 		candidatures: {
 			type: [Types.ObjectId],
