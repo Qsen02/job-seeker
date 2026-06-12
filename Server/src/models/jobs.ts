@@ -4,13 +4,10 @@ import { Job } from "../types/jobs";
 const jobSchema = new mongoose.Schema<Job>(
 	{
 		title: { type: String, required: true },
-        description: {
-            type: [{
-                title: { type: String, required: true },
-                content: { type: String, required: true },
-            }],
-            required: true,
-        },
+		description: {
+			type: [String],
+			required: true,
+		},
 		level: {
 			type: String,
 			enum: ["junior", "mid", "senior"],

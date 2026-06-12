@@ -25,8 +25,8 @@ export async function checkJobId(id: string) {
 
 export async function paginateJobs(
 	page: number,
-	filter: "level" | "type",
-	value: string,
+	filter: "level" | "type" | undefined,
+	value: string | undefined,
 ) {
 	const searchFilter: Partial<Job> = {};
 	if (filter === "level") {
@@ -52,17 +52,17 @@ export async function getAllJobsForCompany(companyId: string) {
 	return jobs;
 }
 
-export async function createJob(company: Company, jobData: Job) {
+export async function createJob(companyId: string, jobData: Job) {
 	const job = new JobModel({
 		title: jobData.title,
 		description: jobData.description,
 		level: jobData.level,
-		companyId: company._id,
+		companyId: companyId,
 		type: jobData.type,
 		salary: jobData.salary,
 	});
 	await job.save();
-	await CompanyModel.findByIdAndUpdate(company._id, {
+	await CompanyModel.findByIdAndUpdate(companyId, {
 		$push: { jobs: job._id },
 	});
 	return job;
