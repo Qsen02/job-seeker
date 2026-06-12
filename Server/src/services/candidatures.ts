@@ -1,8 +1,8 @@
 import CandidatureModel from "../models/candidatures";
 import JobModel from "../models/jobs";
 import { Candidature } from "../types/candidatures";
-import { Job } from "../types/jobs";
-import { User } from "../types/users";
+import { FileType } from "../types/companies";
+import { UserAttributes } from "../types/users";
 
 export async function getAllCandidaturesForJob(jobId: string) {
 	const candidatures = await CandidatureModel.find({ jobId }).lean();
@@ -26,19 +26,20 @@ export async function getCandidatureById(id: string) {
 }
 
 export async function createCandidature(
-	user: User,
-	job: Job,
+	user: UserAttributes | null | undefined,
+	jobId: string,
 	candidatureData: Candidature,
+	cv: FileType,
 ) {
 	const newCandidature = new CandidatureModel({
-		cv: candidatureData.cv,
+		cv: cv,
 		description: candidatureData.description,
-		userId: user._id,
-		jobId: job._id,
+		userId: user?._id,
+		jobId: jobId,
 		link: candidatureData.link,
 	});
 	await newCandidature.save();
-	await JobModel.findByIdAndUpdate(job._id, {
+	await JobModel.findByIdAndUpdate(jobId, {
 		$push: { candidatures: newCandidature._id },
 	});
 	return newCandidature;
@@ -47,11 +48,12 @@ export async function createCandidature(
 export async function editCandidature(
 	id: string,
 	candidatureData: Partial<Candidature>,
+	cv: FileType,
 ) {
 	const updatedCandidature = await CandidatureModel.findByIdAndUpdate(
 		id,
 		{
-			$set: { candidatureData },
+			$set: { ...candidatureData, cv: cv },
 		},
 		{ returnDocument: "after" },
 	)
