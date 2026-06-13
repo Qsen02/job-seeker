@@ -11,6 +11,7 @@ import {
 } from "../services/users";
 import { setToken } from "../services/token";
 import { isUser } from "../middlewares/guard";
+import { deleteFromCloudinary } from "../config/cloudinary";
 
 const userRouter = Router();
 
@@ -31,6 +32,17 @@ userRouter.post(
 		.trim()
 		.custom((value, { req }) => req.body.password === value)
 		.withMessage("Password must match!"),
+	body("phoneNumber")
+		.isMobilePhone("bg-BG")
+		.withMessage("Phone number must be in valid format!"),
+	body("profileImagePubliId")
+		.optional()
+		.notEmpty()
+		.withMessage("Profile image public id required!"),
+	body("profileImageUrl")
+		.optional()
+		.notEmpty()
+		.withMessage("Profile image url required!"),
 	async (req, res) => {
 		try {
 			const results = validationResult(req);
@@ -38,10 +50,19 @@ userRouter.post(
 				throw new Error(parseError(results));
 			}
 			const fields = req.body;
+			let imageData = null;
+			if (fields.profileImagePubliId && fields.profileImageUrl) {
+				imageData = {
+					publicId: fields.profileImagePubliId,
+					url: fields.profileImageUrl,
+				};
+			}
 			const newUser = await register(
 				fields.fullName,
 				fields.email,
 				fields.password,
+				fields.phoneNumber,
+				imageData,
 			);
 			const token = setToken(newUser);
 			res.cookie("token", token, {
@@ -54,6 +75,8 @@ userRouter.post(
 				email: newUser.email,
 				fullName: newUser.fullName,
 				role: newUser.role,
+				profileImage: newUser.profileImage,
+				phoneNumber:newUser.phoneNumber
 			});
 		} catch (err) {
 			if (err instanceof Error) {
@@ -110,23 +133,23 @@ userRouter.get("/logout", async (req, res) => {
 	res.status(200).json({ message: "Logout was successfull!" });
 });
 
-userRouter.get("/:userId", async (req, res) => { 
-    try {
-        const userId = req?.params?.userId as string;
+userRouter.get("/:userId", async (req, res) => {
+	try {
+		const userId = req?.params?.userId as string;
 		const isValid = await checkUserId(userId);
 		if (!isValid) {
 			return res.status(400).json({ message: "User not found!" });
-        }
-        const user = await getUserById(userId);
-        res.json(user);
-    } catch (err) {
-        if (err instanceof Error) {
+		}
+		const user = await getUserById(userId);
+		res.json(user);
+	} catch (err) {
+		if (err instanceof Error) {
 			res.status(404).json({ message: err.message });
 		} else {
 			res.status(500).json({ message: "Unknown error occurd!" });
 		}
-    }
-})
+	}
+});
 
 userRouter.put(
 	"/edit/:userId",
@@ -136,6 +159,17 @@ userRouter.put(
 		.isLength({ min: 3 })
 		.withMessage("Full name must be at least 3 symbols long!"),
 	body("email").trim().isEmail().withMessage("Email must be vaild!"),
+	body("phoneNumber")
+		.isMobilePhone("bg-BG")
+		.withMessage("Phone number must be in valid format!"),
+	body("profileImagePubliId")
+		.optional()
+		.notEmpty()
+		.withMessage("Profile image public id required!"),
+	body("profileImageUrl")
+		.optional()
+		.notEmpty()
+		.withMessage("Profile image url required!"),
 	async (req, res) => {
 		try {
 			const userId = req?.params?.userId as string;
@@ -148,10 +182,26 @@ userRouter.put(
 				throw new Error(parseError(results));
 			}
 			const fields = req.body;
+			let imageData = null;
+			if (fields.profileImagePubliId && fields.profileImageUrl) {
+				const curUser = await getUserById(userId);
+				if (curUser && curUser.profileImage.publicId) {
+					await deleteFromCloudinary(
+						curUser.profileImage.publicId,
+						"image",
+					);
+				}
+				imageData = {
+					publicId: fields.profileImagePubliId,
+					url: fields.profileImageUrl,
+				};
+			}
 			const updatedUser = await editUser(
 				userId,
 				fields.fullName,
 				fields.email,
+				fields.phoneNumber,
+				imageData,
 			);
 			res.status(200).json(updatedUser);
 		} catch (err) {

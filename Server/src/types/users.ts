@@ -1,4 +1,5 @@
 import { Types } from "mongoose";
+import { FileType } from "./companies";
 
 export interface User {
     _id: Types.ObjectId;
@@ -6,12 +7,15 @@ export interface User {
     password: string;
     fullName: string;
     role: "admin" | "user";
+    profileImage: FileType;
+    phoneNumber: string;
 }
 
 export interface UserAttributes {
-    _id: string;
-    email: string;
-    fullName: string;
-    role: "admin" | "user";
-    accessToken: string;
+	_id: string;
+	email: string;
+	fullName: string;
+	role: "admin" | "user";
+	profileImage: FileType;
+	phoneNumber: string;
 }

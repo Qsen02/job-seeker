@@ -1,10 +1,14 @@
 import UserModel from "../models/users";
 import bcrypt from "bcrypt";
+import { FileType } from "../types/companies";
+import { User } from "../types/users";
 
 export async function register(
 	fullname: string,
 	email: string,
 	password: string,
+	phoneNumber: string,
+	profileImage: FileType | null,
 ) {
 	const isEmailExist = await UserModel.findOne({ email });
 	if (isEmailExist) {
@@ -14,6 +18,13 @@ export async function register(
 		fullName: fullname,
 		email: email,
 		password: await bcrypt.hash(password, 10),
+		phoneNumber: phoneNumber,
+		profileImage: !profileImage
+			? {
+					publicId: "",
+					url: "",
+				}
+			: profileImage,
 	});
 	await user.save();
 	return user;
@@ -47,14 +58,29 @@ export async function checkUserId(id: string) {
 	return false;
 }
 
-export async function editUser(id: string, fullname: string, email: string) {
+export async function editUser(
+	id: string,
+	fullname: string,
+	email: string,
+	phoneNumber: string,
+	profileImage: FileType | null,
+) {
+	const updateData: Partial<User> = {
+		fullName: fullname,
+		email: email,
+		phoneNumber: phoneNumber,
+		profileImage: !profileImage
+			? {
+					publicId: "",
+					url: "",
+				}
+			: profileImage,
+	};
+
 	const updatedUser = await UserModel.findByIdAndUpdate(
 		id,
 		{
-			$set: {
-				fullName: fullname,
-				email: email,
-			},
+			$set: updateData,
 		},
 		{ returnDocument: "after" },
 	).lean();

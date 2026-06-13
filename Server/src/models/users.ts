@@ -7,6 +7,20 @@ const userSchema = new mongoose.Schema<User>(
 		password: { type: String, required: true },
 		fullName: { type: String, required: true },
 		role: { type: String, enum: ["admin", "user"], default: "user" },
+		profileImage: {
+			publicId: {
+				type: String,
+				required: true,
+			},
+			url: {
+				type: String,
+				required: true,
+			},
+		},
+		phoneNumber: {
+			type: String,
+			required: true,
+		},
 	},
 	{ timestamps: { createdAt: "created_at", updatedAt: "updated_at" } },
 );
