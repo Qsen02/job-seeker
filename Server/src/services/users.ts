@@ -69,13 +69,10 @@ export async function editUser(
 		fullName: fullname,
 		email: email,
 		phoneNumber: phoneNumber,
-		profileImage: !profileImage
-			? {
-					publicId: "",
-					url: "",
-				}
-			: profileImage,
 	};
+	if (profileImage) { 
+		updateData.profileImage = profileImage;
+	}
 
 	const updatedUser = await UserModel.findByIdAndUpdate(
 		id,

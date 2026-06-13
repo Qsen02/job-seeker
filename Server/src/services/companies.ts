@@ -49,12 +49,16 @@ export async function createCompany(
 export async function editCompany(
 	id: string,
 	companyData: Partial<Company>,
-	logo: FileType,
+	logo: FileType | null,
 ) {
+	const updateData: Partial<Company> = { ...companyData };
+	if (logo) {
+		updateData.logo = logo;
+	}
 	const updatedCompany = await CompanyModel.findByIdAndUpdate(
 		id,
 		{
-			$set: { ...companyData, logo: logo },
+			$set: updateData,
 		},
 		{ returnDocument: "after" },
 	)

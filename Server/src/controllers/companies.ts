@@ -74,12 +74,12 @@ companyRouter.post(
 				throw new Error(parseError(results));
 			}
 			const user = req.user;
-            const fields = req.body;
-            const logo = {
+			const fields = req.body;
+			const logo = {
 				publicId: fields.logoPublicId,
 				url: fields.logoUrl,
 			};
-			const newCompany = await createCompany(user, fields,logo);
+			const newCompany = await createCompany(user, fields, logo);
 			res.json(newCompany);
 		} catch (err) {
 			if (err instanceof Error) {
@@ -128,8 +128,11 @@ companyRouter.put(
 		.notEmpty()
 		.isLength({ min: 5 })
 		.withMessage("Location must be at least 5 symbols long!"),
-	body("logoPublicId").notEmpty().withMessage("Logo public id required!"),
-	body("logoUrl").notEmpty().withMessage("Logo url required!"),
+	body("logoPublicId")
+		.optional()
+		.notEmpty()
+		.withMessage("Logo public id required!"),
+	body("logoUrl").optional().notEmpty().withMessage("Logo url required!"),
 	body("phone")
 		.isMobilePhone("bg-BG")
 		.withMessage("Phone must be in valid format!"),
@@ -139,8 +142,8 @@ companyRouter.put(
 		.isLength({ min: 5 })
 		.withMessage("Address must be at least 5 symbols long!"),
 	async (req: MyRequest, res) => {
-        try {
-            const companyId = req.params.companyId as string;
+		try {
+			const companyId = req.params.companyId as string;
 			const isValid = await checkCompanyId(companyId);
 			if (!isValid) {
 				return res.status(404).json({ message: "Resource not found!" });
@@ -149,16 +152,23 @@ companyRouter.put(
 			if (!results.isEmpty()) {
 				throw new Error(parseError(results));
 			}
-            const fields = req.body;
-            const logo = {
-				publicId: fields.logoPublicId,
-				url: fields.logoUrl,
-			};
-            const curCompany = await getCompanyById(companyId);
+			const fields = req.body;
+			let logo = null;
+			if (fields.logoPublicId && fields.logoUrl) {
+				const curCompany = await getCompanyById(companyId);
+				if (curCompany && curCompany.logo.publicId) {
+					await deleteFromCloudinary(curCompany.logo.publicId, "image");
+				}
+				logo = {
+					publicId: fields.logoPublicId,
+					url: fields.logoUrl,
+				};
+			}
+			const curCompany = await getCompanyById(companyId);
 			if (curCompany && curCompany.logo.publicId) {
 				await deleteFromCloudinary(curCompany.logo.publicId, "image");
 			}
-			const updateCompany = await editCompany(companyId, fields,logo);
+			const updateCompany = await editCompany(companyId, fields, logo);
 			res.json(updateCompany);
 		} catch (err) {
 			if (err instanceof Error) {

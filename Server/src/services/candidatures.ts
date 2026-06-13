@@ -1,6 +1,6 @@
 import CandidatureModel from "../models/candidatures";
 import JobModel from "../models/jobs";
-import { Candidature } from "../types/candidatures";
+import { Candidature, CandidatureStatus } from "../types/candidatures";
 import { FileType } from "../types/companies";
 import { UserAttributes } from "../types/users";
 
@@ -48,12 +48,16 @@ export async function createCandidature(
 export async function editCandidature(
 	id: string,
 	candidatureData: Partial<Candidature>,
-	cv: FileType,
+	cv: FileType | null,
 ) {
+	const updateData: Partial<Candidature> = { ...candidatureData };
+	if (cv) {
+		updateData.cv = cv;
+	}
 	const updatedCandidature = await CandidatureModel.findByIdAndUpdate(
 		id,
 		{
-			$set: { ...candidatureData, cv: cv },
+			$set: updateData,
 		},
 		{ returnDocument: "after" },
 	)
@@ -69,6 +73,21 @@ export async function deleteCandidature(jobId: string, candidatureId: string) {
 		$pull: { candidatures: candidatureId },
 	});
 	await CandidatureModel.findByIdAndDelete(candidatureId);
+}
+
+export async function changeCandidatureStatus(
+	candidatureId: string,
+	status: CandidatureStatus,
+) {
+	const updateCandidature = await CandidatureModel.findByIdAndUpdate(
+		candidatureId,
+		{ $set: { status: status } },
+		{ returnDocument: "after" },
+	)
+		.populate("userId")
+		.populate("jobId")
+		.lean();
+	return updateCandidature;
 }
 
 export async function checkCandidatureId(id: string) {
