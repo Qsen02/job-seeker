@@ -1,9 +1,15 @@
 :root {
-	--color-white: rgb(233, 233, 233);
-	--color-dark-white: rgb(220, 220, 220);
+	--color-white: rgb(240, 240, 240);
+	--color-dark-white: rgb(225, 225, 225);
 	--color-blue: rgb(26, 168, 228);
-	--color-hover-blue: rgb(40, 191, 255);
+	--color-hover-blue: rgb(78, 201, 253);
 	--color-light-blue: rgba(147, 222, 255, 0.93);
+    --color-text:rgba(120,120,120,0.9);
+}
+
+@font-face {
+    font-family: "Open sans";
+    src: url("/fonts/OpenSans-VariableFont_wdth,wght.ttf");
 }
 
 *,
@@ -26,6 +32,7 @@ ol {
 
 body {
 	background-color: var(--color-white);
+    font-family: "Open sans";
 }
 
 main {
