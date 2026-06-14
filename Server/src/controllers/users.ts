@@ -12,8 +12,19 @@ import {
 import { setToken } from "../services/token";
 import { isUser } from "../middlewares/guard";
 import { deleteFromCloudinary } from "../config/cloudinary";
+import { MyRequest } from "../types/express";
 
 const userRouter = Router();
+
+userRouter.get("/me", (req:MyRequest, res) => {
+	const user = req.user;
+	const token = req.cookies?.token;
+	if (token) {
+		res.json(user);
+		return;
+	}
+	res.json(null);
+});
 
 userRouter.post(
 	"/register",

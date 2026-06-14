@@ -8,6 +8,11 @@ export async function getUserById(userId: string) {
     return user as User; 
 }
 
+export async function checkUser() { 
+	const isUser = await get(`${endpoint}/me`);
+	return isUser as UserAttributes | null;
+}
+
 export async function register(data: object) { 
     const user = await post(`${endpoint}/register`, data);
     return user as UserAttributes;
