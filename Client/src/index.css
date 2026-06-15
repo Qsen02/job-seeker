@@ -1,3 +1,5 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 :root {
 	--color-white: rgb(240, 240, 240);
 	--color-dark-white: rgb(225, 225, 225);
@@ -46,6 +48,13 @@ main {
 	align-items: center;
 	inset: 0;
 	background-color: var(--color-white);
+	z-index: 3000;
+}
+
+.modal{
+	position: fixed;
+	inset: 0;
+	background-color: rgba(60,60,60,0.5);
 	z-index: 3000;
 }
 

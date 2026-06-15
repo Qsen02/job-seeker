@@ -1,7 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../../store/user";
-import { useLanguage } from "../../store/language";
-import { Activity, useState } from "react";
+import SlidingAnimation from "../../../commons/sliding_animation/SlidingAnimation";
+import type { UserAttributes } from "../../../types/users";
+import styles from "./BurgerMenu.module.css";
+import { Activity } from "react";
+import LinkItem from "../link_item/LinkItem";
 import {
 	adminNavBG,
 	adminNavEN,
@@ -9,33 +11,36 @@ import {
 	guestNavEN,
 	userNavBG,
 	userNavEN,
-} from "../../data/items";
-import LinkItem from "./link_item/LinkItem";
-import styles from "./Header.module.css";
-import BurgerMenu from "./burger_menu/BurgerMenu";
-import { AnimatePresence } from "framer-motion";
+} from "../../../data/items";
 
-export default function Header() {
-	const user = useUser((state) => state.user);
-	const language = useLanguage((state) => state.language);
-	const changeLanguage = useLanguage((state) => state.toggleLanguage);
-	const navigate = useNavigate();
-	const [open, setOpen] = useState(false);
+interface BurgerMenuProps {
+	userState: UserAttributes | null;
+	setOpenHandler: React.Dispatch<React.SetStateAction<boolean>>;
+	language: "bg" | "en";
+}
+
+export default function BurgerMenu({
+	userState,
+	setOpenHandler,
+	language,
+}: BurgerMenuProps) {
+    const navigate = useNavigate();
 
 	return (
-		<>
-			<AnimatePresence mode="wait">
-				{open && (
-					<BurgerMenu userState={user} setOpenHandler={setOpen} language={ language} />
-				)}
-			</AnimatePresence>
-			<header className={styles.wrapper}>
-				<nav className={styles.navigation}>
-					<Link to="/" id={styles.logo}>
-						Job Seeker
-					</Link>
+		<div className="modal">
+			<SlidingAnimation className={styles.wrapper}>
+				<section className={styles.header}>
+					<i
+                        className="fa-solid fa-xmark"
+                        onClick={() => setOpenHandler(false)}
+					></i>
+                    <Link to="/" id={ styles.logo}>Job Seeker</Link>
+				</section>
+				<section className={styles.body}>
 					<ul>
-						<Activity mode={user === null ? "visible" : "hidden"}>
+						<Activity
+							mode={userState === null ? "visible" : "hidden"}
+						>
 							{language === "bg"
 								? guestNavBG.map((el) => (
 										<LinkItem
@@ -53,7 +58,11 @@ export default function Header() {
 									))}
 						</Activity>
 						<Activity
-							mode={user?.role === "user" ? "visible" : "hidden"}
+							mode={
+								userState?.role === "user"
+									? "visible"
+									: "hidden"
+							}
 						>
 							{language === "bg"
 								? userNavBG.map((el) => (
@@ -72,7 +81,11 @@ export default function Header() {
 									))}
 						</Activity>
 						<Activity
-							mode={user?.role === "admin" ? "visible" : "hidden"}
+							mode={
+								userState?.role === "admin"
+									? "visible"
+									: "hidden"
+							}
 						>
 							{language === "bg"
 								? adminNavBG.map((el) => (
@@ -92,14 +105,14 @@ export default function Header() {
 						</Activity>
 						<li>
 							<Activity
-								mode={user === null ? "visible" : "hidden"}
+								mode={userState === null ? "visible" : "hidden"}
 							>
 								<button onClick={() => navigate("/login")}>
 									{language === "bg" ? "Вход" : "Login"}
 								</button>
 							</Activity>
 							<Activity
-								mode={user !== null ? "visible" : "hidden"}
+								mode={userState !== null ? "visible" : "hidden"}
 							>
 								<button onClick={() => navigate("/logout")}>
 									{language === "bg" ? "Изход" : "Logout"}
@@ -107,16 +120,8 @@ export default function Header() {
 							</Activity>
 						</li>
 					</ul>
-					<button onClick={() => changeLanguage({ language })}>
-						{language === "bg" ? "BG" : "EN"}
-					</button>
-					<i
-						className="fa-solid fa-bars"
-						id={styles.bars}
-						onClick={() => setOpen(true)}
-					></i>
-				</nav>
-			</header>
-		</>
+				</section>
+			</SlidingAnimation>
+		</div>
 	);
 }
