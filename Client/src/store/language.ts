@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { getLanguage, setLanguage } from "../utils/languageHelper";
 
 interface State {
 	language: "bg" | "en";
@@ -9,7 +10,9 @@ interface Action {
 }
 
 export const useLanguage = create<State & Action>()((set) => ({
-	language: "en",
-	toggleLanguage: () =>
-		set((state) => ({ language: state.language === "en" ? "bg" : "en" })),
+	language: getLanguage() ?? "bg",
+	toggleLanguage: (state) => {
+		set((state) => ({ language: state.language === "en" ? "bg" : "en" }));
+		setLanguage(state.language);
+	},
 }));

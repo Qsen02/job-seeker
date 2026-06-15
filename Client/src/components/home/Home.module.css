@@ -1,0 +1,132 @@
+.wrapper {
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.companyContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 30px;
+}
+
+.companyContainer h1 {
+    width: 90%;
+	color: var(--color-dark-text);
+	font-size: 24pt;
+}
+
+.companyWrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 20px;
+}
+
+.companyWrapper h2 {
+	color: var(--color-dark-text);
+	font-size: 22pt;
+}
+
+.companies {
+	width: 100%;
+	color: black;
+}
+
+.companyContainer span {
+	color: var(--color-blue);
+}
+
+.swiper {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.swiper :global(.swiper-slide) {
+	position: relative;
+	width: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.swiper :global(.swiper-button-next),
+.swiper :global(.swiper-button-prev) {
+	position: absolute;
+	color: var(--color-blue);
+	width: 40px;
+	height: 40px;
+	font-weight: bolder;
+	font-size: 40px;
+	transition: color 0.5s ease;
+}
+
+.swiper :global(.swiper-button-next:hover),
+.swiper :global(.swiper-button-prev:hover) {
+	color: var(--color-hover-blue);
+}
+
+@media (max-width: 1600px) {
+	.swiper {
+		width: 95%;
+	}
+}
+
+@media (max-width: 1300px) {
+	.swiper :global(.swiper-slide) {
+		width: 400px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.swiper {
+		width: 100%;
+	}
+	.swiper :global(.swiper-slide) {
+		width: 350px;
+	}
+	.swiper :global(.swiper-button-next),
+	.swiper :global(.swiper-button-prev) {
+		width: 30px;
+		height: 30px;
+		font-size: 30px;
+	}
+	.companyContainer h1 {
+		font-size: 22pt;
+	}
+	.companyWrapper h2 {
+		font-size: 20pt;
+	}
+}
+
+@media (max-width: 684px) {
+	.swiper {
+		width: 70%;
+	}
+	.swiper :global(.swiper-slide) {
+		width: 200px;
+	}
+	.companyContainer h1 {
+		font-size: 18pt;
+	}
+	.companyWrapper h2 {
+		font-size: 16pt;
+	}
+}
+
+@media (max-width: 480px) {
+	.swiper {
+		width: 95%;
+	}
+}

@@ -7,6 +7,7 @@
 	--color-hover-blue: rgb(78, 201, 253);
 	--color-light-blue: rgba(147, 222, 255, 0.93);
     --color-text:rgba(120,120,120,0.9);
+	--color-dark-text:rgba(60,60,60,0.9)
 }
 
 @font-face {
