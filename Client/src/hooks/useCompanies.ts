@@ -1,0 +1,35 @@
+import { useEffect, useState } from "react";
+import type { Company } from "../types/companies";
+import { useLoadingError } from "./useLoadingError";
+import { getAllCompanies } from "../api/companies";
+
+export function useGetAllCompanies(initValues: []) {
+	const [companies, setCompanies] = useState<Company[]>(initValues);
+	const { loading, setLoading, error, setError } = useLoadingError();
+
+	useEffect(() => {
+		const abortController = new AbortController();
+		const { aborted } = abortController.signal;
+		(async () => {
+			try {
+				setLoading(true);
+				if (!aborted) {
+					const curCompanies = await getAllCompanies();
+					setCompanies(curCompanies);
+				}
+				setLoading(false);
+			} catch (err) {
+				setLoading(false);
+				setError(true);
+			}
+        })();
+        
+		return () => abortController.abort();
+	}, []);
+
+	return {
+		companies,
+		loading,
+		error,
+	};
+}
