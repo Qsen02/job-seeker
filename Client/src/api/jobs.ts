@@ -10,13 +10,13 @@ export async function getJobById(jobId: string) {
 
 export async function paginateJobs(
 	page: number,
-	filter: "type" | "level",
-	value: string,
+	filter?: "type" | "level",
+	value?: string,
 ) {
 	const jobs = await get(
-		`${endpoint}/paginate/${page}?filter=${encodeURIComponent(filter)}&value=${encodeURIComponent(value)}`,
+		`${endpoint}/paginate/${page}${filter && value ? `?filter=${encodeURIComponent(filter)}&value=${encodeURIComponent(value)}` : ""}`,
 	);
-	return jobs as Job[];
+	return jobs as { jobs: Job[]; totalPages: number };
 }
 
 export async function getJobsForCompany(companyId: string) {
