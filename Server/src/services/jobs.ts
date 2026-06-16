@@ -1,7 +1,6 @@
 import CandidatureModel from "../models/candidatures";
 import CompanyModel from "../models/companies";
 import JobModel from "../models/jobs";
-import { Company } from "../types/companies";
 import { Job } from "../types/jobs";
 
 export async function getJobById(id: string) {
@@ -41,6 +40,7 @@ export async function paginateJobs(
 	const jobs = await JobModel.find(searchFilter)
 		.skip(skip)
 		.limit(limit)
+		.populate("companyId")
 		.lean();
 	const totalJobs = await JobModel.countDocuments(searchFilter);
 	const totalPages = Math.ceil(totalJobs / limit);

@@ -6,13 +6,14 @@ import { useLanguage } from "../../store/language";
 import styles from "./Home.module.css";
 import Companies from "./companies/Companies";
 import { useGetAllJobs } from "../../hooks/useJobs";
+import Jobs from "./jobs/Jobs";
 
 export default function Home() {
 	const { companies, loading, error } = useGetAllCompanies([]);
 	const language = useLanguage((state) => state.language);
 	const [filter, setFilter] = useState<"type" | "level" | "">("");
 	const [value, setValue] = useState("");
-	const { jobs } = useGetAllJobs([]);
+	const { jobs } = useGetAllJobs([],filter,value);
 
 	function changeFilter(filter: "type" | "level", value: string) {
 		setFilter(filter);
@@ -62,14 +63,14 @@ export default function Home() {
 											<button
 												className={
 													filter === "type" &&
-													value === "online"
+													value === "remote"
 														? styles.active
 														: ""
 												}
 												onClick={() =>
 													changeFilter(
 														"type",
-														"online",
+														"remote",
 													)
 												}
 											>
@@ -171,14 +172,14 @@ export default function Home() {
 											<button
 												className={
 													filter === "type" &&
-													value === "online"
+													value === "remote"
 														? styles.active
 														: ""
 												}
 												onClick={() =>
 													changeFilter(
 														"type",
-														"online",
+														"remote",
 													)
 												}
 											>
@@ -270,7 +271,7 @@ export default function Home() {
 									</div>
 								</Activity>
 							</aside>
-							<section className={styles.jobs}></section>
+							<Jobs jobs={jobs} language={language} />
 						</section>
 					</section>
 				</section>

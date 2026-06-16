@@ -14,4 +14,5 @@ export interface Job {
 	candidatures: Candidature[];
 	type: JobType;
 	salary: number;
+	created_at: string;
 }

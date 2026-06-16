@@ -17,25 +17,34 @@
 }
 
 .companyContainer h1 {
-    width: 90%;
+	width: 90%;
 	color: var(--color-dark-text);
 	font-size: 24pt;
+}
+
+.companyContainer h2 {
+	color: var(--color-dark-text);
+	font-size: 22pt;
+}
+
+.companyContainer h3 {
+	font-size: 16pt;
 }
 
 .companyContainer span {
 	color: var(--color-blue);
 }
 
-.jobsWrapper{
-	width: 100%;
+.jobsWrapper {
+	width: 80%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	gap:30px;
+	gap: 30px;
 	padding: 0 50px;
 }
 
-.filters{
+.filters {
 	flex: 1 1 10%;
 	background-color: white;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -43,53 +52,79 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap:20px;
+	gap: 20px;
 	border-radius: 10px;
 	padding: 20px;
 }
 
-.filters > div{
+.filters > div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap:10px;
+	gap: 10px;
 	font-size: 12pt;
 }
 
-.filters .buttons{
+.filters .buttons {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap:5px;
+	gap: 5px;
+	font-size: 12pt;
 }
 
-.buttons button{
+.buttons button {
 	background-color: transparent;
-	color:var(--color-text);
+	color: var(--color-text);
 	border-radius: 10px;
 	border: 1.5px solid var(--color-text);
 	padding: 5px 10px;
 	cursor: pointer;
 	transition: all 0.7s ease;
+	font-size: 12pt;
 }
 
-.buttons button:hover{
-	color:white;
+.buttons button:hover {
+	color: white;
+	border: 1.5px solid white;
 	background-color: var(--color-blue);
 }
 
-.active{
-	color:white;
-	background-color: var(--color-blue);
+.active {
+	color: white !important;
+	border: 1.5px solid white !important;
+	background-color: var(--color-blue) !important;
 }
 
-.jobs{
-	flex: 1 1 65%;
+@media(max-width:1135px){
+	.jobsWrapper{
+		width: 100%;
+	}
 }
 
 @media (max-width: 1024px) {
 	.companyContainer h1 {
 		font-size: 22pt;
+	}
+	.filters > div {
+		font-size: 10pt;
+	}
+	.buttons button {
+		font-size: 10pt;
+	}
+	.companyContainer h2 {
+		font-size: 20pt;
+	}
+	.companyContainer h3 {
+		font-size: 14pt;
+	}
+}
+
+@media(max-width:800px){
+	.jobsWrapper{
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
 	}
 }
 
@@ -97,5 +132,16 @@
 	.companyContainer h1 {
 		font-size: 18pt;
 	}
+	.filters > div {
+		font-size: 8pt;
+	}
+	.buttons button {
+		font-size: 8pt;
+	}
+	.companyContainer h2 {
+		font-size: 16pt;
+	}
+	.companyContainer h3 {
+		font-size: 12pt;
+	}
 }
-

@@ -10,7 +10,7 @@ export async function getJobById(jobId: string) {
 
 export async function paginateJobs(
 	page: number,
-	filter?: "type" | "level",
+	filter?: "type" | "level" | "",
 	value?: string,
 ) {
 	const jobs = await get(
