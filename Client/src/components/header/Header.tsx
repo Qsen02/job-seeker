@@ -22,11 +22,22 @@ export default function Header() {
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
 
+	function toTop() {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}
+
 	return (
 		<>
+			<button id="up" onClick={toTop}>
+				<i className="fa-solid fa-arrow-up"></i>
+			</button>
 			<AnimatePresence mode="wait">
 				{open && (
-					<BurgerMenu userState={user} setOpenHandler={setOpen} language={ language} />
+					<BurgerMenu
+						userState={user}
+						setOpenHandler={setOpen}
+						language={language}
+					/>
 				)}
 			</AnimatePresence>
 			<header className={styles.wrapper}>

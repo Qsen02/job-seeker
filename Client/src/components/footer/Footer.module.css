@@ -1,0 +1,20 @@
+.wrapper{
+    padding: 20px 0;
+    background-color: white;
+    color:black;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+@media(max-width:1024px){
+    .wrapper{
+        font-size: 14pt;
+    }
+}
+
+@media(max-width:684px){
+    .wrapper{
+        font-size: 12pt;
+    }
+}

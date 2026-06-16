@@ -97,3 +97,36 @@ main {
 		transform: rotate(360deg);
 	}
 }
+
+#up{
+	position: fixed;
+	bottom: 40px;
+	right: 50px;
+	font-size: 20pt;
+	color:white;
+	border-radius: 50%;
+	background-color: var(--color-blue);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.7s ease;
+}
+
+#up:hover{
+	background-color: var(--color-hover-blue);
+}
+
+
+@media(max-width:1024px){
+	#up{
+		font-size: 18pt;
+		right: 40px;
+	}
+}
+
+@media(max-width:684px){
+	#up{
+		font-size: 16pt;
+		right: 30px;
+	}
+}
