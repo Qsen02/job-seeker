@@ -7,15 +7,16 @@ import styles from "./Home.module.css";
 import Companies from "./companies/Companies";
 import { useGetAllJobs } from "../../hooks/useJobs";
 import Jobs from "./jobs/Jobs";
+import ErrorMessage from "../../commons/error_message/ErrorMessage";
 
 export default function Home() {
 	const { companies, loading, error } = useGetAllCompanies([]);
 	const language = useLanguage((state) => state.language);
 	const [filter, setFilter] = useState<"type" | "level" | "">("");
 	const [value, setValue] = useState("");
-	const { jobs } = useGetAllJobs([],filter,value);
+	const { jobs } = useGetAllJobs([], filter, value);
 
-	function changeFilter(filter: "type" | "level", value: string) {
+	function changeFilter(filter: "type" | "level" | "", value: string) {
 		setFilter(filter);
 		setValue(value);
 	}
@@ -25,7 +26,7 @@ export default function Home() {
 			{loading && !error ? (
 				<Loader />
 			) : error ? (
-				<p>Сървърът не отговаря моля опитайте по късно!</p>
+				<ErrorMessage/>
 			) : (
 				<section className={styles.wrapper}>
 					<section className={styles.companyContainer}>
@@ -159,6 +160,14 @@ export default function Home() {
 												Старши
 											</button>
 										</div>
+										<button
+											onClick={() => changeFilter("", "")}
+											id={styles.removeFilters}
+										>
+											{language === "bg"
+												? "Изчисти филтри"
+												: "Remove filters"}
+										</button>
 									</div>
 								</Activity>
 								<Activity
@@ -268,6 +277,13 @@ export default function Home() {
 												Senior
 											</button>
 										</div>
+										<button
+											onClick={() => changeFilter("", "")}
+										>
+											{language === "bg"
+												? "Изчисти филтри"
+												: "Remove filters"}
+										</button>
 									</div>
 								</Activity>
 							</aside>

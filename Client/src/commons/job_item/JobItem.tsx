@@ -32,7 +32,7 @@ export default function JobItem({
 			<article className={styles.wrapper}>
 				<div className={styles.jobInfo}>
 					<p id={styles.date}>
-						{createdDate.getDate()}.{createdDate.getMonth() - 1}.
+						{createdDate.getDate()}.{createdDate.getMonth() + 1}.
 						{createdDate.getFullYear()}
 					</p>
 					<h3>{title}</h3>

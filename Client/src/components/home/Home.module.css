@@ -96,6 +96,21 @@
 	background-color: var(--color-blue) !important;
 }
 
+#removeFilters{
+	background-color: var(--color-blue);
+	color:white;
+	font-size: 12pt;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	transition:background-color 0.7s ease;
+}
+
+#removeFilters:hover{
+	background-color: var(--color-hover-blue);
+}
+
 @media(max-width:1135px){
 	.jobsWrapper{
 		width: 100%;
@@ -118,6 +133,9 @@
 	.companyContainer h3 {
 		font-size: 14pt;
 	}
+	#removeFilters{
+		font-size: 10pt;
+	}
 }
 
 @media(max-width:800px){
@@ -136,6 +154,9 @@
 		font-size: 8pt;
 	}
 	.buttons button {
+		font-size: 8pt;
+	}
+	#removeFilters{
 		font-size: 8pt;
 	}
 	.companyContainer h2 {

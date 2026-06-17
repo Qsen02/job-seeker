@@ -1,0 +1,22 @@
+.message{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%);
+    color:var(--color-dark-text);
+    font-size: 20pt;
+    width: 80%;
+    text-align: center;
+}
+
+@media(max-width:1024px){
+    .message{
+        font-size: 18pt;
+    }
+}
+
+@media(max-width:684px){
+    .message{
+        font-size: 16pt;
+    }
+}
