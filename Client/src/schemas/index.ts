@@ -67,3 +67,32 @@ export const registerSchema = (language: "bg" | "en") =>
 					: "Passwords are required!",
 			),
 	});
+
+export const loginSchema = (language: "bg" | "en") =>
+	yup.object().shape({
+		email: yup
+			.string()
+			.email(
+				language === "bg"
+					? "Имейла или паролата не съвпадат!"
+					: "Email or password don't match!",
+			)
+			.required(
+				language === "bg"
+					? "Имейла е задължителен!"
+					: "Email is required!",
+			),
+		password: yup
+			.string()
+			.matches(
+				/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/,
+				language === "bg"
+					? "Имейла или паролата не съвпадат!"
+					: "Email or password don't match!",
+			)
+			.required(
+				language === "bg"
+					? "Паролата е задължителна!"
+					: "Password is required!",
+			),
+	});
