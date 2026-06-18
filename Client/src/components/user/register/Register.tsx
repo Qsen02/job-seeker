@@ -1,9 +1,12 @@
-import { Form, Formik } from "formik";
+import { Form, Formik, type FormikHelpers } from "formik";
 import { useLanguage } from "../../../store/language";
 import CustomInput from "../../../commons/customInput";
 import { Activity, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerSchema } from "../../../schemas";
+import { useRegister } from "../../../hooks/useUsers";
+import { useUploadProfileImage } from "../../../hooks/useCloudinary";
+import { useUser } from "../../../store/user";
 
 interface InitValuesType {
 	fullName: string;
@@ -23,11 +26,60 @@ export default function Register() {
 		repass: "",
 		profileImage: null,
 	};
+	const setUser = useUser((state) => state.setUserState);
 	const language = useLanguage((state) => state.language);
 	const [showPassword, setShowPassword] = useState(false);
 	const [showRepass, setShowRepass] = useState(false);
+	const [registrating, setRegistrating] = useState(false);
+	const [isErr, setIsErr] = useState(false);
+	const [errMessage, setErrMessage] = useState("");
+	const register = useRegister();
+	const uploadProfileImage = useUploadProfileImage();
+	const navigate = useNavigate();
 
-	async function onRegister() {}
+	async function onRegister(
+		values: InitValuesType,
+		action: FormikHelpers<InitValuesType>,
+	) {
+		try {
+			setRegistrating(true);
+			const fullName = values.fullName;
+			const email = values.email;
+			const phoneNumber = values.phoneNumber;
+			const password = values.password;
+			const repass = values.repass;
+			const profileImage = values.profileImage;
+			let profileImagePubliId = "";
+			let profileImageUrl = "";
+
+			if (profileImage) {
+				const result = await uploadProfileImage(profileImage);
+				profileImagePubliId = result.public_id;
+				profileImageUrl = result.secure_url;
+			}
+			const newUser = await register({
+				fullName,
+				email,
+				phoneNumber,
+				password,
+				repass,
+				profileImagePubliId,
+				profileImageUrl,
+			});
+			setUser(newUser);
+			action.resetForm();
+			navigate("/");
+		} catch (err) {
+			setRegistrating(false);
+			setIsErr(true);
+			if (err instanceof Error) {
+				setErrMessage(err.message);
+			}
+			return;
+		} finally {
+			setRegistrating(false);
+		}
+	}
 
 	return (
 		<Formik
@@ -43,6 +95,9 @@ export default function Register() {
 							? "Създай своя акаунт тук"
 							: "Create your account here"}
 					</h1>
+					<Activity mode={isErr ? "visible" : "hidden"}>
+						<p className="inputError">{errMessage}</p>
+					</Activity>
 					<div className="input">
 						<CustomInput
 							type="text"
@@ -131,9 +186,19 @@ export default function Register() {
 							></i>
 						</Activity>
 					</div>
-					<button type="submit">
-						{language === "bg" ? "Регистрирай се" : "Register"}
-					</button>
+					<Activity mode={registrating ? "visible" : "hidden"}>
+						<button type="submit">
+							{language === "bg"
+								? "Регистриране"
+								: "Registrating"}{" "}
+							<span className="normal-loader"></span>
+						</button>
+					</Activity>
+					<Activity mode={!registrating ? "visible" : "hidden"}>
+						<button type="submit">
+							{language === "bg" ? "Регистрирай се" : "Register"}
+						</button>
+					</Activity>
 					<Activity mode={language === "bg" ? "visible" : "hidden"}>
 						<p>
 							Вече имате акаунта? <Link to="/login">Влезте</Link>{" "}
