@@ -61,9 +61,8 @@
     border-radius: 10px;
     background-color: var(--color-blue);
     color:white;
-    font-family: "Open sans";
     font-size: 16pt;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px;
     border: none;
     cursor: pointer;
     display: flex;

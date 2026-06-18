@@ -6,13 +6,13 @@
 	--color-blue: rgb(26, 168, 228);
 	--color-hover-blue: rgb(78, 201, 253);
 	--color-light-blue: rgba(147, 222, 255, 0.93);
-    --color-text:rgba(120,120,120,0.9);
-	--color-dark-text:rgba(60,60,60,0.9)
+	--color-text: rgba(120, 120, 120, 0.9);
+	--color-dark-text: rgba(60, 60, 60, 0.9);
 }
 
 @font-face {
-    font-family: "Open sans";
-    src: url("/fonts/OpenSans-VariableFont_wdth,wght.ttf");
+	font-family: "Open sans";
+	src: url("/fonts/OpenSans-VariableFont_wdth,wght.ttf");
 }
 
 *,
@@ -35,7 +35,7 @@ ol {
 
 body {
 	background-color: var(--color-white);
-    font-family: "Open sans";
+	font-family: "Open sans";
 }
 
 main {
@@ -52,10 +52,10 @@ main {
 	z-index: 4000;
 }
 
-.modal{
+.modal {
 	position: fixed;
 	inset: 0;
-	background-color: rgba(60,60,60,0.5);
+	background-color: rgba(60, 60, 60, 0.5);
 	z-index: 4000;
 }
 
@@ -98,12 +98,12 @@ main {
 	}
 }
 
-#up{
+#up {
 	position: fixed;
 	bottom: 40px;
 	right: 50px;
 	font-size: 20pt;
-	color:white;
+	color: white;
 	border-radius: 50%;
 	background-color: var(--color-blue);
 	border: none;
@@ -112,35 +112,233 @@ main {
 	transition: background-color 0.7s ease;
 }
 
-#up:hover{
+#up:hover {
 	background-color: var(--color-hover-blue);
 }
 
+.form {
+	margin: 50px auto;
+	width: 30vw;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
 
-@media(max-width:1024px){
-	#up{
+.input {
+	position: relative;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.input label{
+	font-size: 14pt;
+}
+
+.input input {
+	height: 40px;
+	width: 100%;
+	border-radius: 30px;
+	border: 2px solid var(--color-text);
+	font-size: 14pt;
+	color:var(--color-dark-text);
+	padding-left:10px ;
+}
+
+.input input::placeholder {
+	font-size: 14pt;
+}
+
+.input input[type="file"]{
+	border: none;
+	width: 80%;
+}
+.input input[type="file"]::file-selector-button{
+	border: none;
+	padding: 5px 10px;
+	border-radius: 10px;
+	background-color: var(--color-blue);
+	color:white;
+	font-size: 14pt;
+	transition: background-color 0.7s ease;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.input input[type="file"]::file-selector-button:hover{
+	background-color: var(--color-hover-blue);
+}
+
+.form .input i{
+	font-size: 16pt;
+	color:var(--color-dark-text);
+	position: absolute;
+	top:42.5px;
+	right:25px;
+	cursor: pointer;
+}
+
+.form button{
+	border: none;
+	padding: 5px 10px;
+	border-radius: 10px;
+	background-color: var(--color-blue);
+	color:white;
+	font-size: 14pt;
+	transition: background-color 0.7s ease;
+	cursor: pointer;
+}
+
+.form button:hover{
+	background-color: var(--color-hover-blue);
+}
+
+.buttons{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:30px;
+}
+
+.form h1{
+	width: 90%;
+	text-align: center;
+	word-wrap: break-word;
+	font-size: 22pt;
+	color:var(--color-dark-text);
+}
+
+.form p{
+	font-size: 12pt;
+	font-weight: bold;
+	color:var(--color-dark-text);
+}
+
+.form p a{
+	color:var(--color-blue);
+}
+
+.form p a:hover{
+	color:var(--color-hover-blue);
+}
+
+.inputError{
+	color:rgb(167, 0, 0) !important;
+	font-size: 12pt !important;
+	text-align: center;
+}
+
+@media(max-width:1440px){
+	.form{
+		width: 45vw;
+	}
+}
+
+@media (max-width: 1024px) {
+	.form{
+		width: 55vw;
+	}
+	.form p{
+		font-size: 10pt;
+	}
+	.form h1{
+		font-size: 20pt;
+	}
+	.form button{
+		font-size: 12pt;
+	}
+	.form .input i{
+		font-size: 14pt;
+		top:42.5px;
+	}
+	.input label{
+		font-size: 12pt;
+	}
+	
+	.input input {
+		font-size: 12pt;
+	}
+	.input input::placeholder {
+		font-size: 12pt;
+	}
+	.inputError{
+		font-size: 10pt !important;
+	}
+	.input input[type="file"]::file-selector-button{
+		font-size: 12pt;
+	}
+	#up {
 		font-size: 18pt;
 		right: 40px;
 	}
-	.loader{
+	.loader {
 		width: 80px;
 		height: 80px;
 	}
-	.normal-loader{
+	.normal-loader {
 		border: 4px solid var(--color-blue);
 	}
 }
 
-@media(max-width:684px){
-	#up{
+@media (max-width: 684px) {
+	.input label{
+		font-size: 10pt;
+	}	
+	.form{
+		width: 80vw;
+	}
+	.form p{
+		font-size: 8pt;
+	}
+	.form h1{
+		font-size: 18pt;
+	}
+	.form button{
+		font-size: 10pt;
+	}
+	.form .input i{
+		font-size: 12pt;
+		top:37.5px;
+	}
+	.input input[type="file"]::file-selector-button{
+		font-size: 10pt;
+	}
+	.input input {
+		height: 30px;
+		font-size: 10pt;
+	}
+	.input input::placeholder {
+		font-size: 10pt;
+	}
+	.inputError{
+		font-size: 8pt !important;
+	}
+	#up {
 		font-size: 16pt;
 		right: 30px;
 	}
-	.loader{
+	.loader {
 		width: 60px;
 		height: 60px;
 	}
-	.normal-loader{
+	.normal-loader {
 		border: 3px solid var(--color-blue);
+	}
+}
+
+@media(max-width:440px){
+	.form{
+		width: 90vw;
+	}
+	.input{
+		width: 90%;
 	}
 }
