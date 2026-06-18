@@ -3,7 +3,11 @@ import type { Job } from "../types/jobs";
 import { useLoadingError } from "./useLoadingError";
 import { paginateJobs } from "../api/jobs";
 
-export function useGetAllJobs(initValues: [], filter: "type" | "level" | "", value: string) {
+export function useGetAllJobs(
+	initValues: [],
+	filter: "type" | "level" | "",
+	value: string,
+) {
 	const [jobs, setJobs] = useState<Job[]>(initValues);
 	const { loading, setLoading, error, setError } = useLoadingError();
 	const [page, setPage] = useState(1);
@@ -16,7 +20,7 @@ export function useGetAllJobs(initValues: [], filter: "type" | "level" | "", val
 			try {
 				setLoading(true);
 				if (!aborted) {
-					const curJobs = await paginateJobs(page,filter,value);
+					const curJobs = await paginateJobs(page, filter, value);
 					setJobs(curJobs.jobs);
 
 					setMaxPages(curJobs.totalPages);
@@ -29,13 +33,14 @@ export function useGetAllJobs(initValues: [], filter: "type" | "level" | "", val
 		})();
 
 		return () => abortController.abort();
-	}, [filter,value]);
+	}, [filter, value, page]);
 
 	return {
 		jobs,
-		loading,
-		error,
+		loadingJobs: loading,
+		errorJobs: error,
 		page,
+		setPage,
 		maxPages,
 	};
 }

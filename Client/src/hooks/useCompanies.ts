@@ -22,14 +22,14 @@ export function useGetAllCompanies(initValues: []) {
 				setLoading(false);
 				setError(true);
 			}
-        })();
-        
+		})();
+
 		return () => abortController.abort();
 	}, []);
 
 	return {
 		companies,
-		loading,
-		error,
+		loadingCompanies: loading,
+		errorCompanies: error,
 	};
 }
