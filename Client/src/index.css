@@ -184,8 +184,14 @@ main {
 	right:25px;
 	cursor: pointer;
 }
-
-.form button{
+.buttons{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:30px;
+}
+.form button,.buttons button{
 	border: none;
 	padding: 5px 10px;
 	border-radius: 10px;
@@ -200,16 +206,8 @@ main {
 	gap:10px;
 }
 
-.form button:hover{
+.form button:hover,.buttons button:hover{
 	background-color: var(--color-hover-blue);
-}
-
-.buttons{
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap:30px;
 }
 
 .form h1{
@@ -237,6 +235,22 @@ main {
 .inputError{
 	color:rgb(167, 0, 0) !important;
 	font-size: 12pt !important;
+	text-align: center;
+}
+
+.choise-modal{
+	margin: 50px auto;
+	width: 400px;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	color:var(--color-dark-text);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap:30px;
+	font-size: 18pt;
 	text-align: center;
 }
 

@@ -20,12 +20,12 @@ export const userNavEN = [
 
 export const adminNavBG = [
     { label: "Обяви", href: "/" },
-    { label: "Създай", href: "/create" },
+    { label: "Регистрирай фирма", href: "/company-register" },
     { label: "Профил", href: "/profile" },
 ];
 
 export const adminNavEN = [
 	{ label: "Jobs", href: "/" },
-	{ label: "Create", href: "/create" },
+	{ label: "Register company", href: "/company-register" },
 	{ label: "Profile", href: "/profile" },
 ];
