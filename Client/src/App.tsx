@@ -6,6 +6,7 @@ import Footer from "./components/footer/Footer";
 import Register from "./components/user/register/Register";
 import Login from "./components/user/login/Login";
 import Logout from "./components/user/logout/Logout";
+import NotFound from "./components/not_found/NotFound";
 
 function App() {
 	return (
@@ -17,7 +18,8 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/login" element={<Login />} />
-						<Route path="/logout" element={ <Logout/>} />
+						<Route path="/logout" element={<Logout />} />
+						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</main>
 				<Footer />

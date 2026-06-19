@@ -270,7 +270,7 @@ main {
 	.form h1{
 		font-size: 20pt;
 	}
-	.form button{
+	.form button,.buttons button{
 		font-size: 12pt;
 	}
 	.form .input i{
@@ -306,6 +306,9 @@ main {
 		height: 22.5px;
 		border: 3px solid var(--color-white);
 	}
+	.choise-modal{
+		font-size: 16pt;
+	}
 }
 
 @media (max-width: 684px) {
@@ -321,7 +324,7 @@ main {
 	.form h1{
 		font-size: 18pt;
 	}
-	.form button{
+	.form button,.buttons button{
 		font-size: 10pt;
 	}
 	.form .input i{
@@ -353,6 +356,10 @@ main {
 		width: 20px;
 		height: 20px;
 		border: 3px solid var(--color-white);
+	}
+	.choise-modal{
+		width: 300px;
+		font-size: 14pt;
 	}
 }
 

@@ -15,7 +15,7 @@ export default function Logout() {
 	async function onLogout() {
         try {
             setLogouting(true);
-            
+
             setUser(null);
 			await logout();
             navigate("/");
@@ -35,7 +35,7 @@ export default function Logout() {
 			<p>
 				{language === "bg"
 					? "Сигурен ли си че искаш да излезеш от акаунта си?"
-					: "Are you sure you want to quit from you account?"}
+					: "Are you sure you want to quit from your account?"}
 			</p>
 			<Activity mode={isErr ? "visible" : "hidden"}>
 				<p className="inputError">

@@ -1,0 +1,37 @@
+.wrapper {
+	width: 90%;
+	margin: 200px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	font-size: 16pt;
+	color: var(--color-dark-text);
+    text-align: center;
+}
+
+.wrapper h1 {
+	font-size: 80pt;
+	color: var(--color-blue);
+}
+
+@media(max-width:1024px){
+    .wrapper{
+        font-size: 14pt;
+    }
+
+    .wrapper h1{
+        font-size: 60pt;
+    }
+}
+
+@media(max-width:684px){
+    .wrapper{
+        font-size: 12pt;
+    }
+
+    .wrapper h1{
+        font-size: 40pt;
+    }
+}
