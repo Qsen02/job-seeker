@@ -138,7 +138,11 @@ main {
 	gap: 10px;
 }
 
-.input label{
+.input div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:5px;
 	font-size: 14pt;
 }
 
@@ -146,6 +150,16 @@ main {
 	height: 40px;
 	width: 100%;
 	border-radius: 30px;
+	border: 2px solid var(--color-text);
+	font-size: 14pt;
+	color:var(--color-dark-text);
+	padding-left:10px ;
+}
+
+.input textarea{
+	height: 100px;
+	width: 100%;
+	border-radius: 20px;
 	border: 2px solid var(--color-text);
 	font-size: 14pt;
 	color:var(--color-dark-text);
@@ -254,6 +268,10 @@ main {
 	text-align: center;
 }
 
+.star{
+	color:var(--color-blue);
+}
+
 @media(max-width:1440px){
 	.form{
 		width: 45vw;
@@ -277,7 +295,7 @@ main {
 		font-size: 14pt;
 		top:42.5px;
 	}
-	.input label{
+	.input div{
 		font-size: 12pt;
 	}
 	
@@ -309,12 +327,15 @@ main {
 	.choise-modal{
 		font-size: 16pt;
 	}
+	.input textarea{
+		font-size: 12pt;
+	}
 }
 
 @media (max-width: 684px) {
-	.input label{
+	.input div{
 		font-size: 10pt;
-	}	
+	}
 	.form{
 		width: 80vw;
 	}
@@ -337,6 +358,10 @@ main {
 	.input input {
 		height: 30px;
 		font-size: 10pt;
+	}
+	.input textarea{
+		font-size: 10pt;
+		height: 80px;
 	}
 	.input input::placeholder {
 		font-size: 10pt;

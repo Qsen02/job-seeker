@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Company } from "../types/companies";
 import { useLoadingError } from "./useLoadingError";
-import { getAllCompanies } from "../api/companies";
+import { createCompany, getAllCompanies } from "../api/companies";
 
 export function useGetAllCompanies(initValues: []) {
 	const [companies, setCompanies] = useState<Company[]>(initValues);
@@ -32,4 +32,10 @@ export function useGetAllCompanies(initValues: []) {
 		loadingCompanies: loading,
 		errorCompanies: error,
 	};
+}
+
+export function useCreateCompany() { 
+	return async function (data: object) { 
+		return await createCompany(data);
+	}
 }

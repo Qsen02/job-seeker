@@ -7,6 +7,7 @@ import Register from "./components/user/register/Register";
 import Login from "./components/user/login/Login";
 import Logout from "./components/user/logout/Logout";
 import NotFound from "./components/not_found/NotFound";
+import RegisterCompany from "./components/company/register_company/RegisterCompany";
 
 function App() {
 	return (
@@ -19,6 +20,10 @@ function App() {
 						<Route path="/register" element={<Register />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/logout" element={<Logout />} />
+						<Route
+							path="/company-register"
+							element={<RegisterCompany />}
+						/>
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</main>

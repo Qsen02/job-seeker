@@ -47,7 +47,7 @@ export default function CustomInput({
 			{label ? (
 				<div>
 					<label htmlFor={props.id}>{label}</label>
-					{required ? <span>*</span> : ""}
+					{required ? <span className="star">*</span> : ""}
 				</div>
 			) : (
 				""
