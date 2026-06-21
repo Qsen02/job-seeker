@@ -1,7 +1,7 @@
 import CompanyModel from "../models/companies";
 import JobModel from "../models/jobs";
 import { Company, FileType } from "../types/companies";
-import { User, UserAttributes } from "../types/users";
+import { UserAttributes } from "../types/users";
 
 export async function getAllCompanies() {
 	const companies = await CompanyModel.find().lean();

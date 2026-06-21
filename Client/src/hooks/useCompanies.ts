@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import type { Company } from "../types/companies";
 import { useLoadingError } from "./useLoadingError";
-import { createCompany, getAllCompanies } from "../api/companies";
+import {
+	createCompany,
+	getAllCompanies,
+	getCompanyById,
+} from "../api/companies";
 
 export function useGetAllCompanies(initValues: []) {
 	const [companies, setCompanies] = useState<Company[]>(initValues);
@@ -34,8 +38,39 @@ export function useGetAllCompanies(initValues: []) {
 	};
 }
 
-export function useCreateCompany() { 
-	return async function (data: object) { 
+export function useCreateCompany() {
+	return async function (data: object) {
 		return await createCompany(data);
-	}
+	};
+}
+
+export function useGetCompanyById(initValues: null, companyId: string | undefined) {
+	const [company, setCompany] = useState<Company | null>(initValues);
+	const { loading, setLoading, error, setError } = useLoadingError();
+
+	useEffect(() => {
+		const abortController = new AbortController();
+		const { aborted } = abortController.signal;
+		(async () => {
+			try {
+				setLoading(true);
+				if (!aborted && companyId) {
+					const curCompany = await getCompanyById(companyId);
+					setCompany(curCompany);
+				}
+				setLoading(false);
+			} catch (err) {
+				setLoading(false);
+				setError(true);
+			}
+		})();
+
+		return () => abortController.abort();
+	}, [companyId]);
+
+	return {
+		company,
+		loading,
+		error,
+	};
 }
