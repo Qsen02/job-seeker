@@ -164,10 +164,12 @@ main {
 	font-size: 14pt;
 	color:var(--color-dark-text);
 	padding-left:10px ;
+	font-family: "Open sans";
 }
 
-.input input::placeholder {
-	font-size: 14pt;
+.input input::placeholder,.input textarea::placeholder  {
+	font-size: 12pt;
+	color:var(--color-text);
 }
 
 .input input[type="file"]{
@@ -302,8 +304,8 @@ main {
 	.input input {
 		font-size: 12pt;
 	}
-	.input input::placeholder {
-		font-size: 12pt;
+	.input input::placeholder,.input textarea::placeholder {
+		font-size: 10pt;
 	}
 	.inputError{
 		font-size: 10pt !important;
@@ -363,8 +365,8 @@ main {
 		font-size: 10pt;
 		height: 80px;
 	}
-	.input input::placeholder {
-		font-size: 10pt;
+	.input input::placeholder,.input textarea::placeholder {
+		font-size: 8pt;
 	}
 	.inputError{
 		font-size: 8pt !important;

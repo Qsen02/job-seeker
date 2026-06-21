@@ -78,6 +78,7 @@ export default function Login() {
 							label={language === "bg" ? "Имейл" : "Email"}
 							id="email"
 							autoComplete="on"
+							required
 						/>
 					</div>
 					<div className="input">
@@ -87,6 +88,7 @@ export default function Login() {
 							label={language === "bg" ? "Парола" : "Password"}
 							id="password"
 							autoComplete="on"
+							required
 						/>
 						<Activity mode={showPassword ? "visible" : "hidden"}>
 							<i

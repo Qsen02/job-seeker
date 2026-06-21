@@ -3,13 +3,11 @@ import { useLanguage } from "../../../store/language";
 import CustomInput from "../../../commons/customInput";
 import { Activity, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerSchema } from "../../../schemas";
-import {
-	useUploadLogo,
-} from "../../../hooks/useCloudinary";
+import { useUploadLogo } from "../../../hooks/useCloudinary";
 
 import CustomTextarea from "../../../commons/customTextarea";
 import { useCreateCompany } from "../../../hooks/useCompanies";
+import { companySchema } from "../../../schemas";
 
 interface InitValuesType {
 	name: string;
@@ -50,8 +48,8 @@ export default function RegisterCompany() {
 			const phone = values.phone;
 			const email = values.email;
 			const address = values.address;
-            const logo = values.logo;
-            const location = values.location;
+			const logo = values.logo;
+			const location = values.location;
 
 			if (!logo) {
 				throw new Error(
@@ -71,8 +69,8 @@ export default function RegisterCompany() {
 				email,
 				address,
 				logoPublicId,
-                logoUrl,
-                location
+				logoUrl,
+				location,
 			});
 
 			action.resetForm();
@@ -94,7 +92,7 @@ export default function RegisterCompany() {
 			key={language}
 			initialValues={initValues}
 			onSubmit={onRegister}
-			// validationSchema={registerSchema(language)}
+			validationSchema={companySchema(language)}
 		>
 			{(props) => (
 				<Form className="form">
@@ -113,6 +111,7 @@ export default function RegisterCompany() {
 							label={language === "bg" ? "Име" : "Name"}
 							id="name"
 							required
+							placeholder="Fintech"
 						/>
 					</div>
 					<div className="input">
@@ -122,6 +121,7 @@ export default function RegisterCompany() {
 							label={language === "bg" ? "Имейл" : "Email"}
 							id="email"
 							required
+							placeholder="fintech@gmail.com"
 						/>
 					</div>
 					<div className="input">
@@ -135,6 +135,7 @@ export default function RegisterCompany() {
 							}
 							id="phone"
 							required
+							placeholder="0874738493"
 						/>
 					</div>
 					<div className="input">
@@ -160,6 +161,11 @@ export default function RegisterCompany() {
 							}
 							id="description"
 							required
+							placeholder={
+								language === "bg"
+									? "Fintech е компания за IT услуги с дългогодишен опит."
+									: "Fintech is company for IT services with many years of experience."
+							}
 						/>
 					</div>
 					<div className="input">
@@ -169,6 +175,11 @@ export default function RegisterCompany() {
 							label={language === "bg" ? "Локация" : "Location"}
 							id="location"
 							required
+							placeholder={
+								language === "bg"
+									? "Бургас, България"
+									: "Burgas, Bulgaria"
+							}
 						/>
 					</div>
 					<div className="input">
@@ -178,6 +189,11 @@ export default function RegisterCompany() {
 							label={language === "bg" ? "Адрес" : "Address"}
 							id="address"
 							required
+							placeholder={
+								language === "bg"
+									? "жк.Възраждане, ул.Любен Каравелов 42"
+									: "Vazrazhdane district, 42 Lyuben Karavelov street"
+							}
 						/>
 					</div>
 					<Activity mode={registrating ? "visible" : "hidden"}>

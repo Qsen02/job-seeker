@@ -96,3 +96,84 @@ export const loginSchema = (language: "bg" | "en") =>
 					: "Password is required!",
 			),
 	});
+
+export const companySchema = (language: "en" | "bg") =>
+	yup.object().shape({
+		name: yup
+			.string()
+			.min(
+				3,
+				language === "bg"
+					? "Името трябва да бъде с дължина поне 3 символа!"
+					: "Name must be at least 3 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Името е задължително!"
+					: "Name is required!",
+			),
+		description: yup
+			.string()
+			.min(
+				10,
+				language === "bg"
+					? "Описание трябва да бъде с дължина поне 10 символа!"
+					: "Description must be at least 10 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Описание е задължително!"
+					: "Description is required!",
+			),
+		location: yup
+			.string()
+			.min(
+				5,
+				language === "bg"
+					? "Локацията трябва да бъде с дължина поне 5 символа!"
+					: "Location must be at least 5 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Локацията е задължително!"
+					: "Location is required!",
+			),
+		email: yup
+			.string()
+			.email(
+				language === "bg"
+					? "Имейла трябва да бъде валиден!"
+					: "Email must be valid!",
+			)
+			.required(
+				language === "bg"
+					? "Имейла е задължителен!"
+					: "Email is required!",
+			),
+		phone: yup
+			.string()
+			.matches(
+				/^(\+359|0)(87|88|89)\d{7}$/,
+				language === "bg"
+					? "Телефонния номер трябва да е във валиден формат!"
+					: "Phone number must be in valid format!",
+			)
+			.required(
+				language === "bg"
+					? "Телефонния номер е задължителен!"
+					: "Phone number is required!",
+			),
+		address: yup
+			.string()
+			.min(
+				5,
+				language === "bg"
+					? "Адреса трябва да бъде с дължина поне 5 символа!"
+					: "Address must be at least 5 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Адреса е задължително!"
+					: "Address is required!",
+			),
+	});

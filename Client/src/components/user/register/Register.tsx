@@ -108,6 +108,7 @@ export default function Register() {
 									: "First name and last name"
 							}
 							id="fullName"
+							required
 						/>
 					</div>
 					<div className="input">
@@ -116,6 +117,7 @@ export default function Register() {
 							name="email"
 							label={language === "bg" ? "Имейл" : "Email"}
 							id="email"
+							required
 						/>
 					</div>
 					<div className="input">
@@ -128,6 +130,7 @@ export default function Register() {
 									: "Phone number"
 							}
 							id="phoneNumber"
+							required
 						/>
 					</div>
 					<div className="input">
@@ -148,6 +151,7 @@ export default function Register() {
 							name="password"
 							label={language === "bg" ? "Парола" : "Password"}
 							id="password"
+							required
 						/>
 						<Activity mode={showPassword ? "visible" : "hidden"}>
 							<i
@@ -172,6 +176,7 @@ export default function Register() {
 									: "Repeat password"
 							}
 							id="repass"
+							required
 						/>
 						<Activity mode={showRepass ? "visible" : "hidden"}>
 							<i
