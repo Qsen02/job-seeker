@@ -6,6 +6,7 @@ import { useLanguage } from "../../../store/language";
 import { logoErrorHandler } from "../../../utils/error_images";
 import JobItem from "../../../commons/job_item/JobItem";
 import { useUser } from "../../../store/user";
+import styles from "./CompanyDetails.module.css";
 
 export default function CompanyDetails() {
 	const { companyId } = useParams();
@@ -19,9 +20,9 @@ export default function CompanyDetails() {
 			) : error ? (
 				<ErrorMessage />
 			) : (
-				<section>
-					<section>
-						<article>
+				<section className={styles.wrapper}>
+					<section className={styles.companyInfo}>
+						<article className={styles.title}>
 							<img
 								src={
 									company?.logo.url.trim() ||
@@ -36,7 +37,7 @@ export default function CompanyDetails() {
 						<Activity
 							mode={language === "bg" ? "visible" : "hidden"}
 						>
-							<article>
+							<article className={styles.data}>
 								<div>
 									<p>Имейл: {company?.email}</p>
 									<p>Телефонен номер: {company?.phone}</p>
@@ -56,7 +57,7 @@ export default function CompanyDetails() {
 						<Activity
 							mode={language === "en" ? "visible" : "hidden"}
 						>
-							<article>
+							<article className={styles.data}>
 								<div>
 									<p>Email: {company?.email}</p>
 									<p>Phone number: {company?.phone}</p>
@@ -89,7 +90,7 @@ export default function CompanyDetails() {
 							</Activity>
 						</>
 					)}
-					<section>
+					<section className={styles.jobs}>
 						{company?.jobs.length === 0 ? (
 							<p>
 								{language === "bg"

@@ -1,0 +1,145 @@
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+
+.companyInfo {
+	margin-top: 30px;
+	padding: 20px;
+	width: 800px;
+	border-radius: 10px;
+	background-color: white;
+	color: black;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	text-align: justify;
+	font-size: 14pt;
+	word-wrap: break-word;
+}
+
+.companyInfo img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.companyInfo .title {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.companyInfo .title h1 {
+	color: var(--color-dark-text);
+	font-size: 24pt;
+}
+
+.companyInfo .data {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+}
+
+.companyInfo .data div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+}
+
+.companyInfo .data div:first-child {
+	border-right: 3px solid var(--color-text);
+	padding-right: 40px;
+}
+
+.wrapper h2 {
+	color: var(--color-dark-text);
+	font-size: 20pt;
+}
+
+.wrapper > button {
+	border: none;
+	padding: 5px 10px;
+	border-radius: 10px;
+	background-color: var(--color-blue);
+	color: white;
+	font-size: 14pt;
+	transition: background-color 0.7s ease;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.wrapper > button:hover {
+	background-color: var(--color-hover-blue);
+}
+
+.wrapper .jobs {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+	.companyInfo {
+		font-size: 12pt;
+		width: 600px;
+	}
+	.wrapper > button {
+		font-size: 12pt;
+	}
+	.wrapper h2 {
+		font-size: 18pt;
+	}
+	.companyInfo .title h1 {
+		font-size: 22pt;
+	}
+}
+
+@media (max-width: 684px) {
+	.companyInfo {
+		font-size: 10pt;
+		width: 90%;
+	}
+	.wrapper > button {
+		font-size: 10pt;
+	}
+	.wrapper h2 {
+		font-size: 16pt;
+	}
+	.companyInfo .title h1 {
+		font-size: 20pt;
+	}
+	.wrapper .jobs {
+		width: 90%;
+	}
+	.companyInfo .data {
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+	}
+	.companyInfo .data div {
+		text-align: left;
+	}
+	.companyInfo .data div:first-child {
+		border-right: none;
+		padding-right: 0;
+		border-bottom: 3px solid var(--color-text);
+		padding-bottom: 15px;
+	}
+}
