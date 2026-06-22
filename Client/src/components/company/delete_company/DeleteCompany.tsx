@@ -31,7 +31,7 @@ export default function DeleteCompany() {
 			<section className="choise-modal">
 				<p>
 					{language === "bg"
-						? `Сигурни ли сте че искате да изтрете компанияна ${company?.name}?`
+						? `Сигурни ли сте че искате да изтриете компанията ${company?.name}?`
 						: `Are you sure want to delete the company ${company?.name}?`}
 				</p>
 				<div className="buttons">

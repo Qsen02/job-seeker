@@ -11,16 +11,19 @@ import Loader from "../../../commons/loader/Loader";
 
 export default function CompanyDetails() {
 	const { companyId } = useParams();
-	const { company, setCompany,loading, error } = useGetCompanyById(null, companyId);
+	const { company, setCompany, loading, error } = useGetCompanyById(
+		null,
+		companyId,
+	);
 	const language = useLanguage((state) => state.language);
 	const user = useUser((state) => state.user);
 	const navigate = useNavigate();
 
 	return (
 		<>
-			<Outlet context={{ company,setCompany }} />
+			<Outlet context={{ company, setCompany }} />
 			{loading && !error ? (
-				<Loader/>
+				<Loader />
 			) : error ? (
 				<ErrorMessage />
 			) : (
@@ -89,8 +92,24 @@ export default function CompanyDetails() {
 							</article>
 							{user?.role === "admin" && (
 								<article className="buttons">
-									<button>Edit</button>
-									<button>Delete</button>
+									<button
+										onClick={() =>
+											navigate(
+												`/companies/${company?._id}/edit`,
+											)
+										}
+									>
+										Edit
+									</button>
+									<button
+										onClick={() =>
+											navigate(
+												`/companies/${company?._id}/delete`,
+											)
+										}
+									>
+										Delete
+									</button>
 								</article>
 							)}
 						</Activity>

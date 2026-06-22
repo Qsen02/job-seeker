@@ -109,8 +109,8 @@ export default function EditCompany() {
 							<Form className="form modal-form">
 								<h1>
 									{language === "bg"
-										? "Регистрирай своята фирма тук"
-										: "Register your company here"}
+										? `Редактирай компания ${company?.name} тук`
+										: `Edit company ${company?.name} here`}
 								</h1>
 								<Activity mode={isErr ? "visible" : "hidden"}>
 									<p className="inputError">{errMessage}</p>
