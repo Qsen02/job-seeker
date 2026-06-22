@@ -18,7 +18,7 @@ export async function createCompany(data: object) {
 	return newCompany as Company;
 }
 
-export async function deleteCompany(companyId: string) {
+export async function deleteCompany(companyId: string | undefined) {
 	await del(`${endpoint}/${companyId}`);
 }
 

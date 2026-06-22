@@ -31,7 +31,7 @@ export default function Logout() {
 	}
 
 	return (
-		<section className="choise-modal">
+		<section className="choise-modal mt50">
 			<p>
 				{language === "bg"
 					? "Сигурен ли си че искаш да излезеш от акаунта си?"

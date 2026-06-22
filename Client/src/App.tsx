@@ -9,6 +9,7 @@ import Logout from "./components/user/logout/Logout";
 import NotFound from "./components/not_found/NotFound";
 import RegisterCompany from "./components/company/register_company/RegisterCompany";
 import CompanyDetails from "./components/company/company_details/CompanyDetails";
+import DeleteCompany from "./components/company/delete_company/DeleteCompany";
 
 function App() {
 	return (
@@ -27,9 +28,11 @@ function App() {
 						/>
 						<Route path="*" element={<NotFound />} />
 						<Route
-							path="/companies/:companyId"
+							path="/companies/:companyId/*"
 							element={<CompanyDetails />}
-						/>
+						>
+							<Route path="delete" element={<DeleteCompany />} />
+						</Route>
 					</Routes>
 				</main>
 				<Footer />

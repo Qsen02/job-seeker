@@ -3,6 +3,7 @@ import type { Company } from "../types/companies";
 import { useLoadingError } from "./useLoadingError";
 import {
 	createCompany,
+	deleteCompany,
 	getAllCompanies,
 	getCompanyById,
 } from "../api/companies";
@@ -73,4 +74,10 @@ export function useGetCompanyById(initValues: null, companyId: string | undefine
 		loading,
 		error,
 	};
+}
+
+export function useDeleteCompany() { 
+	return async function (companyId: string | undefined) { 
+		return await deleteCompany(companyId);
+	}
 }

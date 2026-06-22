@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { useGetCompanyById } from "../../../hooks/useCompanies";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import { Activity } from "react";
@@ -13,8 +13,11 @@ export default function CompanyDetails() {
 	const { company, loading, error } = useGetCompanyById(null, companyId);
 	const language = useLanguage((state) => state.language);
 	const user = useUser((state) => state.user);
+	const navigate = useNavigate();
+
 	return (
 		<>
+			<Outlet context={{ company }} />
 			{loading && !error ? (
 				<span className="loader"></span>
 			) : error ? (
@@ -49,8 +52,24 @@ export default function CompanyDetails() {
 							</article>
 							{user?.role === "admin" && (
 								<article className="buttons">
-									<button>Редактирай</button>
-									<button>Изтрий</button>
+									<button
+										onClick={() =>
+											navigate(
+												`/companies/${company?._id}/edit`,
+											)
+										}
+									>
+										Редактирай
+									</button>
+									<button
+										onClick={() =>
+											navigate(
+												`/companies/${company?._id}/delete`,
+											)
+										}
+									>
+										Изтрий
+									</button>
 								</article>
 							)}
 						</Activity>

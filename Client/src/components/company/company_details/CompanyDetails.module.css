@@ -38,6 +38,10 @@
 	gap: 10px;
 }
 
+.companyInfo .title p{
+	width: 95%;
+}
+
 .companyInfo .title h1 {
 	color: var(--color-dark-text);
 	font-size: 24pt;

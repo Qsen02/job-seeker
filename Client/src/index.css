@@ -57,6 +57,9 @@ main {
 	inset: 0;
 	background-color: rgba(60, 60, 60, 0.5);
 	z-index: 4000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .loader {
@@ -255,7 +258,6 @@ main {
 }
 
 .choise-modal{
-	margin: 50px auto;
 	width: 400px;
 	padding: 20px;
 	border-radius: 10px;
@@ -268,6 +270,10 @@ main {
 	gap:30px;
 	font-size: 18pt;
 	text-align: center;
+}
+
+.mt50{
+	margin: 50px auto;
 }
 
 .star{
