@@ -4,6 +4,7 @@ import { useLoadingError } from "./useLoadingError";
 import {
 	createCompany,
 	deleteCompany,
+	editCompany,
 	getAllCompanies,
 	getCompanyById,
 } from "../api/companies";
@@ -45,7 +46,10 @@ export function useCreateCompany() {
 	};
 }
 
-export function useGetCompanyById(initValues: null, companyId: string | undefined) {
+export function useGetCompanyById(
+	initValues: null,
+	companyId: string | undefined,
+) {
 	const [company, setCompany] = useState<Company | null>(initValues);
 	const { loading, setLoading, error, setError } = useLoadingError();
 
@@ -71,13 +75,20 @@ export function useGetCompanyById(initValues: null, companyId: string | undefine
 
 	return {
 		company,
+		setCompany,
 		loading,
 		error,
 	};
 }
 
-export function useDeleteCompany() { 
-	return async function (companyId: string | undefined) { 
+export function useDeleteCompany() {
+	return async function (companyId: string | undefined) {
 		return await deleteCompany(companyId);
-	}
+	};
+}
+
+export function useEditCompany() {
+	return async function (companyId: string | undefined, data: object) {
+		return await editCompany(companyId, data);
+	};
 }

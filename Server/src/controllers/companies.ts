@@ -128,11 +128,8 @@ companyRouter.put(
 		.notEmpty()
 		.isLength({ min: 5 })
 		.withMessage("Location must be at least 5 symbols long!"),
-	body("logoPublicId")
-		.optional()
-		.notEmpty()
-		.withMessage("Logo public id required!"),
-	body("logoUrl").optional().notEmpty().withMessage("Logo url required!"),
+	body("logoPublicId").optional(),
+	body("logoUrl").optional(),
 	body("phone")
 		.isMobilePhone("bg-BG")
 		.withMessage("Phone must be in valid format!"),
@@ -157,7 +154,10 @@ companyRouter.put(
 			if (fields.logoPublicId && fields.logoUrl) {
 				const curCompany = await getCompanyById(companyId);
 				if (curCompany && curCompany.logo.publicId) {
-					await deleteFromCloudinary(curCompany.logo.publicId, "image");
+					await deleteFromCloudinary(
+						curCompany.logo.publicId,
+						"image",
+					);
 				}
 				logo = {
 					publicId: fields.logoPublicId,

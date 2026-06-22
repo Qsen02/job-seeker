@@ -132,6 +132,11 @@ main {
 	gap: 20px;
 }
 
+.modal-form{
+	height: 90vh;
+	overflow: auto;
+}
+
 .input {
 	position: relative;
 	width: 80%;

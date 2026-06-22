@@ -22,7 +22,7 @@ export async function deleteCompany(companyId: string | undefined) {
 	await del(`${endpoint}/${companyId}`);
 }
 
-export async function editCompany(companyId:string,data: object) {
+export async function editCompany(companyId:string | undefined,data: object) {
 	const updatedCompany = await put(`${endpoint}/${companyId}`, data);
 	return updatedCompany as Company;
 }

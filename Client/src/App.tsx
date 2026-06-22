@@ -10,6 +10,7 @@ import NotFound from "./components/not_found/NotFound";
 import RegisterCompany from "./components/company/register_company/RegisterCompany";
 import CompanyDetails from "./components/company/company_details/CompanyDetails";
 import DeleteCompany from "./components/company/delete_company/DeleteCompany";
+import EditCompany from "./components/company/edit_company/EditCompany";
 
 function App() {
 	return (
@@ -32,6 +33,7 @@ function App() {
 							element={<CompanyDetails />}
 						>
 							<Route path="delete" element={<DeleteCompany />} />
+							<Route path="edit" element={<EditCompany />} />
 						</Route>
 					</Routes>
 				</main>

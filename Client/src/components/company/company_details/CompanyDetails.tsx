@@ -7,19 +7,20 @@ import { logoErrorHandler } from "../../../utils/error_images";
 import JobItem from "../../../commons/job_item/JobItem";
 import { useUser } from "../../../store/user";
 import styles from "./CompanyDetails.module.css";
+import Loader from "../../../commons/loader/Loader";
 
 export default function CompanyDetails() {
 	const { companyId } = useParams();
-	const { company, loading, error } = useGetCompanyById(null, companyId);
+	const { company, setCompany,loading, error } = useGetCompanyById(null, companyId);
 	const language = useLanguage((state) => state.language);
 	const user = useUser((state) => state.user);
 	const navigate = useNavigate();
 
 	return (
 		<>
-			<Outlet context={{ company }} />
+			<Outlet context={{ company,setCompany }} />
 			{loading && !error ? (
-				<span className="loader"></span>
+				<Loader/>
 			) : error ? (
 				<ErrorMessage />
 			) : (
