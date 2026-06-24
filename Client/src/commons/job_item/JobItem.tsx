@@ -42,7 +42,7 @@ export default function JobItem({
 						</p>
 						<p>
 							{language === "bg" ? "Заплата" : "Salary"}: {salary}{" "}
-							Euro
+							&euro;
 						</p>
 						<p>
 							{language === "bg" ? "Тип" : "Type"}: {type}
