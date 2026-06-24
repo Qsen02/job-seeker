@@ -11,6 +11,7 @@ import RegisterCompany from "./components/company/register_company/RegisterCompa
 import CompanyDetails from "./components/company/company_details/CompanyDetails";
 import DeleteCompany from "./components/company/delete_company/DeleteCompany";
 import EditCompany from "./components/company/edit_company/EditCompany";
+import CreateJob from "./components/jobs/create_job/CreateJob";
 
 function App() {
 	return (
@@ -34,6 +35,7 @@ function App() {
 						>
 							<Route path="delete" element={<DeleteCompany />} />
 							<Route path="edit" element={<EditCompany />} />
+							<Route path="create-job" element={<CreateJob />} />
 						</Route>
 					</Routes>
 				</main>

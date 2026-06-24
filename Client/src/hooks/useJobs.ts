@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Job } from "../types/jobs";
 import { useLoadingError } from "./useLoadingError";
-import { paginateJobs } from "../api/jobs";
+import { createJob, paginateJobs } from "../api/jobs";
 
 export function useGetAllJobs(
 	initValues: [],
@@ -43,4 +43,10 @@ export function useGetAllJobs(
 		setPage,
 		maxPages,
 	};
+}
+
+export function useCreateJob() { 
+	return async function (companyId: string | undefined, data: object) { 
+		return await createJob(companyId, data);
+	}
 }

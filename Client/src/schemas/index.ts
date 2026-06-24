@@ -177,3 +177,72 @@ export const companySchema = (language: "en" | "bg") =>
 					: "Address is required!",
 			),
 	});
+
+export const jobSchema = (language: "bg" | "en") =>
+	yup.object().shape({
+		title: yup
+			.string()
+			.min(
+				3,
+				language === "bg"
+					? "Заглавието трябва да е поне 3 символа дълго!"
+					: "Title must be at least 3 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Заглавието е задължително!"
+					: "Title is required!",
+			),
+		description: yup
+			.string()
+			.min(
+				10,
+				language === "bg"
+					? "Описанието трябва да е поне 10 символа дълго!"
+					: "Description must be at least 10 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Описанието е задължително!"
+					: "Description is required!",
+			),
+		level: yup
+			.string()
+			.oneOf(
+				["junior", "mid", "senior"],
+				language === "bg"
+					? "Нивото трябва да е  junior, mid или senior!"
+					: "Level must be junior, mid or senior!",
+			)
+			.required(
+				language === "bg"
+					? "Нивото е задължително!"
+					: "Level is required!",
+			),
+		type: yup
+			.string()
+			.oneOf(
+				["remote", "on-site", "hybrid"],
+				language === "bg"
+					? "Типа трябва да е онлайн, на място или хибриден!"
+					: "Type must be remote, on-site or hybrid!",
+			)
+			.required(
+				language === "bg"
+					? "Типа е задължително!"
+					: "Type is required!",
+			),
+		salary: yup
+			.number()
+			.min(
+				0,
+				language === "bg"
+					? "Заплата трябва да е цяло положително число!"
+					: "Salary must be positive integer number!",
+			)
+			.required(
+				language === "bg"
+					? "Заплатата е задължителна!"
+					: "Salary is required!",
+			),
+	});

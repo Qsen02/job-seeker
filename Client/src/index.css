@@ -132,8 +132,8 @@ main {
 	gap: 20px;
 }
 
-.modal-form{
-	height: 90vh;
+.modal-form {
+	max-height: 90vh;
 	overflow: auto;
 }
 
@@ -146,182 +146,192 @@ main {
 	gap: 10px;
 }
 
-.input div{
+.input div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap:5px;
+	gap: 5px;
 	font-size: 14pt;
 }
 
-.input input {
+.input input,
+.input select {
 	height: 40px;
 	width: 100%;
 	border-radius: 30px;
 	border: 2px solid var(--color-text);
 	font-size: 14pt;
-	color:var(--color-dark-text);
-	padding-left:10px ;
+	color: var(--color-dark-text);
+	padding-left: 10px;
 }
 
-.input textarea{
+.input textarea {
 	height: 100px;
 	width: 100%;
 	border-radius: 20px;
 	border: 2px solid var(--color-text);
 	font-size: 14pt;
-	color:var(--color-dark-text);
-	padding-left:10px ;
+	color: var(--color-dark-text);
+	padding-left: 10px;
 	font-family: "Open sans";
+	resize: vertical;
 }
 
-.input input::placeholder,.input textarea::placeholder  {
+.input input::placeholder,
+.input textarea::placeholder,
+.input select::placeholder {
 	font-size: 12pt;
-	color:var(--color-text);
+	color: var(--color-text);
 }
 
-.input input[type="file"]{
+.input input[type="file"] {
 	border: none;
 	width: 80%;
 }
-.input input[type="file"]::file-selector-button{
+.input input[type="file"]::file-selector-button {
 	border: none;
 	padding: 5px 10px;
 	border-radius: 10px;
 	background-color: var(--color-blue);
-	color:white;
+	color: white;
 	font-size: 14pt;
 	transition: background-color 0.7s ease;
 	cursor: pointer;
 	margin-right: 10px;
 }
 
-.input input[type="file"]::file-selector-button:hover{
+.input input[type="file"]::file-selector-button:hover {
 	background-color: var(--color-hover-blue);
 }
 
-.form .input i{
+.form .input i {
 	font-size: 16pt;
-	color:var(--color-dark-text);
+	color: var(--color-dark-text);
 	position: absolute;
-	top:42.5px;
-	right:25px;
+	top: 42.5px;
+	right: 25px;
 	cursor: pointer;
 }
-.buttons{
+.buttons {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap:30px;
+	gap: 30px;
 }
-.form button,.buttons button{
+.form button,
+.buttons button {
 	border: none;
 	padding: 5px 10px;
 	border-radius: 10px;
 	background-color: var(--color-blue);
-	color:white;
+	color: white;
 	font-size: 14pt;
 	transition: background-color 0.7s ease;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap:10px;
+	gap: 10px;
 }
 
-.form button:hover,.buttons button:hover{
+.form button:hover,
+.buttons button:hover {
 	background-color: var(--color-hover-blue);
 }
 
-.form h1{
+.form h1 {
 	width: 90%;
 	text-align: center;
 	word-wrap: break-word;
 	font-size: 22pt;
-	color:var(--color-dark-text);
+	color: var(--color-dark-text);
 }
 
-.form p{
+.form p {
 	font-size: 12pt;
 	font-weight: bold;
-	color:var(--color-dark-text);
+	color: var(--color-dark-text);
 }
 
-.form p a{
-	color:var(--color-blue);
+.form p a {
+	color: var(--color-blue);
 }
 
-.form p a:hover{
-	color:var(--color-hover-blue);
+.form p a:hover {
+	color: var(--color-hover-blue);
 }
 
-.inputError{
-	color:rgb(167, 0, 0) !important;
+.inputError {
+	color: rgb(167, 0, 0) !important;
 	font-size: 12pt !important;
 	text-align: center;
 }
 
-.choise-modal{
+.choise-modal {
 	width: 400px;
 	padding: 20px;
 	border-radius: 10px;
 	background-color: white;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	color:var(--color-dark-text);
+	color: var(--color-dark-text);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap:30px;
+	gap: 30px;
 	font-size: 18pt;
 	text-align: center;
 }
 
-.mt50{
+.mt50 {
 	margin: 50px auto;
 }
 
-.star{
-	color:var(--color-blue);
+.star {
+	color: var(--color-blue);
 }
 
-@media(max-width:1440px){
-	.form{
+@media (max-width: 1440px) {
+	.form {
 		width: 45vw;
 	}
 }
 
 @media (max-width: 1024px) {
-	.form{
+	.form {
 		width: 55vw;
 	}
-	.form p{
+	.form p {
 		font-size: 10pt;
 	}
-	.form h1{
+	.form h1 {
 		font-size: 20pt;
 	}
-	.form button,.buttons button{
+	.form button,
+	.buttons button {
 		font-size: 12pt;
 	}
-	.form .input i{
+	.form .input i {
 		font-size: 14pt;
-		top:42.5px;
+		top: 42.5px;
 	}
-	.input div{
+	.input div {
 		font-size: 12pt;
 	}
-	
-	.input input {
+
+	.input input,
+	.input select {
 		font-size: 12pt;
 	}
-	.input input::placeholder,.input textarea::placeholder {
+	.input input::placeholder,
+	.input textarea::placeholder,
+	.input select::placeholder {
 		font-size: 10pt;
 	}
-	.inputError{
+	.inputError {
 		font-size: 10pt !important;
 	}
-	.input input[type="file"]::file-selector-button{
+	.input input[type="file"]::file-selector-button {
 		font-size: 12pt;
 	}
 	#up {
@@ -337,49 +347,53 @@ main {
 		height: 22.5px;
 		border: 3px solid var(--color-white);
 	}
-	.choise-modal{
+	.choise-modal {
 		font-size: 16pt;
 	}
-	.input textarea{
+	.input textarea {
 		font-size: 12pt;
 	}
 }
 
 @media (max-width: 684px) {
-	.input div{
+	.input div {
 		font-size: 10pt;
 	}
-	.form{
+	.form {
 		width: 80vw;
 	}
-	.form p{
+	.form p {
 		font-size: 8pt;
 	}
-	.form h1{
+	.form h1 {
 		font-size: 18pt;
 	}
-	.form button,.buttons button{
+	.form button,
+	.buttons button {
 		font-size: 10pt;
 	}
-	.form .input i{
+	.form .input i {
 		font-size: 12pt;
-		top:37.5px;
+		top: 37.5px;
 	}
-	.input input[type="file"]::file-selector-button{
+	.input input[type="file"]::file-selector-button {
 		font-size: 10pt;
 	}
-	.input input {
+	.input input,
+	.input select {
 		height: 30px;
 		font-size: 10pt;
 	}
-	.input textarea{
+	.input textarea {
 		font-size: 10pt;
 		height: 80px;
 	}
-	.input input::placeholder,.input textarea::placeholder {
+	.input input::placeholder,
+	.input textarea::placeholder,
+	.input select::placeholder {
 		font-size: 8pt;
 	}
-	.inputError{
+	.inputError {
 		font-size: 8pt !important;
 	}
 	#up {
@@ -395,17 +409,17 @@ main {
 		height: 20px;
 		border: 3px solid var(--color-white);
 	}
-	.choise-modal{
+	.choise-modal {
 		width: 300px;
 		font-size: 14pt;
 	}
 }
 
-@media(max-width:440px){
-	.form{
+@media (max-width: 440px) {
+	.form {
 		width: 90vw;
 	}
-	.input{
+	.input {
 		width: 90%;
 	}
 }

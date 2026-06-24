@@ -3,8 +3,10 @@ import { useLanguage } from "../../../store/language";
 import { Activity, useState } from "react";
 import type { CompanyOutletContext } from "../../../types/contexts";
 import { useDeleteCompany } from "../../../hooks/useCompanies";
+import { useHideScroller } from "../../../hooks/useLoadingError";
 
 export default function DeleteCompany() {
+	useHideScroller();
 	const language = useLanguage((state) => state.language);
 	const navigate = useNavigate();
     const [deleting, setDeleting] = useState(false);

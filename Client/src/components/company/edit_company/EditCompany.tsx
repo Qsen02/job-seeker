@@ -11,6 +11,7 @@ import { companySchema } from "../../../schemas";
 import type { CompanyOutletContext } from "../../../types/contexts";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import Loader from "../../../commons/loader/Loader";
+import { useHideScroller } from "../../../hooks/useLoadingError";
 
 interface InitValuesType {
 	name: string;
@@ -23,6 +24,7 @@ interface InitValuesType {
 }
 
 export default function EditCompany() {
+	useHideScroller();
 	const { companyId } = useParams();
 	const { setCompany } = useOutletContext<CompanyOutletContext>();
 	const { company, loading, error } = useGetCompanyById(null, companyId);

@@ -1,3 +1,5 @@
+import { label } from "framer-motion/client";
+
 export const guestNavBG = [
 	{ label: "Обяви", href: "/" },
 	{ label: "Регистрация", href: "/register" },
@@ -28,4 +30,37 @@ export const adminNavEN = [
 	{ label: "Jobs", href: "/" },
 	{ label: "Register company", href: "/company-register" },
 	{ label: "Profile", href: "/profile" },
+];
+
+export const jobTypes = [
+	{
+		value: "remote",
+		labelBG: "Онлайн",
+		labelEN: "Remote",
+	},
+	{
+		value: "on-site",
+		labelBG: "На място",
+		labelEN: "On site",
+	},
+	{
+		value: "hybrid",
+		labelBG: "Хибрид",
+		labelEN: "Hybrid",
+	},
+];
+
+export const jobLevels = [
+	{
+		value: "junior",
+		label: "Junior",
+	},
+	{
+		value: "mid",
+		label: "Mid",
+	},
+	{
+		value: "senior",
+		label: "Senior",
+	},
 ];

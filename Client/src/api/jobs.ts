@@ -24,16 +24,16 @@ export async function getJobsForCompany(companyId: string) {
 	return jobs as Job[];
 }
 
-export async function createJob(companyId: string, data: object) {
+export async function createJob(companyId: string | undefined, data: object) {
 	const newJob = await post(`${endpoint}/in-company/${companyId}`, data);
 	return newJob as Job;
 }
 
-export async function deleteJob(companyId: string, jobId: object) {
+export async function deleteJob(companyId: string | undefined, jobId: object) {
 	await del(`${endpoint}/${jobId}/in-company/${companyId}`);
 }
 
-export async function editJob(jobId: string, data: object) {
+export async function editJob(jobId: string | undefined, data: object) {
 	const updatedJob = await put(`${endpoint}/${jobId}`, data);
 	return updatedJob as Job;
 }

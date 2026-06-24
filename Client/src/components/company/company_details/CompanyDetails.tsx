@@ -120,12 +120,28 @@ export default function CompanyDetails() {
 							<Activity
 								mode={language === "bg" ? "visible" : "hidden"}
 							>
-								<button>Добави обява</button>
+								<button
+									onClick={() =>
+										navigate(
+											`/companies/${companyId}/create-job`,
+										)
+									}
+								>
+									Добави обява
+								</button>
 							</Activity>
 							<Activity
 								mode={language === "en" ? "visible" : "hidden"}
 							>
-								<button>Add job</button>
+								<button
+									onClick={() =>
+										navigate(
+											`/companies/${companyId}/create-job`,
+										)
+									}
+								>
+									Add job
+								</button>
 							</Activity>
 						</>
 					)}

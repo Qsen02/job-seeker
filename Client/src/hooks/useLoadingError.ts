@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useLoadingError(
 	initLoading: boolean = false,
@@ -13,4 +13,14 @@ export function useLoadingError(
 		error,
 		setError,
 	};
+}
+
+export function useHideScroller() {
+	useEffect(() => {
+		document.body.style.overflow = "hidden";
+
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, []);
 }
