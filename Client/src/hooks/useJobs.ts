@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Job } from "../types/jobs";
 import { useLoadingError } from "./useLoadingError";
-import { createJob, paginateJobs } from "../api/jobs";
+import { createJob, getJobById, paginateJobs } from "../api/jobs";
 
 export function useGetAllJobs(
 	initValues: [],
@@ -49,4 +49,39 @@ export function useCreateJob() {
 	return async function (companyId: string | undefined, data: object) { 
 		return await createJob(companyId, data);
 	}
+}
+
+export function useGetJobById(
+	initValues: null,
+	jobId: string | undefined,
+) {
+	const [job, setJob] = useState<Job | null>(initValues);
+	const { loading, setLoading, error, setError } = useLoadingError();
+
+	useEffect(() => {
+		const abortController = new AbortController();
+		const { aborted } = abortController.signal;
+		(async () => {
+			try {
+				setLoading(true);
+				if (!aborted && jobId) {
+					const curJob = await getJobById(jobId);
+					setJob(curJob);
+				}
+				setLoading(false);
+			} catch (err) {
+				setLoading(false);
+				setError(true);
+			}
+		})();
+
+		return () => abortController.abort();
+	}, [jobId]);
+
+	return {
+		job,
+		setJob,
+		loading,
+		error,
+	};
 }
