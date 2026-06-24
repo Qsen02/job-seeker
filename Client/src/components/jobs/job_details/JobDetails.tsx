@@ -6,6 +6,7 @@ import { Activity } from "react";
 import Loader from "../../../commons/loader/Loader";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import { logoErrorHandler } from "../../../utils/error_images";
+import styles from "./JobDetails.module.css";
 
 export default function JobDetails() {
 	const { jobId } = useParams();
@@ -21,10 +22,10 @@ export default function JobDetails() {
 			) : error ? (
 				<ErrorMessage />
 			) : (
-				<section>
-					<section>
+				<section className={styles.wrapper}>
+					<section className={styles.content}>
 						<h1>{job?.title.trim() || ""}</h1>
-						<div>
+						<div className={styles.description}>
 							{job?.description.map((el, i) => (
 								<>
 									{el.startsWith("#") ? (
@@ -65,12 +66,12 @@ export default function JobDetails() {
 							</Activity>
 						</div>
 					</section>
-					<section>
-						<p>
+					<section className={styles.info}>
+                                <p id={ styles.date}>
 							{date != "" &&
 								`${date.getDate()}.${date.getMonth() - 1}.${date.getFullYear()}`}
 						</p>
-						<div>
+                                <div className={ styles.companyInfo}>
 							<img
 								src={
 									job?.companyId.logo.url ||
@@ -83,7 +84,7 @@ export default function JobDetails() {
 								{job?.companyId.name}
 							</Link>
 						</div>
-						<div>
+                                <div className={ styles.jobInfo}>
 							<p>
 								{language === "bg" ? "Заплата:" : "Salary:"}{" "}
 								{job?.salary} &euro;

@@ -1,0 +1,181 @@
+.wrapper{
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:20px;
+}
+
+.content{
+    width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    color:black;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 14pt;
+}
+
+.content h1{
+    text-align: center;
+    font-size: 24pt;
+}
+
+.content h2{
+    font-size: 20pt;
+}
+
+.description{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:5px;
+}
+
+.description p, .description h2{
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.info{
+    width: 20%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+    color:black;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.info img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.info #date{
+    font-size: 14pt;
+    text-align: center;
+    color:var(--color-text);
+}
+
+.info .companyInfo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap:10px;
+}
+
+.info .companyInfo a{
+    font-size: 18pt;
+    font-weight: bold;
+    color:var(--color-dark-text);
+    transition: color 0.7s ease;
+    text-align: center;
+}
+
+.info .companyInfo a:hover{
+    color:var(--color-text);
+}
+
+.info .jobInfo{
+    font-size: 14pt;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap:5px;
+}
+
+@media(max-width:1500px){
+    .info .jobInfo {
+        width: 80%;
+    }
+}
+
+@media(max-width:1300px){
+    .info .jobInfo {
+        width: 100%;
+    }
+}
+
+@media(max-width:1024px){
+    .content{
+        width: 70%;
+        font-size: 12pt;
+    }
+    .content h1{
+        font-size: 22pt;
+    }
+    
+    .content h2{
+        font-size: 18pt;
+    }
+    .info{
+        width: 30%;
+    }
+    .info #date{
+        font-size: 12pt;
+    }
+    .info .companyInfo a{
+        font-size: 16pt;
+    }
+    .info .jobInfo{
+        font-size: 12pt;
+    }
+}
+
+@media(max-width:684px){
+    .wrapper{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:20px;
+    }
+    .content{
+        width: 90vw;
+        font-size: 10pt;
+        order: 2;
+    }
+    .content h1{
+        font-size: 20pt;
+    }
+    .info{
+        width: 70%;
+        order: 1;
+    }
+    .info img{
+        width: 80px;
+        height: 80px;
+    }
+    .content h2{
+        font-size: 16pt;
+    }
+    .info #date{
+        font-size: 10pt;
+    }
+    .info .companyInfo a{
+        font-size: 14pt;
+    }
+    .info .jobInfo{
+        font-size: 10pt;
+        width: 100%;
+        align-items: center;
+    }
+}
+
+@media(max-width:450px){
+    .info{
+        width: 90%;
+    }
+}
