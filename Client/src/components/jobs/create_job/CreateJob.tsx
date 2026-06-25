@@ -60,7 +60,7 @@ export default function CreateJob() {
 			setCompany((prev) => {
 				if (prev?.jobs) {
 					const jobs = prev.jobs;
-					prev.jobs = [...jobs, newJob];
+					return { ...prev, ["jobs"]: [...jobs, newJob] };
 				}
 				return prev;
 			});

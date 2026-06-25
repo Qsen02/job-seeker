@@ -23,7 +23,7 @@ export default function CreateCandidature() {
 		cv: null,
 	};
 	const { jobId } = useParams();
-	const { job } = useOutletContext<JobOutletContext>();
+	const { job, setJob } = useOutletContext<JobOutletContext>();
 	const language = useLanguage((state) => state.language);
 	const [creating, setCreating] = useState(false);
 	const [isErr, setIsErr] = useState(false);
@@ -53,13 +53,22 @@ export default function CreateCandidature() {
 			const cvPublicId = uploadedCV.public_id;
 			const cvUrl = uploadedCV.secure_url;
 
-			await createCandidature(jobId, {
+			const newCandidature = await createCandidature(jobId, {
 				description,
 				link,
 				cvPublicId,
 				cvUrl,
 			});
-
+			setJob((prev) => {
+				if (prev?.candidatures) {
+					const curCandidatures = prev?.candidatures;
+					return {
+						...prev,
+						["candidatures"]: [...curCandidatures, newCandidature],
+					};
+				}
+				return prev;
+			});
 			action.resetForm();
 			navigate(`/jobs/${jobId}`);
 		} catch (err) {
@@ -144,8 +153,8 @@ export default function CreateCandidature() {
 							<button
 								type="button"
 								className={creating ? "onLoading" : ""}
-                                disabled={creating}
-                                onClick={()=>history.back()}
+								disabled={creating}
+								onClick={() => history.back()}
 							>
 								{language === "bg" ? "Отмени" : "Cancel"}
 							</button>

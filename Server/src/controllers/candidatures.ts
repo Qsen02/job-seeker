@@ -71,10 +71,7 @@ candidaturesRouter.get("/:candidatureId", isUser(), async (req, res) => {
 candidaturesRouter.post(
 	"/in-job/:jobId",
 	isUser(),
-	body("link")
-		.matches(/^https?:\/\//)
-		.withMessage("Link must be valid")
-		.optional(),
+	body("link").optional(),
 	body("description")
 		.notEmpty()
 		.isLength({ min: 10 })
@@ -146,10 +143,7 @@ candidaturesRouter.delete(
 candidaturesRouter.put(
 	"/:candidatureId",
 	isUser(),
-	body("link")
-		.optional()
-		.matches(/^https?:\/\//)
-		.withMessage("Link must be valid"),
+	body("link").optional(),
 	body("description")
 		.notEmpty()
 		.isLength({ min: 10 })

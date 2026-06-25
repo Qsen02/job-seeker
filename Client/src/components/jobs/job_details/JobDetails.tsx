@@ -15,6 +15,8 @@ export default function JobDetails() {
 	const user = useUser((state) => state.user);
 	const date = job?.created_at ? new Date(job.created_at) : "";
 	const navigate = useNavigate();
+	console.log(job?.candidatures);
+	const candidateIds = job?.candidatures.map((el) => el.userId._id);
 
 	return (
 		<>
@@ -63,16 +65,37 @@ export default function JobDetails() {
 							</Activity>
 							<Activity
 								mode={
-									user && user.role === "user"
+									user &&
+									user.role === "user" &&
+									!candidateIds?.includes(user.id)
 										? "visible"
 										: "hidden"
 								}
 							>
-								<button onClick={()=>navigate(`/jobs/${job?._id}/apply`)}>
+								<button
+									onClick={() =>
+										navigate(`/jobs/${job?._id}/apply`)
+									}
+								>
 									{language === "bg"
 										? "Кандидатствай"
 										: "Apply"}
 								</button>
+							</Activity>
+							<Activity
+								mode={
+									user &&
+									user.role === "user" &&
+									candidateIds?.includes(user.id)
+										? "visible"
+										: "hidden"
+								}
+							>
+								<p id={styles.successfullCandidate}>
+									{language === "bg"
+										? "Успешно кандидатствахте по тази обява!"
+										: "Successfully apply for this job!"}
+								</p>
 							</Activity>
 						</div>
 					</section>
