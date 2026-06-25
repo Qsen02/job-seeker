@@ -54,12 +54,12 @@
 .companyInfo img {
 	width: 100px;
 	height: 100px;
-	border-radius: 50%;
 }
 
 .companyInfo p{
     font-size: 16pt;
     font-weight: bold;
+    text-align: center;
 }
 
 @media(max-width:1024px){

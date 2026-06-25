@@ -23,7 +23,7 @@ export default function Companies({ language,companies}:CompaniesProps) {
 				) : (
 					<Swiper
 						modules={[Navigation]}
-						navigation={companies.length > 3}
+						navigation={true}
 						slidesPerView={window.innerWidth > 684 ? 3 : 1}
 						initialSlide={1}
 						loop={true}
