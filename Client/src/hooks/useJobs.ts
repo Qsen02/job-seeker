@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Job } from "../types/jobs";
 import { useLoadingError } from "./useLoadingError";
-import { createJob, getJobById, paginateJobs } from "../api/jobs";
+import { createJob, deleteJob, getJobById, paginateJobs } from "../api/jobs";
 
 export function useGetAllJobs(
 	initValues: [],
@@ -45,16 +45,13 @@ export function useGetAllJobs(
 	};
 }
 
-export function useCreateJob() { 
-	return async function (companyId: string | undefined, data: object) { 
+export function useCreateJob() {
+	return async function (companyId: string | undefined, data: object) {
 		return await createJob(companyId, data);
-	}
+	};
 }
 
-export function useGetJobById(
-	initValues: null,
-	jobId: string | undefined,
-) {
+export function useGetJobById(initValues: null, jobId: string | undefined) {
 	const [job, setJob] = useState<Job | null>(initValues);
 	const { loading, setLoading, error, setError } = useLoadingError();
 
@@ -83,5 +80,11 @@ export function useGetJobById(
 		setJob,
 		loading,
 		error,
+	};
+}
+
+export function useDeleteJob() {
+	return async function (companyId:string | undefined,jobId: string | undefined) {
+		return await deleteJob(companyId,jobId);
 	};
 }

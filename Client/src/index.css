@@ -291,6 +291,10 @@ main {
 	color: var(--color-blue);
 }
 
+.onLoading{
+	opacity: 0.6;
+}
+
 @media (max-width: 1440px) {
 	.form {
 		width: 45vw;

@@ -95,7 +95,7 @@ jobsRouter.post(
 				throw new Error(parseError(results));
 			}
             const fields = req.body;
-            fields.description = fields.description.split("\n\n");
+            fields.description = fields.description.split("\n");
 			const newJob = await createJob(companyId, fields);
 			res.json(newJob);
 		} catch (err) {

@@ -29,7 +29,7 @@ export async function createJob(companyId: string | undefined, data: object) {
 	return newJob as Job;
 }
 
-export async function deleteJob(companyId: string | undefined, jobId: object) {
+export async function deleteJob(companyId: string | undefined, jobId: string | undefined) {
 	await del(`${endpoint}/${jobId}/in-company/${companyId}`);
 }
 

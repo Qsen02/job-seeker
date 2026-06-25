@@ -40,6 +40,7 @@ export async function paginateJobs(
 	const jobs = await JobModel.find(searchFilter)
 		.skip(skip)
 		.limit(limit)
+		.sort({ created_at: -1 })
 		.populate("companyId")
 		.lean();
 	const totalJobs = await JobModel.countDocuments(searchFilter);
@@ -48,7 +49,9 @@ export async function paginateJobs(
 }
 
 export async function getAllJobsForCompany(companyId: string) {
-	const jobs = await JobModel.find({ companyId }).lean();
+	const jobs = await JobModel.find({ companyId })
+		.sort({ created_at: -1 })
+		.lean();
 	return jobs;
 }
 

@@ -1,23 +1,23 @@
 import { useNavigate, useOutletContext, useParams } from "react-router-dom";
+import { useHideScroller } from "../../../hooks/useLoadingError";
 import { useLanguage } from "../../../store/language";
 import { Activity, useState } from "react";
-import type { CompanyOutletContext } from "../../../types/contexts";
-import { useDeleteCompany } from "../../../hooks/useCompanies";
-import { useHideScroller } from "../../../hooks/useLoadingError";
+import type { JobOutletContext } from "../../../types/contexts";
+import { useDeleteJob } from "../../../hooks/useJobs";
 
-export default function DeleteCompany() {
+export default function DeleteJob() {
 	useHideScroller();
 	const language = useLanguage((state) => state.language);
 	const navigate = useNavigate();
 	const [deleting, setDeleting] = useState(false);
-	const { companyId } = useParams();
-	const { company } = useOutletContext<CompanyOutletContext>();
-	const deleteCompany = useDeleteCompany();
+	const { jobId } = useParams();
+	const { job } = useOutletContext<JobOutletContext>();
+	const deleteJob = useDeleteJob();
 
 	async function onDelete() {
 		try {
 			setDeleting(true);
-			await deleteCompany(companyId);
+			await deleteJob(job?.companyId._id, jobId);
 			navigate("/");
 		} catch (err) {
 			setDeleting(false);
@@ -33,8 +33,8 @@ export default function DeleteCompany() {
 			<section className="choise-modal">
 				<p>
 					{language === "bg"
-						? `Сигурни ли сте че искате да изтриете компанията ${company?.name}?`
-						: `Are you sure want to delete the company ${company?.name}?`}
+						? `Сигурни ли сте че искате да изтриете обявата ${job?.title}?`
+						: `Are you sure want to delete the job ${job?.title}?`}
 				</p>
 				<div className="buttons">
 					<Activity mode={deleting ? "visible" : "hidden"}>

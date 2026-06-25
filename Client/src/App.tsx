@@ -14,6 +14,7 @@ import EditCompany from "./components/company/edit_company/EditCompany";
 import CreateJob from "./components/jobs/create_job/CreateJob";
 import JobDetails from "./components/jobs/job_details/JobDetails";
 import ScrollToTop from "./commons/ScrollToTop";
+import DeleteJob from "./components/jobs/delete_job/DeleteJob";
 
 function App() {
 	return (
@@ -40,7 +41,9 @@ function App() {
 							<Route path="edit" element={<EditCompany />} />
 							<Route path="create-job" element={<CreateJob />} />
 						</Route>
-						<Route path="/jobs/:jobId" element={<JobDetails />} />
+						<Route path="/jobs/:jobId/*" element={<JobDetails />}>
+							<Route path="delete" element={<DeleteJob />} />
+						</Route>
 					</Routes>
 				</main>
 				<Footer />

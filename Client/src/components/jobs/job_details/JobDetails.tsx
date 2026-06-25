@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { useLanguage } from "../../../store/language";
 import { useGetJobById } from "../../../hooks/useJobs";
 import { useUser } from "../../../store/user";
@@ -14,9 +14,11 @@ export default function JobDetails() {
 	const { job, setJob, loading, error } = useGetJobById(null, jobId);
 	const user = useUser((state) => state.user);
 	const date = job?.created_at ? new Date(job.created_at) : "";
+	const navigate = useNavigate();
 
 	return (
 		<>
+			<Outlet context={{ job, setJob }} />
 			{loading && !error ? (
 				<Loader />
 			) : error ? (
@@ -44,10 +46,18 @@ export default function JobDetails() {
 										: "hidden"
 								}
 							>
-								<button>
+								<button
+									onClick={() =>
+										navigate(`/jobs/${job?._id}/edit`)
+									}
+								>
 									{language === "bg" ? "Редактирай" : "Edit"}
 								</button>
-								<button>
+								<button
+									onClick={() =>
+										navigate(`/jobs/${job?._id}/delete`)
+									}
+								>
 									{language === "bg" ? "Изтрий" : "Delete"}
 								</button>
 							</Activity>
@@ -67,11 +77,11 @@ export default function JobDetails() {
 						</div>
 					</section>
 					<section className={styles.info}>
-                                <p id={ styles.date}>
+						<p id={styles.date}>
 							{date != "" &&
 								`${date.getDate()}.${date.getMonth() - 1}.${date.getFullYear()}`}
 						</p>
-                                <div className={ styles.companyInfo}>
+						<div className={styles.companyInfo}>
 							<img
 								src={
 									job?.companyId.logo.url ||
@@ -84,7 +94,7 @@ export default function JobDetails() {
 								{job?.companyId.name}
 							</Link>
 						</div>
-                                <div className={ styles.jobInfo}>
+						<div className={styles.jobInfo}>
 							<p>
 								{language === "bg" ? "Заплата:" : "Salary:"}{" "}
 								{job?.salary} &euro;
