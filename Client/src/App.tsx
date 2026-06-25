@@ -16,6 +16,7 @@ import JobDetails from "./components/jobs/job_details/JobDetails";
 import ScrollToTop from "./commons/ScrollToTop";
 import DeleteJob from "./components/jobs/delete_job/DeleteJob";
 import EditJob from "./components/jobs/edit_job/EditJob";
+import CreateCandidature from "./components/candidatures/create_candidature/CreateCandidature";
 
 function App() {
 	return (
@@ -45,6 +46,10 @@ function App() {
 						<Route path="/jobs/:jobId/*" element={<JobDetails />}>
 							<Route path="delete" element={<DeleteJob />} />
 							<Route path="edit" element={<EditJob />} />
+							<Route
+								path="apply"
+								element={<CreateCandidature />}
+							/>
 						</Route>
 					</Routes>
 				</main>

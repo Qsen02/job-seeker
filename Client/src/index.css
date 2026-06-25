@@ -291,8 +291,13 @@ main {
 	color: var(--color-blue);
 }
 
-.onLoading{
+.onLoading {
 	opacity: 0.6;
+}
+
+.onLoading:hover {
+	opacity: 0.6 !important;
+	background-color: var(--color-blue) !important;
 }
 
 @media (max-width: 1440px) {

@@ -15,11 +15,11 @@ import { body, validationResult } from "express-validator";
 import { parseError } from "../utils/errorParser";
 import { MyRequest } from "../types/express";
 import { deleteFromCloudinary } from "../config/cloudinary";
-import { isAdmin } from "../middlewares/guard";
+import { isAdmin, isUser } from "../middlewares/guard";
 
 const candidaturesRouter = Router();
 
-candidaturesRouter.get("/in-job/:jobId", async (req, res) => {
+candidaturesRouter.get("/in-job/:jobId", isUser(), async (req, res) => {
 	try {
 		const jobId = req.params.jobId as string;
 		const isValid = await checkJobId(jobId);
@@ -37,7 +37,7 @@ candidaturesRouter.get("/in-job/:jobId", async (req, res) => {
 	}
 });
 
-candidaturesRouter.get("/for-user/:userId", async (req, res) => {
+candidaturesRouter.get("/for-user/:userId", isUser(), async (req, res) => {
 	try {
 		const userId = req.params.userId as string;
 		const isValid = await checkUserId(userId);
@@ -55,9 +55,9 @@ candidaturesRouter.get("/for-user/:userId", async (req, res) => {
 	}
 });
 
-candidaturesRouter.get("/:candidatureId", async (req, res) => {
+candidaturesRouter.get("/:candidatureId", isUser(), async (req, res) => {
 	try {
-		const candidatureId = req.params.candidatureId;
+		const candidatureId = req.params.candidatureId as string;
 		const candidature = await getCandidatureById(candidatureId);
 		res.json(candidature);
 	} catch (err) {
@@ -70,10 +70,11 @@ candidaturesRouter.get("/:candidatureId", async (req, res) => {
 });
 candidaturesRouter.post(
 	"/in-job/:jobId",
+	isUser(),
 	body("link")
-		.optional()
 		.matches(/^https?:\/\//)
-		.withMessage("Link must be valid"),
+		.withMessage("Link must be valid")
+		.optional(),
 	body("description")
 		.notEmpty()
 		.isLength({ min: 10 })
@@ -114,32 +115,37 @@ candidaturesRouter.post(
 	},
 );
 
-candidaturesRouter.delete("/:candidatureId/in-job/:jobId", async (req, res) => {
-	try {
-		const candidatureId = req.params.candidatureId as string;
-		const jobId = req.params.jobId as string;
-		const isValidCandidature = await checkCandidatureId(candidatureId);
-		const isValidJob = await checkJobId(jobId);
-		if (!isValidCandidature || !isValidJob) {
-			return res.status(404).json({ message: "Resource not found!" });
+candidaturesRouter.delete(
+	"/:candidatureId/in-job/:jobId",
+	isUser(),
+	async (req, res) => {
+		try {
+			const candidatureId = req.params.candidatureId as string;
+			const jobId = req.params.jobId as string;
+			const isValidCandidature = await checkCandidatureId(candidatureId);
+			const isValidJob = await checkJobId(jobId);
+			if (!isValidCandidature || !isValidJob) {
+				return res.status(404).json({ message: "Resource not found!" });
+			}
+			const curCandidature = await getCandidatureById(candidatureId);
+			if (curCandidature && curCandidature.cv.publicId) {
+				await deleteFromCloudinary(curCandidature.cv.publicId, "raw");
+			}
+			await deleteCandidature(jobId, candidatureId);
+			res.json({ message: "Resource deleted successfully!" });
+		} catch (err) {
+			if (err instanceof Error) {
+				res.status(400).json({ message: err.message });
+			} else {
+				res.status(500).json({ message: "Unknown error occurd!" });
+			}
 		}
-		const curCandidature = await getCandidatureById(candidatureId);
-		if (curCandidature && curCandidature.cv.publicId) {
-			await deleteFromCloudinary(curCandidature.cv.publicId, "raw");
-		}
-		await deleteCandidature(jobId, candidatureId);
-		res.json({ message: "Resource deleted successfully!" });
-	} catch (err) {
-		if (err instanceof Error) {
-			res.status(400).json({ message: err.message });
-		} else {
-			res.status(500).json({ message: "Unknown error occurd!" });
-		}
-	}
-});
+	},
+);
 
 candidaturesRouter.put(
 	"/:candidatureId",
+	isUser(),
 	body("link")
 		.optional()
 		.matches(/^https?:\/\//)

@@ -246,3 +246,29 @@ export const jobSchema = (language: "bg" | "en") =>
 					: "Salary is required!",
 			),
 	});
+
+export const candidatureSchema = (language: "bg" | "en") =>
+	yup.object().shape({
+		link: yup
+			.string()
+			.matches(
+				/^https?:\/\//,
+				language === "bg"
+					? "Линка трябва да е валиден URL"
+					: "Link must be valid URL",
+			)
+			.optional(),
+		description: yup
+			.string()
+			.min(
+				10,
+				language === "bg"
+					? "Мотивационното писмо трябва да е с дължина поне 10 символа!"
+					: "Motivational letter must be at least 10 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Мотивационното писмо е задължително!"
+					: "Motivational letter is required!",
+			),
+	});

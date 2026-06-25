@@ -18,21 +18,21 @@ export async function getCandidatureById(candidatureId: string) {
 	return candidature as Candidature;
 }
 
-export async function createCandidature(jobId: string, data: object) {
+export async function createCandidature(jobId: string | undefined, data: object) {
 	const newCandidature = await post(`${endpoint}/in-job/${jobId}`, data);
 	return newCandidature as Candidature;
 }
 
-export async function deleteCandidature(candidatureId: string, jobId: string) {
+export async function deleteCandidature(candidatureId: string | undefined, jobId: string | undefined) {
 	await del(`${endpoint}/${candidatureId}/in-job/${jobId}`);
 }
 
-export async function editCandidature(candidatureId: string, data: object) {
+export async function editCandidature(candidatureId: string | undefined, data: object) {
 	const updatedCandidature = await put(`${endpoint}/${candidatureId}`, data);
 	return updatedCandidature as Candidature;
 }
 
-export async function changeStatus(candidatureId: string, data: object) {
+export async function changeStatus(candidatureId: string | undefined, data: object) {
 	const updatedCandidature = await put(`${endpoint}/change-status/${candidatureId}`, data);
 	return updatedCandidature as Candidature;
 }

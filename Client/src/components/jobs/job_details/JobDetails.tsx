@@ -68,7 +68,7 @@ export default function JobDetails() {
 										: "hidden"
 								}
 							>
-								<button>
+								<button onClick={()=>navigate(`/jobs/${job?._id}/apply`)}>
 									{language === "bg"
 										? "Кандидатствай"
 										: "Apply"}
@@ -108,6 +108,17 @@ export default function JobDetails() {
 								{job?.level}
 							</p>
 						</div>
+						<Activity
+							mode={user?.role === "admin" ? "visible" : "hidden"}
+						>
+							<div className="buttons">
+								<button>
+									{language === "bg"
+										? "Кандидатури"
+										: "Candidatures"}
+								</button>
+							</div>
+						</Activity>
 					</section>
 				</section>
 			)}
