@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Job } from "../types/jobs";
 import { useLoadingError } from "./useLoadingError";
-import { createJob, deleteJob, getJobById, paginateJobs } from "../api/jobs";
+import { createJob, deleteJob, editJob, getJobById, paginateJobs } from "../api/jobs";
 
 export function useGetAllJobs(
 	initValues: [],
@@ -88,3 +88,13 @@ export function useDeleteJob() {
 		return await deleteJob(companyId,jobId);
 	};
 }
+
+export function useEditJob() {
+	return async function (
+		jobId: string | undefined,
+		data: object,
+	) {
+		return await editJob(jobId, data);
+	};
+}
+

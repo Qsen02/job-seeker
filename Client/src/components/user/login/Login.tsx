@@ -104,10 +104,12 @@ export default function Login() {
 						</Activity>
 					</div>
 					<Activity mode={registrating ? "visible" : "hidden"}>
-						<button type="submit">
-							{language === "bg"
-								? "Влизане"
-								: "Loging in"}{" "}
+						<button
+							type="submit"
+							disabled={registrating}
+							className={registrating ? "onLoading" : ""}
+						>
+							{language === "bg" ? "Влизане" : "Loging in"}{" "}
 							<span className="normal-loader"></span>
 						</button>
 					</Activity>
@@ -118,8 +120,8 @@ export default function Login() {
 					</Activity>
 					<Activity mode={language === "bg" ? "visible" : "hidden"}>
 						<p>
-							Нямате акаунт все още? <Link to="/register">Регистрирайте се</Link>{" "}
-							от тук.
+							Нямате акаунт все още?{" "}
+							<Link to="/register">Регистрирайте се</Link> от тук.
 						</p>
 					</Activity>
 					<Activity mode={language === "en" ? "visible" : "hidden"}>

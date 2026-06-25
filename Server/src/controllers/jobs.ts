@@ -164,7 +164,7 @@ jobsRouter.put(
 				throw new Error(parseError(results));
 			}
 			const fields = req.body;
-            fields.description = fields.description.split("\n\n");
+            fields.description = fields.description.split("\n");
 			const updatedJob = await editJob(jobId, fields);
 			res.json(updatedJob);
 		} catch (err) {

@@ -4,7 +4,7 @@ import CustomInput from "../../../commons/customInput";
 import { Activity, useState } from "react";
 import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 import CustomTextarea from "../../../commons/customTextarea";
-import { companySchema, jobSchema } from "../../../schemas";
+import { jobSchema } from "../../../schemas";
 import type { JobLevelType, JobType } from "../../../types/jobs";
 import { useHideScroller } from "../../../hooks/useLoadingError";
 import CustomSelect from "../../../commons/customSelect";
@@ -168,7 +168,11 @@ export default function CreateJob() {
 						</div>
 						<div className="buttons">
 							<Activity mode={creating ? "visible" : "hidden"}>
-								<button type="submit">
+								<button
+									type="submit"
+									disabled={creating}
+									className={creating ? "onLoading" : ""}
+								>
 									{language === "bg"
 										? "Създаване"
 										: "Creating"}{" "}
@@ -183,6 +187,7 @@ export default function CreateJob() {
 							<button
 								type="button"
 								disabled={creating}
+								className={creating ? "onLoading" : ""}
 								onClick={() => history.back()}
 							>
 								{language === "bg" ? "Отмени" : "Cancel"}

@@ -227,7 +227,13 @@ export default function EditCompany() {
 									<Activity
 										mode={editing ? "visible" : "hidden"}
 									>
-										<button type="submit">
+										<button
+											type="submit"
+											disabled={editing}
+											className={
+												editing ? "onLoading" : ""
+											}
+										>
 											{language === "bg"
 												? "Редактиране"
 												: "Editing"}{" "}
@@ -246,6 +252,7 @@ export default function EditCompany() {
 									<button
 										type="button"
 										disabled={editing}
+										className={editing ? "onLoading" : ""}
 										onClick={() => history.back()}
 									>
 										{language === "bg"

@@ -192,7 +192,11 @@ export default function Register() {
 						</Activity>
 					</div>
 					<Activity mode={registrating ? "visible" : "hidden"}>
-						<button type="submit">
+						<button
+							type="submit"
+							disabled={registrating}
+							className={registrating ? "onLoading" : ""}
+						>
 							{language === "bg"
 								? "Регистриране"
 								: "Registrating"}{" "}

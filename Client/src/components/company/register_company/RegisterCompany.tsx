@@ -197,7 +197,11 @@ export default function RegisterCompany() {
 						/>
 					</div>
 					<Activity mode={registrating ? "visible" : "hidden"}>
-						<button type="submit">
+						<button
+							type="submit"
+							disabled={registrating}
+							className={registrating ? "onLoading" : ""}
+						>
 							{language === "bg"
 								? "Регистриране"
 								: "Registrating"}{" "}
@@ -205,7 +209,9 @@ export default function RegisterCompany() {
 						</button>
 					</Activity>
 					<Activity mode={!registrating ? "visible" : "hidden"}>
-						<button type="submit">
+						<button
+							type="submit"
+						>
 							{language === "bg" ? "Регистрирай" : "Register"}
 						</button>
 					</Activity>
