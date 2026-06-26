@@ -3,12 +3,12 @@ import { del, get, post, put } from "./requester";
 
 const endpoint = "candidatures";
 
-export async function getCandidaturesForJob(jobId: string) {
+export async function getCandidaturesForJob(jobId: string | undefined) {
 	const candidatures = await get(`${endpoint}/in-job/${jobId}`);
 	return candidatures as Candidature[];
 }
 
-export async function getCandidaturesForUser(userId: string) {
+export async function getCandidaturesForUser(userId: string | undefined) {
 	const candidatures = await get(`${endpoint}/for-user/${userId}`);
 	return candidatures as Candidature[];
 }

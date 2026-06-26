@@ -5,7 +5,16 @@ import { FileType } from "../types/companies";
 import { UserAttributes } from "../types/users";
 
 export async function getAllCandidaturesForJob(jobId: string) {
-	const candidatures = await CandidatureModel.find({ jobId }).lean();
+	const candidatures = await CandidatureModel.find({ jobId })
+		.populate([
+			{
+				path: "jobId",
+			},
+			{
+				path: "userId",
+			},
+		])
+		.lean();
 	return candidatures;
 }
 

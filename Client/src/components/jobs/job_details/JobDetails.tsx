@@ -15,7 +15,6 @@ export default function JobDetails() {
 	const user = useUser((state) => state.user);
 	const date = job?.created_at ? new Date(job.created_at) : "";
 	const navigate = useNavigate();
-	console.log(job?.candidatures);
 	const candidateIds = job?.candidatures.map((el) => el.userId._id);
 
 	return (
@@ -135,7 +134,11 @@ export default function JobDetails() {
 							mode={user?.role === "admin" ? "visible" : "hidden"}
 						>
 							<div className="buttons">
-								<button>
+								<button
+									onClick={() =>
+										navigate(`/jobs/${job?._id}/candidatures`)
+									}
+								>
 									{language === "bg"
 										? "Кандидатури"
 										: "Candidatures"}

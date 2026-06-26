@@ -17,6 +17,7 @@ import ScrollToTop from "./commons/ScrollToTop";
 import DeleteJob from "./components/jobs/delete_job/DeleteJob";
 import EditJob from "./components/jobs/edit_job/EditJob";
 import CreateCandidature from "./components/candidatures/create_candidature/CreateCandidature";
+import JobCandidatures from "./components/candidatures/job_candidatures/JobCandidatures";
 
 function App() {
 	return (
@@ -49,6 +50,10 @@ function App() {
 							<Route
 								path="apply"
 								element={<CreateCandidature />}
+							/>
+							<Route
+								path="candidatures"
+								element={<JobCandidatures />}
 							/>
 						</Route>
 					</Routes>
