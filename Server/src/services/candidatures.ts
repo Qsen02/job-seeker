@@ -26,7 +26,12 @@ export async function getAllCandidaturesForUser(userId: string) {
 export async function getCandidatureById(id: string) {
 	const candidature = await CandidatureModel.findById(id)
 		.populate("userId")
-		.populate("jobId")
+		.populate({
+			path: "jobId",
+			populate: {
+				path:"companyId"
+			}
+		})
 		.lean();
 	if (!candidature) {
 		throw new Error("Candidature not found!");

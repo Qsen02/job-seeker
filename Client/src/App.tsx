@@ -18,6 +18,7 @@ import DeleteJob from "./components/jobs/delete_job/DeleteJob";
 import EditJob from "./components/jobs/edit_job/EditJob";
 import CreateCandidature from "./components/candidatures/create_candidature/CreateCandidature";
 import JobCandidatures from "./components/candidatures/job_candidatures/JobCandidatures";
+import CandidatureDetails from "./components/candidatures/candidature_details/CandidatureDetails";
 
 function App() {
 	return (
@@ -56,6 +57,10 @@ function App() {
 								element={<JobCandidatures />}
 							/>
 						</Route>
+						<Route
+							path="/candidatures/:candidatureId"
+							element={<CandidatureDetails />}
+						/>
 					</Routes>
 				</main>
 				<Footer />
