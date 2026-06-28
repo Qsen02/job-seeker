@@ -1,21 +1,39 @@
 import { useParams } from "react-router-dom";
 import { useLanguage } from "../../../store/language";
-import { useGetCandidatureById } from "../../../hooks/useCandidatures";
+import useChangeCandidatureStatus, {
+	useGetCandidatureById,
+} from "../../../hooks/useCandidatures";
 import Loader from "../../../commons/loader/Loader";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import JobItem from "../../../commons/job_item/JobItem";
-import { Activity } from "react";
+import { Activity, useState } from "react";
 import { useUser } from "../../../store/user";
 import styles from "./CandidatureDetails.module.css";
+import type { CandidatureStatus } from "../../../types/candidatures";
 
 export default function CandidatureDetails() {
 	const lanuguage = useLanguage((state) => state.language);
 	const user = useUser((state) => state.user);
 	const { candidatureId } = useParams();
-	const { candidature, loading, error } = useGetCandidatureById(
-		null,
-		candidatureId,
-	);
+	const { candidature, setCandidature, loading, error } =
+		useGetCandidatureById(null, candidatureId);
+	const changeCandidatureStatus = useChangeCandidatureStatus();
+	const [changing, setChanging] = useState(false);
+
+	async function changeStatus(status: CandidatureStatus) {
+		try {
+			setChanging(true);
+			const updatedCandidature = await changeCandidatureStatus(
+				candidatureId,
+				{ status },
+			);
+			setCandidature(updatedCandidature);
+		} catch (err) {
+			setChanging(false);
+		} finally {
+			setChanging(false);
+		}
+	}
 
 	return (
 		<>
@@ -172,17 +190,69 @@ export default function CandidatureDetails() {
 							</Activity>
 							<Activity
 								mode={
-									user?.role === "admin"
+									user?.role === "admin" &&
+									candidature?.status === "pending"
 										? "visible"
 										: "hidden"
 								}
 							>
-								<button>
-									{lanuguage === "bg" ? "Приеми" : "Accept"}
-								</button>
-								<button>
-									{lanuguage === "bg" ? "Откажи" : "Decline"}
-								</button>
+								{!changing ? (
+									<>
+										<button
+											onClick={() =>
+												changeStatus("accepted")
+											}
+										>
+											{lanuguage === "bg"
+												? "Приеми"
+												: "Accept"}
+										</button>
+										<button
+											onClick={() =>
+												changeStatus("rejected")
+											}
+										>
+											{lanuguage === "bg"
+												? "Откажи"
+												: "Decline"}
+										</button>
+									</>
+								) : (
+									<button disabled className="onLoading">
+										{lanuguage === "bg"
+											? "Променяне на статуса"
+											: "Status changing"}{" "}
+										<span className="normal-loader"></span>
+									</button>
+								)}
+							</Activity>
+							<Activity
+								mode={
+									user?.role === "admin" &&
+									candidature?.status === "accepted"
+										? "visible"
+										: "hidden"
+								}
+							>
+								<p className={styles.statusAction}>
+									{lanuguage === "bg"
+										? "Кандидатурата е приета"
+										: "Candidature is accepted"}
+								</p>
+							</Activity>
+							<Activity
+								mode={
+									user?.role === "admin" &&
+									candidature?.status === "rejected"
+										? "visible"
+										: "hidden"
+								}
+							>
+								<p className={styles.statusAction}>
+									{lanuguage === "bg"
+										? "Кандидатурата е отказана"
+										: "Candidature is rejected"}
+								</p>
 							</Activity>
 						</div>
 					</section>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { createCandidature, getCandidatureById, getCandidaturesForJob } from "../api/candidatures";
-import type { Candidature } from "../types/candidatures";
+import { changeStatus, createCandidature, getCandidatureById, getCandidaturesForJob } from "../api/candidatures";
+import type { Candidature, CandidatureStatus } from "../types/candidatures";
 import { useLoadingError } from "./useLoadingError";
 
 export function useCreateCandidature() {
@@ -77,4 +77,10 @@ export function useGetCandidatureById(
 		loading,
 		error,
 	};
+}
+
+export default function useChangeCandidatureStatus() { 
+	return async function (candidatureId: string | undefined, data: object) { 
+		return await changeStatus(candidatureId, data);
+	}
 }

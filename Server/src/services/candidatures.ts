@@ -76,7 +76,12 @@ export async function editCandidature(
 		{ returnDocument: "after" },
 	)
 		.populate("userId")
-		.populate("jobId")
+		.populate({
+			path: "jobId",
+			populate: {
+				path: "companyId",
+			},
+		})
 		.lean();
 
 	return updatedCandidature;
@@ -99,7 +104,12 @@ export async function changeCandidatureStatus(
 		{ returnDocument: "after" },
 	)
 		.populate("userId")
-		.populate("jobId")
+		.populate({
+			path: "jobId",
+			populate: {
+				path: "companyId",
+			},
+		})
 		.lean();
 	return updateCandidature;
 }

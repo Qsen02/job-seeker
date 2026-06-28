@@ -86,6 +86,15 @@
     flex-direction: row !important;
 }
 
+.statusAction{
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--color-blue);
+    font-size: 16pt;
+    color:var(--color-blue);
+    font-weight: bold;
+}
+
 @media(max-width:1024px){
     .wrapper{
         width:70%;
@@ -109,6 +118,9 @@
 
     .userInfo i{
         font-size: 80px;
+    }
+    .statusAction{
+        font-size: 14pt;
     }
 }
 
@@ -137,5 +149,8 @@
     
     .wrapper p,.wrapper a{
         font-size: 10pt;
+    }
+    .statusAction{
+        font-size: 12pt;
     }
 }
