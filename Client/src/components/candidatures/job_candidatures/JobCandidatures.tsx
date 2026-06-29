@@ -8,8 +8,8 @@ import styles from "./JobCandidatures.module.css";
 import { useHideScroller } from "../../../hooks/useLoadingError";
 
 export default function JobCandidatures() {
-    useHideScroller();
-    const language = useLanguage((state) => state.language);
+	useHideScroller();
+	const language = useLanguage((state) => state.language);
 	const { jobId } = useParams();
 	const { candidatures, loading, error } = useGetCandidaturesForJob(
 		[],
@@ -35,7 +35,7 @@ export default function JobCandidatures() {
 						</h1>
 						<section className={styles.candidatures}>
 							{candidatures.length === 0 ? (
-                                        <p className={ styles.message}>
+								<p className={styles.message}>
 									{language === "bg"
 										? "Няма кандидатури към тази обява все още"
 										: "No candidatures for this job yet"}
@@ -49,6 +49,8 @@ export default function JobCandidatures() {
 										profileImage={
 											el.userId.profileImage.url
 										}
+										status={el.status}
+										language={language}
 									/>
 								))
 							)}

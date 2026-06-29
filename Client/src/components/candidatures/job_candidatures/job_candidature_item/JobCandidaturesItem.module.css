@@ -8,7 +8,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition:  box-shadow 0.7s ease;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap:30px;
     padding: 20px;
@@ -31,6 +31,20 @@
     border-radius: 50%;
 }
 
+.status{
+    color:var(--color-blue);
+    font-size: 14pt;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+
+.status i{
+    font-size: 18pt;
+}
+
 @media(max-width:1024px){
     .wrapper{
         font-size: 14pt;
@@ -42,6 +56,13 @@
     .wrapper img{
         width: 50px;
         height: 50px;
+    }
+    .status{
+        font-size: 12pt;
+    }
+    
+    .status i{
+        font-size: 16pt;
     }
 }
 
@@ -56,5 +77,22 @@
     .wrapper img{
         width: 40px;
         height: 40px;
+    }
+    .status{
+        font-size: 10pt;
+        gap:5px;
+    }
+    
+    .status i{
+        font-size: 14pt;
+    }
+}
+
+@media(max-width:430px){
+    .wrapper{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap:10px;
     }
 }
