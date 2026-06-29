@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { changeStatus, createCandidature, getCandidatureById, getCandidaturesForJob } from "../api/candidatures";
+import { changeStatus, createCandidature, deleteCandidature, getCandidatureById, getCandidaturesForJob } from "../api/candidatures";
 import type { Candidature, CandidatureStatus } from "../types/candidatures";
 import { useLoadingError } from "./useLoadingError";
 
@@ -79,8 +79,14 @@ export function useGetCandidatureById(
 	};
 }
 
-export default function useChangeCandidatureStatus() { 
+export function useChangeCandidatureStatus() { 
 	return async function (candidatureId: string | undefined, data: object) { 
 		return await changeStatus(candidatureId, data);
 	}
+}
+
+export function useDeleteCandidature() {
+	return async function (jobId:string | undefined,candidatureId: string | undefined) {
+		return await deleteCandidature(candidatureId, jobId);
+	};
 }

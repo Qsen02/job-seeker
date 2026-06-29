@@ -11,7 +11,7 @@ export interface User {
 }
 
 export interface UserAttributes {
-	id: string;
+	_id: string;
 	email: string;
 	fullName: string;
 	role: "admin" | "user";

@@ -124,6 +124,8 @@ userRouter.post(
 				email: user.email,
 				fullName: user.fullName,
 				role: user.role,
+				profileImage: user.profileImage,
+				phoneNumber:user.phoneNumber
 			});
 		} catch (err) {
 			if (err instanceof Error) {

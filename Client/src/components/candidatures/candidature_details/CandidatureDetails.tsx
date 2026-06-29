@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { useLanguage } from "../../../store/language";
-import useChangeCandidatureStatus, {
+import {
+	useChangeCandidatureStatus,
 	useGetCandidatureById,
 } from "../../../hooks/useCandidatures";
 import Loader from "../../../commons/loader/Loader";
@@ -19,6 +20,7 @@ export default function CandidatureDetails() {
 		useGetCandidatureById(null, candidatureId);
 	const changeCandidatureStatus = useChangeCandidatureStatus();
 	const [changing, setChanging] = useState(false);
+	const navigate = useNavigate();
 
 	async function changeStatus(status: CandidatureStatus) {
 		try {
@@ -37,6 +39,7 @@ export default function CandidatureDetails() {
 
 	return (
 		<>
+			<Outlet context={{ candidature }} />
 			{loading && !error ? (
 				<Loader />
 			) : error ? (
@@ -179,12 +182,18 @@ export default function CandidatureDetails() {
 							<Activity
 								mode={
 									user?.role === "user" &&
-									candidature?.userId._id === user.id
+									candidature?.userId._id === user?._id
 										? "visible"
 										: "hidden"
 								}
 							>
-								<button>
+								<button
+									onClick={() =>
+										navigate(
+											`/candidatures/${candidatureId}/delete`,
+										)
+									}
+								>
 									{lanuguage === "bg" ? "Изтрий" : "Delete"}
 								</button>
 							</Activity>
@@ -228,8 +237,7 @@ export default function CandidatureDetails() {
 							</Activity>
 							<Activity
 								mode={
-									user?.role === "admin" &&
-									candidature?.status === "accepted"
+									user && candidature?.status === "accepted"
 										? "visible"
 										: "hidden"
 								}
@@ -242,8 +250,7 @@ export default function CandidatureDetails() {
 							</Activity>
 							<Activity
 								mode={
-									user?.role === "admin" &&
-									candidature?.status === "rejected"
+									user && candidature?.status === "rejected"
 										? "visible"
 										: "hidden"
 								}

@@ -216,7 +216,7 @@ main {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center !important;
 	gap: 30px;
 }
 .form button,

@@ -1,3 +1,4 @@
+import type { Candidature } from "./candidatures";
 import type { Company } from "./companies";
 import type { Job } from "./jobs";
 
@@ -9,4 +10,8 @@ export interface CompanyOutletContext {
 export interface JobOutletContext {
 	job: Job | null;
 	setJob: React.Dispatch<React.SetStateAction<Job | null>>;
+}
+
+export interface CandidatureOutletContext {
+	candidature: Candidature | null;
 }
