@@ -13,6 +13,7 @@ import type { JobOutletContext } from "../../../types/contexts";
 import { useEditJob, useGetJobById } from "../../../hooks/useJobs";
 import Loader from "../../../commons/loader/Loader";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
+import { successfullNotification } from "../../../utils/notifications";
 
 interface InitValuesType {
 	title: string;
@@ -29,7 +30,7 @@ export default function EditJob() {
 		title: job?.title || "",
 		description: job?.description.join("\n") || "",
 		type: job?.type || "default",
-		salary:job?.salary || 0,
+		salary: job?.salary || 0,
 		level: job?.level || "default",
 	};
 	useHideScroller();
@@ -63,6 +64,11 @@ export default function EditJob() {
 			setJob(updatedJob);
 			action.resetForm();
 			navigate(`/jobs/${jobId}`);
+			await successfullNotification(
+				language === "bg"
+					? "Обявата е редактирана успешно"
+					: "The job was edited successfully!",
+			);
 		} catch (err) {
 			setEditing(false);
 			setIsErr(true);

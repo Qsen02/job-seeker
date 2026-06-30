@@ -11,6 +11,7 @@ import CustomSelect from "../../../commons/customSelect";
 import { jobLevels, jobTypes } from "../../../data/items";
 import type { CompanyOutletContext } from "../../../types/contexts";
 import { useCreateJob } from "../../../hooks/useJobs";
+import { successfullNotification } from "../../../utils/notifications";
 
 interface InitValuesType {
 	title: string;
@@ -66,6 +67,11 @@ export default function CreateJob() {
 			});
 			action.resetForm();
 			navigate(`/companies/${companyId}`);
+			await successfullNotification(
+				language === "bg"
+					? "Обявата е създадена успешно"
+					: "The Job was created successfully!",
+			);
 		} catch (err) {
 			setCreating(false);
 			setIsErr(true);

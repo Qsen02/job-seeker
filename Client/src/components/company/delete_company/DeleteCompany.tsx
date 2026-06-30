@@ -4,6 +4,7 @@ import { Activity, useState } from "react";
 import type { CompanyOutletContext } from "../../../types/contexts";
 import { useDeleteCompany } from "../../../hooks/useCompanies";
 import { useHideScroller } from "../../../hooks/useLoadingError";
+import { successfullNotification } from "../../../utils/notifications";
 
 export default function DeleteCompany() {
 	useHideScroller();
@@ -19,6 +20,7 @@ export default function DeleteCompany() {
 			setDeleting(true);
 			await deleteCompany(companyId);
 			navigate("/");
+			await successfullNotification(language === "bg" ? "Успешно изтрихте компанията" : "The company was deleted successfully!");
 		} catch (err) {
 			setDeleting(false);
 			navigate("/404");

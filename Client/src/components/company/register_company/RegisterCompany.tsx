@@ -8,6 +8,7 @@ import { useUploadLogo } from "../../../hooks/useCloudinary";
 import CustomTextarea from "../../../commons/customTextarea";
 import { useCreateCompany } from "../../../hooks/useCompanies";
 import { companySchema } from "../../../schemas";
+import { successfullNotification } from "../../../utils/notifications";
 
 interface InitValuesType {
 	name: string;
@@ -75,6 +76,11 @@ export default function RegisterCompany() {
 
 			action.resetForm();
 			navigate("/");
+			await successfullNotification(
+				language === "bg"
+					? "Компанията е регистрирана успешно"
+					: "The company was registrated successfully!",
+			);
 		} catch (err) {
 			setRegistrating(false);
 			setIsErr(true);
@@ -209,9 +215,7 @@ export default function RegisterCompany() {
 						</button>
 					</Activity>
 					<Activity mode={!registrating ? "visible" : "hidden"}>
-						<button
-							type="submit"
-						>
+						<button type="submit">
 							{language === "bg" ? "Регистрирай" : "Register"}
 						</button>
 					</Activity>

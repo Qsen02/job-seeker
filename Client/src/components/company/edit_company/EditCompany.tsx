@@ -12,6 +12,7 @@ import type { CompanyOutletContext } from "../../../types/contexts";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import Loader from "../../../commons/loader/Loader";
 import { useHideScroller } from "../../../hooks/useLoadingError";
+import { successfullNotification } from "../../../utils/notifications";
 
 interface InitValuesType {
 	name: string;
@@ -80,6 +81,7 @@ export default function EditCompany() {
 
 			action.resetForm();
 			setCompany(updatedCompany);
+			await successfullNotification(language==="bg"?"Компанията е редактирана успешно!":"The company was edited successfully!")
 			navigate(`/companies/${companyId}`);
 		} catch (err) {
 			setEditing(false);

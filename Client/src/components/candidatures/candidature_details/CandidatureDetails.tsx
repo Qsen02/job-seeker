@@ -11,6 +11,10 @@ import { Activity, useState } from "react";
 import { useUser } from "../../../store/user";
 import styles from "./CandidatureDetails.module.css";
 import type { CandidatureStatus } from "../../../types/candidatures";
+import {
+	failedNotification,
+	successfullNotification,
+} from "../../../utils/notifications";
 
 export default function CandidatureDetails() {
 	const lanuguage = useLanguage((state) => state.language);
@@ -30,8 +34,19 @@ export default function CandidatureDetails() {
 				{ status },
 			);
 			setCandidature(updatedCandidature);
+			await successfullNotification(
+				lanuguage === "bg"
+					? "Статуса на кандидатурата беше променен успешно!"
+					: "Candidature status was changed successfully!",
+			);
 		} catch (err) {
 			setChanging(false);
+			await failedNotification(
+				lanuguage === "bg"
+					? "Грешка при промяна на статуса на кандидатурата!"
+					: "Error while changing candidature status!",
+			);
+			return;
 		} finally {
 			setChanging(false);
 		}

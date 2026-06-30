@@ -4,6 +4,7 @@ import { useLanguage } from "../../../store/language";
 import { Activity, useState } from "react";
 import type { CandidatureOutletContext } from "../../../types/contexts";
 import { useDeleteCandidature } from "../../../hooks/useCandidatures";
+import { successfullNotification } from "../../../utils/notifications";
 
 export default function DeleteCandidature() {
 	useHideScroller();
@@ -19,6 +20,7 @@ export default function DeleteCandidature() {
 			setDeleting(true);
 			await deleteCandidature(candidature?.jobId._id, candidatureId);
 			navigate(`/jobs/${candidature?.jobId._id}`);
+			await successfullNotification(language==="bg"?"Успешно изтрихте кандидатурата":"The Candidature was deleted successfully!")
 		} catch (err) {
 			setDeleting(false);
 			navigate("/404");

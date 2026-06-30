@@ -9,6 +9,7 @@ import CustomTextarea from "../../../commons/customTextarea";
 import { candidatureSchema, companySchema } from "../../../schemas";
 import { useCreateCandidature } from "../../../hooks/useCandidatures";
 import type { JobOutletContext } from "../../../types/contexts";
+import { successfullNotification } from "../../../utils/notifications";
 
 interface InitValuesType {
 	link: string;
@@ -71,6 +72,7 @@ export default function CreateCandidature() {
 			});
 			action.resetForm();
 			navigate(`/jobs/${jobId}`);
+			await successfullNotification(language === "bg" ? "Успешно кандидатствахте по обявата!" : "Applying for this job was successfull!");
 		} catch (err) {
 			setCreating(false);
 			setIsErr(true);

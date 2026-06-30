@@ -4,6 +4,7 @@ import { useLanguage } from "../../../store/language";
 import { Activity, useState } from "react";
 import type { JobOutletContext } from "../../../types/contexts";
 import { useDeleteJob } from "../../../hooks/useJobs";
+import { successfullNotification } from "../../../utils/notifications";
 
 export default function DeleteJob() {
 	useHideScroller();
@@ -19,6 +20,7 @@ export default function DeleteJob() {
 			setDeleting(true);
 			await deleteJob(job?.companyId._id, jobId);
 			navigate("/");
+			await successfullNotification(language==="bg"?"Обявата е изтрита успешно!":"The job was deleted successfully!")
 		} catch (err) {
 			setDeleting(false);
 			navigate("/404");
