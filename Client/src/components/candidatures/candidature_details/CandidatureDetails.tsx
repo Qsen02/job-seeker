@@ -94,7 +94,7 @@ export default function CandidatureDetails() {
 							<p>
 								Имейл:{" "}
 								<a
-									className={styles.link}
+									className="link"
 									href={`mailto:${candidature?.userId.email}`}
 								>
 									{candidature?.userId.email}
@@ -103,7 +103,7 @@ export default function CandidatureDetails() {
 							<p>
 								Телефонен номер:{" "}
 								<a
-									className={styles.link}
+									className="link"
 									href={`tel:${candidature?.userId.phoneNumber}`}
 								>
 									{candidature?.userId.phoneNumber}

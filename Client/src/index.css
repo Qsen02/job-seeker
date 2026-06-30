@@ -105,6 +105,17 @@ main {
 	animation: rotate 1s linear infinite;
 }
 
+.link{
+    color:var(--color-blue);
+    font-size: bold;
+    transition: color 0.7s ease;
+    cursor: pointer;
+}
+
+.link:hover{
+    color:var(--color-hover-blue);
+}
+
 @keyframes rotate {
 	0% {
 		transform: rotate(0);

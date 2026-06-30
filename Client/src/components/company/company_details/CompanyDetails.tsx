@@ -1,4 +1,4 @@
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { useGetCompanyById } from "../../../hooks/useCompanies";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import { Activity } from "react";
@@ -46,8 +46,24 @@ export default function CompanyDetails() {
 						>
 							<article className={styles.data}>
 								<div>
-									<p>Имейл: {company?.email}</p>
-									<p>Телефонен номер: {company?.phone}</p>
+									<p>
+										Имейл:{" "}
+										<a
+											href={`mailto:${company?.email}`}
+											className="link"
+										>
+											{company?.email}
+										</a>
+									</p>
+									<p>
+										Телефонен номер:{" "}
+										<a
+											href={`tel:${company?.phone}`}
+											className="link"
+										>
+											{company?.phone}
+										</a>
+									</p>
 								</div>
 								<div>
 									<p>Локация: {company?.location}</p>
@@ -82,8 +98,24 @@ export default function CompanyDetails() {
 						>
 							<article className={styles.data}>
 								<div>
-									<p>Email: {company?.email}</p>
-									<p>Phone number: {company?.phone}</p>
+									<p>
+										Email:{" "}
+										<a
+											href={`mailto:${company?.email}`}
+											className="link"
+										>
+											{company?.email}
+										</a>
+									</p>
+									<p>
+										Phone number:{" "}
+										<a
+											href={`tel:${company?.phone}`}
+											className="link"
+										>
+											{company?.phone}
+										</a>
+									</p>
 								</div>
 								<div>
 									<p>Location: {company?.location}</p>
