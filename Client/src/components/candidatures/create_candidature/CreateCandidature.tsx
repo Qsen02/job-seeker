@@ -54,22 +54,13 @@ export default function CreateCandidature() {
 			const cvPublicId = uploadedCV.public_id;
 			const cvUrl = uploadedCV.secure_url;
 
-			const newCandidature = await createCandidature(jobId, {
+			const updatedJob = await createCandidature(jobId, {
 				description,
 				link,
 				cvPublicId,
 				cvUrl,
 			});
-			setJob((prev) => {
-				if (prev?.candidatures) {
-					const curCandidatures = prev?.candidatures;
-					return {
-						...prev,
-						["candidatures"]: [...curCandidatures, newCandidature],
-					};
-				}
-				return prev;
-			});
+			setJob(updatedJob);
 			action.resetForm();
 			navigate(`/jobs/${jobId}`);
 			await successfullNotification(language === "bg" ? "Успешно кандидатствахте по обявата!" : "Applying for this job was successfull!");

@@ -29,8 +29,8 @@ export async function getCandidatureById(id: string) {
 		.populate({
 			path: "jobId",
 			populate: {
-				path:"companyId"
-			}
+				path: "companyId",
+			},
 		})
 		.lean();
 	if (!candidature) {
@@ -53,10 +53,17 @@ export async function createCandidature(
 		link: candidatureData.link,
 	});
 	await newCandidature.save();
-	await JobModel.findByIdAndUpdate(jobId, {
-		$push: { candidatures: newCandidature._id },
-	});
-	return newCandidature;
+	const updatedJob = await JobModel.findByIdAndUpdate(
+		jobId,
+		{
+			$push: { candidatures: newCandidature._id },
+		},
+		{ returnDocument: "after" },
+	)
+		.populate("companyId")
+		.populate("candidatures")
+		.lean();
+	return updatedJob;
 }
 
 export async function editCandidature(

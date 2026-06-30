@@ -95,13 +95,13 @@ candidaturesRouter.post(
 				publicId: fields.cvPublicId,
 				url: fields.cvUrl,
 			};
-			const newCandidature = await createCandidature(
+			const updatedJob = await createCandidature(
 				user,
 				jobId,
 				fields,
 				cv,
 			);
-			res.json(newCandidature);
+			res.json(updatedJob);
 		} catch (err) {
 			if (err instanceof Error) {
 				res.status(400).json({ message: err.message });

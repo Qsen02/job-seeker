@@ -1,4 +1,5 @@
 import type { Candidature } from "../types/candidatures";
+import type { Job } from "../types/jobs";
 import { del, get, post, put } from "./requester";
 
 const endpoint = "candidatures";
@@ -20,7 +21,7 @@ export async function getCandidatureById(candidatureId: string) {
 
 export async function createCandidature(jobId: string | undefined, data: object) {
 	const newCandidature = await post(`${endpoint}/in-job/${jobId}`, data);
-	return newCandidature as Candidature;
+	return newCandidature as Job;
 }
 
 export async function deleteCandidature(candidatureId: string | undefined, jobId: string | undefined) {
