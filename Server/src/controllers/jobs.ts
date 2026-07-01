@@ -6,10 +6,11 @@ import {
 	editJob,
 	getAllJobsForCompany,
 	getJobById,
+	getUserAppliedJobs,
 	paginateJobs,
 } from "../services/jobs";
 import { checkCompanyId } from "../services/companies";
-import { isAdmin } from "../middlewares/guard";
+import { isAdmin, isUser } from "../middlewares/guard";
 import { body, validationResult } from "express-validator";
 import { parseError } from "../utils/errorParser";
 
@@ -53,6 +54,20 @@ jobsRouter.get("/for-company/:companyId", async (req, res) => {
 			return res.status(404).json({ message: "Resource not found!" });
 		}
 		const jobs = await getAllJobsForCompany(companyId);
+		res.json(jobs);
+	} catch (err) {
+		if (err instanceof Error) {
+			res.status(400).json({ message: err.message });
+		} else {
+			res.status(500).json({ message: "Unknown error occurd!" });
+		}
+	}
+});
+
+jobsRouter.get("/for-user/:userId", isUser(), async (req, res) => {
+	try {
+		const userId = req.params.userId as string;
+		const jobs = await getUserAppliedJobs(userId);
 		res.json(jobs);
 	} catch (err) {
 		if (err instanceof Error) {

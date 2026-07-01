@@ -3,7 +3,7 @@ import { get, post, put } from "./requester";
 
 const endpoint = "users";
 
-export async function getUserById(userId: string) { 
+export async function getUserById(userId: string | undefined) { 
     const user = await get(`${endpoint}/${userId}`);
     return user as User; 
 }

@@ -116,7 +116,7 @@ export default function CandidatureDetails() {
 							<p>
 								Email:{" "}
 								<a
-									className={styles.link}
+									className="link"
 									href={`mailto:${candidature?.userId.email}`}
 								>
 									{candidature?.userId.email}
@@ -125,7 +125,7 @@ export default function CandidatureDetails() {
 							<p>
 								Phone number:{" "}
 								<a
-									className={styles.link}
+									className="link"
 									href={`tel:${candidature?.userId.phoneNumber}`}
 								>
 									{candidature?.userId.phoneNumber}

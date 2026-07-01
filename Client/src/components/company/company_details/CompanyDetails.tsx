@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { useGetCompanyById } from "../../../hooks/useCompanies";
 import ErrorMessage from "../../../commons/error_message/ErrorMessage";
 import { Activity } from "react";

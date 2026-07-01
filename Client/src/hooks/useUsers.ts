@@ -1,4 +1,7 @@
-import { login, logout, register } from "../api/users";
+import { useEffect, useState } from "react";
+import { getUserById, login, logout, register } from "../api/users";
+import type { UserAttributes } from "../types/users";
+import { useLoadingError } from "./useLoadingError";
 
 export function useRegister() {
 	return async function (data: Object) {
@@ -15,5 +18,37 @@ export function useLogin() {
 export function useLogout() {
 	return async function () {
 		return await logout();
+	};
+}
+
+export function useGetUserById(initValues: null, userId: string | undefined) {
+	const [user, setUser] = useState<UserAttributes | null>(initValues);
+	const { loading, setLoading, error, setError } = useLoadingError();
+
+	useEffect(() => {
+		const abortController = new AbortController();
+		const { aborted } = abortController.signal;
+		(async () => {
+			try {
+				setLoading(true);
+				if (!aborted) {
+					const curUser = await getUserById(userId);
+					setUser(curUser);
+				}
+				setLoading(false);
+			} catch (err) {
+				setLoading(false);
+				setError(true);
+			}
+		})();
+
+		return () => abortController.abort();
+	}, [userId]);
+
+	return {
+		user,
+		setUser,
+		loading,
+		error,
 	};
 }

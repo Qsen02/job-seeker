@@ -13,6 +13,11 @@ export async function getCompanyById(companyId: string) {
 	return company as Company;
 }
 
+export async function getCompaniesForOwner(ownerId: string) {
+	const companies = await get(`${endpoint}/for-owner/${ownerId}`);
+	return companies as Company[];
+}
+
 export async function createCompany(data: object) {
 	const newCompany = await post(endpoint, data);
 	return newCompany as Company;

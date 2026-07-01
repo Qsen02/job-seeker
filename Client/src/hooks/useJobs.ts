@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Job } from "../types/jobs";
 import { useLoadingError } from "./useLoadingError";
-import { createJob, deleteJob, editJob, getJobById, paginateJobs } from "../api/jobs";
+import { createJob, deleteJob, editJob, getJobById, getJobsForUser, paginateJobs } from "../api/jobs";
 
 export function useGetAllJobs(
 	initValues: [],
@@ -95,6 +95,38 @@ export function useEditJob() {
 		data: object,
 	) {
 		return await editJob(jobId, data);
+	};
+}
+
+export function useGetJobsForUser(initValues: [], userId: string | undefined) {
+	const [jobs, setJobs] = useState<Job[]>(initValues);
+	const { loading, setLoading, error, setError } = useLoadingError();
+
+	useEffect(() => {
+		const abortController = new AbortController();
+		const { aborted } = abortController.signal;
+		(async () => {
+			try {
+				setLoading(true);
+				if (!aborted) {
+					const curJobs = await getJobsForUser(userId);
+					setJobs(curJobs);
+				}
+				setLoading(false);
+			} catch (err) {
+				setLoading(false);
+				setError(true);
+			}
+		})();
+
+		return () => abortController.abort();
+	}, [userId]);
+
+	return {
+		jobs,
+		setJobs,
+		loading,
+		error,
 	};
 }
 

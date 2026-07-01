@@ -19,6 +19,11 @@ export async function getCompanyById(id: string) {
 	return company;
 }
 
+export async function getAllCompaniesForOwner(ownerId: string) {
+	const companies = await CompanyModel.find({ owner: ownerId }).lean();
+	return companies;
+}
+
 export async function checkCompanyId(id: string) {
 	const isValid = await CompanyModel.findById(id);
 	if (isValid) {

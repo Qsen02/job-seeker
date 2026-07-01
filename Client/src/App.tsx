@@ -20,6 +20,7 @@ import CreateCandidature from "./components/candidatures/create_candidature/Crea
 import JobCandidatures from "./components/candidatures/job_candidatures/JobCandidatures";
 import CandidatureDetails from "./components/candidatures/candidature_details/CandidatureDetails";
 import DeleteCandidature from "./components/candidatures/delete_candidature/DeleteCandidature";
+import Profile from "./components/user/profile/Profile";
 
 function App() {
 	return (
@@ -37,7 +38,6 @@ function App() {
 							path="/company-register"
 							element={<RegisterCompany />}
 						/>
-						<Route path="*" element={<NotFound />} />
 						<Route
 							path="/companies/:companyId/*"
 							element={<CompanyDetails />}
@@ -62,8 +62,13 @@ function App() {
 							path="/candidatures/:candidatureId/*"
 							element={<CandidatureDetails />}
 						>
-							<Route path="delete" element={ <DeleteCandidature/>} />
+							<Route
+								path="delete"
+								element={<DeleteCandidature />}
+							/>
 						</Route>
+						<Route path="/profile" element={<Profile />} />
+						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</main>
 				<Footer />

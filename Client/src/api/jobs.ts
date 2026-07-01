@@ -24,6 +24,12 @@ export async function getJobsForCompany(companyId: string) {
 	return jobs as Job[];
 }
 
+export async function getJobsForUser(userId: string | undefined
+) {
+	const jobs = await get(`${endpoint}/for-user/${userId}`);
+	return jobs as Job[];
+}
+
 export async function createJob(companyId: string | undefined, data: object) {
 	const newJob = await post(`${endpoint}/in-company/${companyId}`, data);
 	return newJob as Job;

@@ -5,6 +5,7 @@ import {
 	deleteCompany,
 	editCompany,
 	getAllCompanies,
+	getAllCompaniesForOwner,
 	getCompanyById,
 } from "../services/companies";
 import { isAdmin } from "../middlewares/guard";
@@ -12,6 +13,7 @@ import { body, validationResult } from "express-validator";
 import { MyRequest } from "../types/express";
 import { parseError } from "../utils/errorParser";
 import { deleteFromCloudinary } from "../config/cloudinary";
+import { checkUserId } from "../services/users";
 
 const companyRouter = Router();
 
@@ -36,6 +38,24 @@ companyRouter.get("/:companyId", async (req, res) => {
 	} catch (err) {
 		if (err instanceof Error) {
 			res.status(404).json({ message: err.message });
+		} else {
+			res.status(500).json({ message: "Unknown error occurd!" });
+		}
+	}
+});
+
+companyRouter.get("/for-owner/:ownerId",isAdmin() ,async (req, res) => {
+	try {
+		const ownerId = req.params.ownerId as string;
+		const isValid = await checkUserId(ownerId);
+		if (!isValid) {
+			return res.status(404).json({ message: "Resource not found!" });
+		}
+		const companies = await getAllCompaniesForOwner(ownerId);
+		res.json(companies);
+	} catch (err) {
+		if (err instanceof Error) {
+			res.status(400).json({ message: err.message });
 		} else {
 			res.status(500).json({ message: "Unknown error occurd!" });
 		}

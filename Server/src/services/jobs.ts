@@ -22,6 +22,13 @@ export async function checkJobId(id: string) {
 	return false;
 }
 
+export async function getUserAppliedJobs(userId: string) {
+	const jobs = await JobModel.find({
+		candidatures: { $in: await CandidatureModel.find({ userId }) },
+	}).populate("companyId").lean();
+	return jobs;
+}
+
 export async function paginateJobs(
 	page: number,
 	filter: "level" | "type" | undefined,
