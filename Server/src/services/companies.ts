@@ -21,7 +21,6 @@ export async function getCompanyById(id: string) {
 
 export async function getAllCompaniesForOwner(ownerId: string) {
 	const companies = await CompanyModel.find({ owner: ownerId }).lean();
-	console.log(companies);
 	return companies;
 }
 

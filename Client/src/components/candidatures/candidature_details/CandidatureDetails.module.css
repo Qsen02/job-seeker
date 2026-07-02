@@ -6,7 +6,6 @@
     align-items: flex-start;
     gap:30px;
     text-align: justify;
-    word-wrap: break-word;
 }
 
 .wrapper h1{

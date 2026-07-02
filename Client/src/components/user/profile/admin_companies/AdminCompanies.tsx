@@ -1,26 +1,38 @@
+import { Link } from "react-router-dom";
 import { useGetCompaniesForOwner } from "../../../../hooks/useCompanies";
 import type { UserAttributes } from "../../../../types/users";
+import { logoErrorHandler } from "../../../../utils/error_images";
+import styles from "./AdminCompanies.module.css";
+import CompanyItem from "../../../../commons/company_item/CompanyItem";
 
 interface AdminCompaniesProps {
-    curUser: UserAttributes | null;
-    language: "bg" | "en";
+	curUser: UserAttributes | null;
+	language: "bg" | "en";
 }
 
-export default function AdminCompanies({ curUser, language }: AdminCompaniesProps) { 
-    const { companies } = useGetCompaniesForOwner([], curUser?._id);
-    return (
+export default function AdminCompanies({
+	curUser,
+	language,
+}: AdminCompaniesProps) {
+	const { companies } = useGetCompaniesForOwner([], curUser?._id);
+	return (
 		<>
 			<h2>
 				{language === "bg"
 					? "Компании, които сте регистрирали"
 					: "Companies you have registered"}
 			</h2>
-			<section>
+			<section className={styles.wrapper}>
 				{companies.length > 0 ? (
 					companies.map((company) => (
-						<div key={company._id}>
-							<p>{company.name}</p>
-						</div>
+						<CompanyItem
+							key={company._id}
+							id={company._id}
+							logo={
+								company.logo.url
+							}
+							name={company.name}
+						/>
 					))
 				) : (
 					<p>

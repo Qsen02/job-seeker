@@ -1,6 +1,7 @@
 import JobItem from "../../../../commons/job_item/JobItem";
 import { useGetCandidaturesForUser } from "../../../../hooks/useCandidatures";
 import type { UserAttributes } from "../../../../types/users";
+import styles from "./UserCandidatures.module.css";
 
 interface UserCandidaturesProps {
 	curUser: UserAttributes | null;
@@ -19,7 +20,7 @@ export default function UserCandidatures({
 					? "Обяви по които е кандидатствано"
 					: "Jobs applied for"}
 			</h2>
-			<section>
+			<section className={styles.candidatures}>
 				{candidatures.length > 0 ? (
 					candidatures.map((el) => (
 						<JobItem
@@ -37,9 +38,9 @@ export default function UserCandidatures({
 						/>
 					))
 				) : (
-					<p>
+					<p className={styles.message}>
 						{language === "bg"
-							? "Няма обяви, за които сте кандидатствали."
+							? "Няма обяви, по които сте кандидатствали."
 							: "No jobs applied for."}
 					</p>
 				)}

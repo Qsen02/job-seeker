@@ -6,6 +6,7 @@ import { Activity } from "react";
 import { useUser } from "../../../store/user";
 import UserCandidatures from "./user_candidatures/UserCandidatures";
 import AdminCompanies from "./admin_companies/AdminCompanies";
+import styles from "./Profile.module.css";
 
 export default function Profile() {
 	const curUser = useUser((state) => state.user);
@@ -22,8 +23,8 @@ export default function Profile() {
 			) : error ? (
 				<ErrorMessage />
 			) : (
-				<section>
-					<section>
+				<section className={styles.wrapper}>
+					<section className={styles.profileInfo}>
 						<Activity
 							mode={
 								user?.profileImage.url.trim()
@@ -45,6 +46,7 @@ export default function Profile() {
 						>
 							<i className="fa-solid fa-circle-user"></i>
 						</Activity>
+						<h1>{user?.fullName}</h1>
 						<Activity
 							mode={language === "bg" ? "visible" : "hidden"}
 						>
@@ -102,16 +104,24 @@ export default function Profile() {
 							</button>
 						</div>
 					</section>
-					<Activity
-						mode={user?.role === "user" ? "visible" : "hidden"}
-					>
-						<UserCandidatures curUser={user} language={language} />
-					</Activity>
-					<Activity
-						mode={user?.role === "admin" ? "visible" : "hidden"}
-					>
-						<AdminCompanies curUser={user} language={language} />
-					</Activity>
+					<section className={styles.contentWrapper}>
+						<Activity
+							mode={user?.role === "user" ? "visible" : "hidden"}
+						>
+							<UserCandidatures
+								curUser={user}
+								language={language}
+							/>
+						</Activity>
+						<Activity
+							mode={user?.role === "admin" ? "visible" : "hidden"}
+						>
+							<AdminCompanies
+								curUser={user}
+								language={language}
+							/>
+						</Activity>
+					</section>
 				</section>
 			)}
 		</>
