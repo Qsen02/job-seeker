@@ -66,7 +66,7 @@ export default function JobDetails() {
 								mode={
 									user &&
 									user.role === "user" &&
-									!candidateIds?.includes(user.id)
+									!candidateIds?.includes(user._id)
 										? "visible"
 										: "hidden"
 								}
@@ -85,7 +85,7 @@ export default function JobDetails() {
 								mode={
 									user &&
 									user.role === "user" &&
-									candidateIds?.includes(user.id)
+									candidateIds?.includes(user._id)
 										? "visible"
 										: "hidden"
 								}

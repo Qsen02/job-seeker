@@ -140,7 +140,7 @@ export default function CandidatureDetails() {
 					</h2>
 					{candidature && (
 						<JobItem
-							id={candidature?.jobId._id}
+							jobId={candidature?.jobId._id}
 							title={candidature?.jobId.title}
 							salary={candidature.jobId.salary}
 							company={candidature.jobId.companyId}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { changeStatus, createCandidature, deleteCandidature, getCandidatureById, getCandidaturesForJob } from "../api/candidatures";
-import type { Candidature, CandidatureStatus } from "../types/candidatures";
+import { changeStatus, createCandidature, deleteCandidature, getCandidatureById, getCandidaturesForJob, getCandidaturesForUser } from "../api/candidatures";
+import type { Candidature } from "../types/candidatures";
 import { useLoadingError } from "./useLoadingError";
 
 export function useCreateCandidature() {
@@ -88,5 +88,39 @@ export function useChangeCandidatureStatus() {
 export function useDeleteCandidature() {
 	return async function (jobId:string | undefined,candidatureId: string | undefined) {
 		return await deleteCandidature(candidatureId, jobId);
+	};
+}
+
+export function useGetCandidaturesForUser(
+	initValues: [],
+	userId: string | undefined,
+) {
+	const [candidatures, setCandidatures] = useState<Candidature[]>(initValues);
+	const { loading, setLoading, error, setError } = useLoadingError();
+
+	useEffect(() => {
+		const abortController = new AbortController();
+		const { aborted } = abortController.signal;
+		(async () => {
+			try {
+				setLoading(true);
+				if (!aborted) {
+					const curCandidatures = await getCandidaturesForUser(userId);
+					setCandidatures(curCandidatures);
+				}
+				setLoading(false);
+			} catch (err) {
+				setLoading(false);
+				setError(true);
+			}
+		})();
+
+		return () => abortController.abort();
+	}, [userId]);
+
+	return {
+		candidatures,
+		loading,
+		error,
 	};
 }

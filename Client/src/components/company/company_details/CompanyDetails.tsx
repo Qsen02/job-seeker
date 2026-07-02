@@ -188,7 +188,7 @@ export default function CompanyDetails() {
 							company?.jobs.map((el) => (
 								<JobItem
 									key={el._id}
-									id={el._id}
+									jobId={el._id}
 									title={el.title}
 									salary={el.salary}
 									type={el.type}

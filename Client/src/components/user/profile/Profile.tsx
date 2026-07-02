@@ -4,9 +4,8 @@ import { useGetUserById } from "../../../hooks/useUsers";
 import { useLanguage } from "../../../store/language";
 import { Activity } from "react";
 import { useUser } from "../../../store/user";
-import { useGetJobsForUser } from "../../../hooks/useJobs";
-import { useGetCompaniesForOwner } from "../../../hooks/useCompanies";
-import JobItem from "../../../commons/job_item/JobItem";
+import UserCandidatures from "./user_candidatures/UserCandidatures";
+import AdminCompanies from "./admin_companies/AdminCompanies";
 
 export default function Profile() {
 	const curUser = useUser((state) => state.user);
@@ -14,8 +13,6 @@ export default function Profile() {
 		null,
 		curUser?._id,
 	);
-	const { jobs } = useGetJobsForUser([], curUser?._id);
-	const { companies } = useGetCompaniesForOwner([], curUser?._id);
 	const language = useLanguage((state) => state.language);
 
 	return (
@@ -108,56 +105,12 @@ export default function Profile() {
 					<Activity
 						mode={user?.role === "user" ? "visible" : "hidden"}
 					>
-						<h2>
-							{language === "bg"
-								? "Обяви по които е кандидатствано"
-								: "Jobs applied for"}
-						</h2>
-						<section>
-							{jobs.length > 0 ? (
-								jobs.map((job) => (
-									<JobItem
-										key={job._id}
-										id={job._id}
-										title={job.title}
-										salary={job.salary}
-										company={job.companyId}
-										createdAt={job.created_at}
-										level={job.level}
-										language={language}
-										type={job.type}
-									/>
-								))
-							) : (
-								<p>
-									{language === "bg"
-										? "Няма обяви, за които сте кандидатствали."
-										: "No jobs applied for."}
-								</p>
-							)}
-						</section>
+						<UserCandidatures curUser={user} language={language} />
 					</Activity>
 					<Activity
 						mode={user?.role === "admin" ? "visible" : "hidden"}
 					>
-						<h2>
-							{language === "bg"
-								? "Компании, които сте регистрирали"
-								: "Companies you have registered"}
-						</h2>
-						{companies.length > 0 ? (
-							companies.map((company) => (
-								<div key={company._id}>
-									<p>{company.name}</p>
-								</div>
-							))
-						) : (
-							<p>
-								{language === "bg"
-									? "Няма регистрирани компании."
-									: "No registered companies."}
-							</p>
-						)}
+						<AdminCompanies curUser={user} language={language} />
 					</Activity>
 				</section>
 			)}

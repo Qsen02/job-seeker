@@ -20,7 +20,7 @@ export default function Jobs({ jobs, language }: JobsProps) {
 				jobs.map((el) => (
 					<JobItem
 						key={el._id}
-						id={el._id}
+						jobId={el._id}
 						title={el.title}
 						company={el.companyId}
 						level={el.level}

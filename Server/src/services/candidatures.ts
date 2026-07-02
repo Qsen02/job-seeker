@@ -19,7 +19,14 @@ export async function getAllCandidaturesForJob(jobId: string) {
 }
 
 export async function getAllCandidaturesForUser(userId: string) {
-	const candidatures = await CandidatureModel.find({ userId }).lean();
+	const candidatures = await CandidatureModel.find({ userId })
+		.populate({
+			path: "jobId",
+			populate: {
+				path: "companyId",
+			},
+		})
+		.lean();
 	return candidatures;
 }
 
