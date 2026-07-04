@@ -40,7 +40,6 @@ export default function Login() {
 				password,
 			});
 			setUser(newUser);
-			console.log("След setUser:", useUser.getState().user);
 			action.resetForm();
 			navigate("/");
 		} catch (err) {

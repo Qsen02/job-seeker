@@ -11,7 +11,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 export default function Profile() {
 	const curUser = useUser((state) => state.user);
-	console.log(curUser);
 	const { user, setUser, loading, error } = useGetUserById(
 		null,
 		curUser?._id,
