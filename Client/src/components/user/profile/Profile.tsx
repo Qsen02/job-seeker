@@ -95,12 +95,16 @@ export default function Profile() {
 							</p>
 						</Activity>
 						<div className="buttons">
-									<button onClick={ ()=>navigate("/profile/edit")}>
+							<button onClick={() => navigate("/profile/edit")}>
 								{language === "bg"
 									? "Редактирай профил"
 									: "Edit Profile"}
 							</button>
-							<button>
+							<button
+								onClick={() =>
+									navigate("/profile/change-password")
+								}
+							>
 								{language === "bg"
 									? "Промени парола"
 									: "Change Password"}

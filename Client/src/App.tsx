@@ -22,6 +22,7 @@ import CandidatureDetails from "./components/candidatures/candidature_details/Ca
 import DeleteCandidature from "./components/candidatures/delete_candidature/DeleteCandidature";
 import Profile from "./components/user/profile/Profile";
 import EditUser from "./components/user/edit_user/EditUser";
+import ChangePassword from "./components/user/change_password/ChangePassword";
 
 function App() {
 	return (
@@ -68,8 +69,9 @@ function App() {
 								element={<DeleteCandidature />}
 							/>
 						</Route>
-						<Route path="/profile/*" element={<Profile />} >
+						<Route path="/profile/*" element={<Profile />}>
 							<Route path="edit" element={<EditUser />} />
+							<Route path="change-password" element={<ChangePassword />} />
 						</Route>
 						<Route path="*" element={<NotFound />} />
 					</Routes>

@@ -32,7 +32,7 @@ export async function editUser(userId:string | undefined,data: object) {
 	return user as User;
 }
 
-export async function changePassword(userId: string, data: object) {
+export async function changePassword(userId: string | undefined, data: object) {
 	const user = await put(`${endpoint}/change-password/${userId}`, data);
 	return user as User;
 }

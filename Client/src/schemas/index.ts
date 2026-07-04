@@ -110,6 +110,23 @@ export const editUserSchema = (language: "bg" | "en") =>
 			),
 	});
 
+export const changePasswordSchema = (language: "bg" | "en") =>
+	yup.object().shape({
+		password: yup
+			.string()
+			.matches(
+				/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/,
+				language === "bg"
+					? "Паролата трябва да бъде с дължина поне 6 символа и да съдържа поне една главна буква, цифра и специален символ!"
+					: "Password must be at least 6 symbols long and must contain digits, captial letter and special symbol!",
+			)
+			.required(
+				language === "bg"
+					? "Паролата е задължителна!"
+					: "Password is required!",
+			),
+	});
+
 export const loginSchema = (language: "bg" | "en") =>
 	yup.object().shape({
 		email: yup
