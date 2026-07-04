@@ -3,7 +3,7 @@ import { useLanguage } from "../../../store/language";
 import CustomInput from "../../../commons/customInput";
 import { Activity, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginSchema, registerSchema } from "../../../schemas";
+import { loginSchema } from "../../../schemas";
 import { useLogin } from "../../../hooks/useUsers";
 import { useUser } from "../../../store/user";
 
@@ -40,6 +40,7 @@ export default function Login() {
 				password,
 			});
 			setUser(newUser);
+			console.log("След setUser:", useUser.getState().user);
 			action.resetForm();
 			navigate("/");
 		} catch (err) {

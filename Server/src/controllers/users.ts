@@ -78,7 +78,7 @@ userRouter.post(
 				sameSite: "none",
 			});
 			res.status(200).json({
-				id: newUser._id,
+				_id: newUser._id,
 				email: newUser.email,
 				fullName: newUser.fullName,
 				role: newUser.role,
@@ -120,7 +120,7 @@ userRouter.post(
 				sameSite: "none",
 			});
 			res.status(200).json({
-				id: user._id,
+				_id: user._id,
 				email: user.email,
 				fullName: user.fullName,
 				role: user.role,

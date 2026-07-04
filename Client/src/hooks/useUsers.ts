@@ -31,7 +31,7 @@ export function useGetUserById(initValues: null, userId: string | undefined) {
 		(async () => {
 			try {
 				setLoading(true);
-				if (!aborted) {
+				if (!aborted && userId) {
 					const curUser = await getUserById(userId);
 					setUser(curUser);
 				}

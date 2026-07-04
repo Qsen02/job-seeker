@@ -1,5 +1,3 @@
-import { label } from "framer-motion/client";
-
 export const guestNavBG = [
 	{ label: "Обяви", href: "/" },
 	{ label: "Регистрация", href: "/register" },

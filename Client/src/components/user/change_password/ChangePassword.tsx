@@ -3,7 +3,7 @@ import { useLanguage } from "../../../store/language";
 import CustomInput from "../../../commons/customInput";
 import { Activity, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { changePasswordSchema, loginSchema } from "../../../schemas";
+import { changePasswordSchema } from "../../../schemas";
 import {
 	failedNotification,
 	successfullNotification,
