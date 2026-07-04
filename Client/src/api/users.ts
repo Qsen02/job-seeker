@@ -27,7 +27,7 @@ export async function logout() {
 	await get(`${endpoint}/logout`);
 }
 
-export async function editUser(userId:string,data: object) {
+export async function editUser(userId:string | undefined,data: object) {
 	const user = await put(`${endpoint}/edit/${userId}`, data);
 	return user as User;
 }

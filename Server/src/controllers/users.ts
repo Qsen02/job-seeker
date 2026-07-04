@@ -172,13 +172,9 @@ userRouter.put(
 		.isMobilePhone("bg-BG")
 		.withMessage("Phone number must be in valid format!"),
 	body("profileImagePubliId")
-		.optional()
-		.notEmpty()
-		.withMessage("Profile image public id required!"),
+		.optional(),
 	body("profileImageUrl")
-		.optional()
-		.notEmpty()
-		.withMessage("Profile image url required!"),
+		.optional(),
 	async (req, res) => {
 		try {
 			const userId = req?.params?.userId as string;

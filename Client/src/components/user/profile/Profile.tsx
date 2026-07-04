@@ -7,6 +7,7 @@ import { useUser } from "../../../store/user";
 import UserCandidatures from "./user_candidatures/UserCandidatures";
 import AdminCompanies from "./admin_companies/AdminCompanies";
 import styles from "./Profile.module.css";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export default function Profile() {
 	const curUser = useUser((state) => state.user);
@@ -15,9 +16,11 @@ export default function Profile() {
 		curUser?._id,
 	);
 	const language = useLanguage((state) => state.language);
+	const navigate = useNavigate();
 
 	return (
 		<>
+			<Outlet context={{ user, setUser }} />
 			{loading && !error ? (
 				<Loader />
 			) : error ? (
@@ -92,7 +95,7 @@ export default function Profile() {
 							</p>
 						</Activity>
 						<div className="buttons">
-							<button>
+									<button onClick={ ()=>navigate("/profile/edit")}>
 								{language === "bg"
 									? "Редактирай профил"
 									: "Edit Profile"}

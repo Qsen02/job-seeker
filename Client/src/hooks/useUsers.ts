@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserById, login, logout, register } from "../api/users";
+import { editUser, getUserById, login, logout, register } from "../api/users";
 import type { UserAttributes } from "../types/users";
 import { useLoadingError } from "./useLoadingError";
 
@@ -51,4 +51,10 @@ export function useGetUserById(initValues: null, userId: string | undefined) {
 		loading,
 		error,
 	};
+}
+
+export function useEditUser() { 
+	return async function (userId: string | undefined, data: Object) {
+		return await editUser( userId,data);
+	}
 }

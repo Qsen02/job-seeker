@@ -68,6 +68,48 @@ export const registerSchema = (language: "bg" | "en") =>
 			),
 	});
 
+export const editUserSchema = (language: "bg" | "en") =>
+	yup.object().shape({
+		fullName: yup
+			.string()
+			.min(
+				3,
+				language === "bg"
+					? "Името и фамилията трябва да бъдат с дължина поне 3 символа!"
+					: "First name and last name must be at least 3 symbols long!",
+			)
+			.required(
+				language === "bg"
+					? "Името и фамилията са задължителни!"
+					: "First name and last name are required!",
+			),
+		email: yup
+			.string()
+			.email(
+				language === "bg"
+					? "Имейла трябва да бъде валиден!"
+					: "Email must be valid!",
+			)
+			.required(
+				language === "bg"
+					? "Имейла е задължителен!"
+					: "Email is required!",
+			),
+		phoneNumber: yup
+			.string()
+			.matches(
+				/^(\+359|0)(87|88|89)\d{7}$/,
+				language === "bg"
+					? "Телефонния номер трябва да е във валиден формат!"
+					: "Phone number must be in valid format!",
+			)
+			.required(
+				language === "bg"
+					? "Телефонния номер е задължителен!"
+					: "Phone number is required!",
+			),
+	});
+
 export const loginSchema = (language: "bg" | "en") =>
 	yup.object().shape({
 		email: yup
