@@ -187,7 +187,7 @@ export default function CandidatureDetails() {
 								</p>
 							)}
 						</div>
-						<div>
+						<div className={styles.description}>
 							<p className={styles.bold}>
 								{lanuguage === "bg" ? "Съобщение:" : "Message:"}
 							</p>

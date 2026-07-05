@@ -94,6 +94,15 @@
     font-weight: bold;
 }
 
+.description{
+    width: 100%;
+}
+
+.description p{
+    width: 100%;
+    word-wrap:break-word;
+}
+
 @media(max-width:1024px){
     .wrapper{
         width:70%;
