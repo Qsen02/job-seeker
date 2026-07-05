@@ -1,22 +1,40 @@
 .message{
-    position: absolute;
-    top:40%;
-    left:50%;
-    transform: translate(-50%);
     color:var(--color-dark-text);
     font-size: 20pt;
     width: 80%;
     text-align: center;
 }
 
+.link{
+	padding: 5px 10px;
+	border-radius: 10px;
+	background-color: var(--color-blue);
+	color: white;
+	font-size: 14pt;
+	transition: background-color 0.7s ease;
+	cursor: pointer;
+	gap: 10px;
+}
+
+.link:hover{
+    background-color: var(--color-hover-blue)
+}
+
 @media(max-width:1024px){
     .message{
         font-size: 18pt;
+    }
+
+    .link{
+        font-size: 12pt;
     }
 }
 
 @media(max-width:684px){
     .message{
         font-size: 16pt;
+    }
+    .link{
+        font-size: 10pt;
     }
 }

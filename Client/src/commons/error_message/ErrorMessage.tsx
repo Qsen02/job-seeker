@@ -1,8 +1,10 @@
+import { useHideScroller } from "../../hooks/useLoadingError";
 import { useLanguage } from "../../store/language";
-import styles from "./ErrorMessage.module.css"
+import styles from "./ErrorMessage.module.css";
 
 export default function ErrorMessage() {
 	const language = useLanguage((state) => state.language);
+	useHideScroller();
 
 	return (
 		<div className="loader-modal">

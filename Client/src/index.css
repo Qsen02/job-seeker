@@ -58,8 +58,10 @@ main {
 .loader-modal {
 	position: fixed;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 20px;
 	inset: 0;
 	background-color: var(--color-white);
 	z-index: 4000;
@@ -105,15 +107,15 @@ main {
 	animation: rotate 1s linear infinite;
 }
 
-.link{
-    color:var(--color-blue);
-    font-size: bold;
-    transition: color 0.7s ease;
-    cursor: pointer;
+.link {
+	color: var(--color-blue);
+	font-size: bold;
+	transition: color 0.7s ease;
+	cursor: pointer;
 }
 
-.link:hover{
-    color:var(--color-hover-blue);
+.link:hover {
+	color: var(--color-hover-blue);
 }
 
 @keyframes rotate {
