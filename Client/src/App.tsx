@@ -23,6 +23,9 @@ import DeleteCandidature from "./components/candidatures/delete_candidature/Dele
 import Profile from "./components/user/profile/Profile";
 import EditUser from "./components/user/edit_user/EditUser";
 import ChangePassword from "./components/user/change_password/ChangePassword";
+import GuestGuard from "./gurads/GuestGuard";
+import AdminGuard from "./gurads/AdminGuard";
+import UserGuard from "./gurads/UserGuard";
 
 function App() {
 	return (
@@ -33,45 +36,70 @@ function App() {
 				<main>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/register" element={<Register />} />
-						<Route path="/login" element={<Login />} />
+						<Route element={<GuestGuard />}>
+							<Route path="/register" element={<Register />} />
+							<Route path="/login" element={<Login />} />
+						</Route>
 						<Route path="/logout" element={<Logout />} />
-						<Route
-							path="/company-register"
-							element={<RegisterCompany />}
-						/>
+						<Route element={<AdminGuard />}>
+							<Route
+								path="/company-register"
+								element={<RegisterCompany />}
+							/>
+						</Route>
 						<Route
 							path="/companies/:companyId/*"
 							element={<CompanyDetails />}
 						>
-							<Route path="delete" element={<DeleteCompany />} />
-							<Route path="edit" element={<EditCompany />} />
-							<Route path="create-job" element={<CreateJob />} />
+							<Route element={<AdminGuard />}>
+								<Route
+									path="delete"
+									element={<DeleteCompany />}
+								/>
+								<Route path="edit" element={<EditCompany />} />
+								<Route
+									path="create-job"
+									element={<CreateJob />}
+								/>
+							</Route>
 						</Route>
 						<Route path="/jobs/:jobId/*" element={<JobDetails />}>
-							<Route path="delete" element={<DeleteJob />} />
-							<Route path="edit" element={<EditJob />} />
-							<Route
-								path="apply"
-								element={<CreateCandidature />}
-							/>
-							<Route
-								path="candidatures"
-								element={<JobCandidatures />}
-							/>
+							<Route element={<AdminGuard />}>
+								<Route path="delete" element={<DeleteJob />} />
+								<Route path="edit" element={<EditJob />} />
+							</Route>
+							<Route element={<UserGuard />}>
+								<Route
+									path="apply"
+									element={<CreateCandidature />}
+								/>
+							</Route>
+							<Route element={<AdminGuard />}>
+								<Route
+									path="candidatures"
+									element={<JobCandidatures />}
+								/>
+							</Route>
 						</Route>
-						<Route
-							path="/candidatures/:candidatureId/*"
-							element={<CandidatureDetails />}
-						>
+						<Route element={<UserGuard />}>
 							<Route
-								path="delete"
-								element={<DeleteCandidature />}
-							/>
+								path="/candidatures/:candidatureId/*"
+								element={<CandidatureDetails />}
+							>
+								<Route
+									path="delete"
+									element={<DeleteCandidature />}
+								/>
+							</Route>
 						</Route>
-						<Route path="/profile/*" element={<Profile />}>
-							<Route path="edit" element={<EditUser />} />
-							<Route path="change-password" element={<ChangePassword />} />
+						<Route element={<UserGuard />}>
+							<Route path="/profile/*" element={<Profile />}>
+								<Route path="edit" element={<EditUser />} />
+								<Route
+									path="change-password"
+									element={<ChangePassword />}
+								/>
+							</Route>
 						</Route>
 						<Route path="*" element={<NotFound />} />
 					</Routes>

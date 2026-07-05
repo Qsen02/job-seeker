@@ -6,7 +6,7 @@ import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 import { useUploadCV } from "../../../hooks/useCloudinary";
 
 import CustomTextarea from "../../../commons/customTextarea";
-import { candidatureSchema, companySchema } from "../../../schemas";
+import { candidatureSchema } from "../../../schemas";
 import { useCreateCandidature } from "../../../hooks/useCandidatures";
 import type { JobOutletContext } from "../../../types/contexts";
 import { successfullNotification } from "../../../utils/notifications";
