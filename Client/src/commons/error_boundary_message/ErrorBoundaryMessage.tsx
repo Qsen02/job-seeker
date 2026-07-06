@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../store/language";
 import styles from "../error_message/ErrorMessage.module.css";
 import { useHideScroller } from "../../hooks/useLoadingError";

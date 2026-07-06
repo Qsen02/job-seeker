@@ -12,6 +12,7 @@ import {
 	userNavBG,
 	userNavEN,
 } from "../../../data/items";
+import { useHideScroller } from "../../../hooks/useLoadingError";
 
 interface BurgerMenuProps {
 	userState: UserAttributes | null;
@@ -24,17 +25,20 @@ export default function BurgerMenu({
 	setOpenHandler,
 	language,
 }: BurgerMenuProps) {
-    const navigate = useNavigate();
+	const navigate = useNavigate();
+	useHideScroller();
 
 	return (
 		<div className="modal">
 			<SlidingAnimation className={styles.wrapper}>
 				<section className={styles.header}>
 					<i
-                        className="fa-solid fa-xmark"
-                        onClick={() => setOpenHandler(false)}
+						className="fa-solid fa-xmark"
+						onClick={() => setOpenHandler(false)}
 					></i>
-                    <Link to="/" id={ styles.logo}>Job Seeker</Link>
+					<Link to="/" id={styles.logo}>
+						Job Seeker
+					</Link>
 				</section>
 				<section className={styles.body}>
 					<ul>
@@ -47,6 +51,7 @@ export default function BurgerMenu({
 											key={el.label}
 											label={el.label}
 											href={el.href}
+											openHandler={setOpenHandler}
 										/>
 									))
 								: guestNavEN.map((el) => (
@@ -54,6 +59,7 @@ export default function BurgerMenu({
 											key={el.label}
 											label={el.label}
 											href={el.href}
+											openHandler={setOpenHandler}
 										/>
 									))}
 						</Activity>
@@ -70,6 +76,7 @@ export default function BurgerMenu({
 											key={el.label}
 											label={el.label}
 											href={el.href}
+											openHandler={setOpenHandler}
 										/>
 									))
 								: userNavEN.map((el) => (
@@ -77,6 +84,7 @@ export default function BurgerMenu({
 											key={el.label}
 											label={el.label}
 											href={el.href}
+											openHandler={setOpenHandler}
 										/>
 									))}
 						</Activity>
@@ -93,6 +101,7 @@ export default function BurgerMenu({
 											key={el.label}
 											label={el.label}
 											href={el.href}
+											openHandler={setOpenHandler}
 										/>
 									))
 								: adminNavEN.map((el) => (
@@ -100,6 +109,7 @@ export default function BurgerMenu({
 											key={el.label}
 											label={el.label}
 											href={el.href}
+											openHandler={setOpenHandler}
 										/>
 									))}
 						</Activity>
@@ -107,14 +117,24 @@ export default function BurgerMenu({
 							<Activity
 								mode={userState === null ? "visible" : "hidden"}
 							>
-								<button onClick={() => navigate("/login")}>
+								<button
+									onClick={() => {
+										navigate("/login");
+										setOpenHandler(false);
+									}}
+								>
 									{language === "bg" ? "Вход" : "Login"}
 								</button>
 							</Activity>
 							<Activity
 								mode={userState !== null ? "visible" : "hidden"}
 							>
-								<button onClick={() => navigate("/logout")}>
+								<button
+									onClick={() => {
+										navigate("/logout");
+										setOpenHandler(false);
+									}}
+								>
 									{language === "bg" ? "Изход" : "Logout"}
 								</button>
 							</Activity>
