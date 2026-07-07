@@ -15,7 +15,9 @@ export default function JobDetails() {
 	const user = useUser((state) => state.user);
 	const date = job?.created_at ? new Date(job.created_at) : "";
 	const navigate = useNavigate();
-	const candidateIds = job?.candidatures.map((el) => el.userId._id);
+	const candidateIds: string[] | undefined = job?.candidatures.map(
+		(el) => el.userId,
+	) as string[] | undefined;
 
 	return (
 		<>
@@ -136,7 +138,9 @@ export default function JobDetails() {
 							<div className="buttons">
 								<button
 									onClick={() =>
-										navigate(`/jobs/${job?._id}/candidatures`)
+										navigate(
+											`/jobs/${job?._id}/candidatures`,
+										)
 									}
 								>
 									{language === "bg"
