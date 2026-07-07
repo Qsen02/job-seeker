@@ -64,11 +64,6 @@ export default function EditJob() {
 			setJob(updatedJob);
 			action.resetForm();
 			navigate(`/jobs/${jobId}`);
-			await successfullNotification(
-				language === "bg"
-					? "Обявата е редактирана успешно"
-					: "The job was edited successfully!",
-			);
 		} catch (err) {
 			setEditing(false);
 			setIsErr(true);
@@ -78,6 +73,11 @@ export default function EditJob() {
 			return;
 		} finally {
 			setEditing(false);
+			await successfullNotification(
+				language === "bg"
+					? "Обявата е редактирана успешно"
+					: "The job was edited successfully!",
+			);
 		}
 	}
 

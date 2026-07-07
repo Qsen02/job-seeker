@@ -20,13 +20,17 @@ export default function DeleteJob() {
 			setDeleting(true);
 			await deleteJob(job?.companyId._id, jobId);
 			navigate("/");
-			await successfullNotification(language==="bg"?"Обявата е изтрита успешно!":"The job was deleted successfully!")
 		} catch (err) {
 			setDeleting(false);
 			navigate("/404");
 			return;
 		} finally {
 			setDeleting(false);
+			await successfullNotification(
+				language === "bg"
+					? "Обявата е изтрита успешно!"
+					: "The job was deleted successfully!",
+			);
 		}
 	}
 

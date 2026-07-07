@@ -20,13 +20,17 @@ export default function DeleteCandidature() {
 			setDeleting(true);
 			await deleteCandidature(candidature?.jobId._id, candidatureId);
 			navigate(`/jobs/${candidature?.jobId._id}`);
-			await successfullNotification(language==="bg"?"Успешно изтрихте кандидатурата":"The Candidature was deleted successfully!")
 		} catch (err) {
 			setDeleting(false);
 			navigate("/404");
 			return;
 		} finally {
 			setDeleting(false);
+			await successfullNotification(
+				language === "bg"
+					? "Успешно изтрихте кандидатурата"
+					: "The Candidature was deleted successfully!",
+			);
 		}
 	}
 

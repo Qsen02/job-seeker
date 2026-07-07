@@ -20,13 +20,17 @@ export default function DeleteCompany() {
 			setDeleting(true);
 			await deleteCompany(companyId);
 			navigate("/");
-			await successfullNotification(language === "bg" ? "Успешно изтрихте компанията" : "The company was deleted successfully!");
 		} catch (err) {
 			setDeleting(false);
 			navigate("/404");
 			return;
 		} finally {
 			setDeleting(false);
+			await successfullNotification(
+				language === "bg"
+					? "Успешно изтрихте компанията"
+					: "The company was deleted successfully!",
+			);
 		}
 	}
 

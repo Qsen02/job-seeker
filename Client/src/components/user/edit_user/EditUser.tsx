@@ -73,11 +73,6 @@ export default function EditUser() {
 			});
 			action.resetForm();
 			navigate("/profile");
-			await successfullNotification(
-				language === "bg"
-					? "Успешно редактирахте профила си!"
-					: "Your profile was edited successfully!",
-			);
 		} catch (err) {
 			setEditing(false);
 			setIsErr(true);
@@ -92,6 +87,11 @@ export default function EditUser() {
 			return;
 		} finally {
 			setEditing(false);
+			await successfullNotification(
+				language === "bg"
+					? "Успешно редактирахте профила си!"
+					: "Your profile was edited successfully!",
+			);
 		}
 	}
 

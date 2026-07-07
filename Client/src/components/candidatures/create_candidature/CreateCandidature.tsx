@@ -63,7 +63,6 @@ export default function CreateCandidature() {
 			setJob(updatedJob);
 			action.resetForm();
 			navigate(`/jobs/${jobId}`);
-			await successfullNotification(language === "bg" ? "Успешно кандидатствахте по обявата!" : "Applying for this job was successfull!");
 		} catch (err) {
 			setCreating(false);
 			setIsErr(true);
@@ -73,6 +72,11 @@ export default function CreateCandidature() {
 			return;
 		} finally {
 			setCreating(false);
+			await successfullNotification(
+				language === "bg"
+					? "Успешно кандидатствахте по обявата!"
+					: "Applying for this job was successfull!",
+			);
 		}
 	}
 

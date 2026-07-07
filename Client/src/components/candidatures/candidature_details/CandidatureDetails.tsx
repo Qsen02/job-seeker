@@ -34,11 +34,6 @@ export default function CandidatureDetails() {
 				{ status },
 			);
 			setCandidature(updatedCandidature);
-			await successfullNotification(
-				lanuguage === "bg"
-					? "Статуса на кандидатурата беше променен успешно!"
-					: "Candidature status was changed successfully!",
-			);
 		} catch (err) {
 			setChanging(false);
 			await failedNotification(
@@ -49,6 +44,11 @@ export default function CandidatureDetails() {
 			return;
 		} finally {
 			setChanging(false);
+			await successfullNotification(
+				lanuguage === "bg"
+					? "Статуса на кандидатурата беше променен успешно!"
+					: "Candidature status was changed successfully!",
+			);
 		}
 	}
 

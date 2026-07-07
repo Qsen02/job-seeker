@@ -81,7 +81,6 @@ export default function EditCompany() {
 
 			action.resetForm();
 			setCompany(updatedCompany);
-			await successfullNotification(language==="bg"?"Компанията е редактирана успешно!":"The company was edited successfully!")
 			navigate(`/companies/${companyId}`);
 		} catch (err) {
 			setEditing(false);
@@ -92,6 +91,11 @@ export default function EditCompany() {
 			return;
 		} finally {
 			setEditing(false);
+			await successfullNotification(
+				language === "bg"
+					? "Компанията е редактирана успешно!"
+					: "The company was edited successfully!",
+			);
 		}
 	}
 

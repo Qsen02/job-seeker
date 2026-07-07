@@ -41,11 +41,6 @@ export default function ChangePassword() {
 			});
 			action.resetForm();
 			navigate("/profile");
-			await successfullNotification(
-				language === "bg"
-					? "Паролата е променена успешно"
-					: "Password was changed successfully!",
-			);
 		} catch (err) {
 			setChanging(false);
 			setIsErr(true);
@@ -60,6 +55,11 @@ export default function ChangePassword() {
 			return;
 		} finally {
 			setChanging(false);
+			await successfullNotification(
+				language === "bg"
+					? "Паролата е променена успешно"
+					: "Password was changed successfully!",
+			);
 		}
 	}
 

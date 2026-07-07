@@ -76,11 +76,6 @@ export default function RegisterCompany() {
 
 			action.resetForm();
 			navigate("/");
-			await successfullNotification(
-				language === "bg"
-					? "Компанията е регистрирана успешно"
-					: "The company was registrated successfully!",
-			);
 		} catch (err) {
 			setRegistrating(false);
 			setIsErr(true);
@@ -90,6 +85,11 @@ export default function RegisterCompany() {
 			return;
 		} finally {
 			setRegistrating(false);
+			await successfullNotification(
+				language === "bg"
+					? "Компанията е регистрирана успешно"
+					: "The company was registrated successfully!",
+			);
 		}
 	}
 
