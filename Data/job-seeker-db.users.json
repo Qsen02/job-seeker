@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "6a2bbd7924594a682b6defa5"
+  },
+  "email": "qsen@gmail.com",
+  "password": "$2b$10$tbdy3IelRGIOGVLo4JPHGuIHcbvAWwf1AD3TmiEpEV49EigCEdedq",
+  "fullName": "Qsen Penchev",
+  "role": "admin",
+  "created_at": {
+    "$date": "2026-06-12T08:04:09.092Z"
+  },
+  "updated_at": {
+    "$date": "2026-06-12T08:10:04.561Z"
+  },
+  "__v": 0,
+  "phoneNumber": "0895748364",
+  "profileImage": {
+    "publicId": "",
+    "url": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "6a2bedc250fad2c26770377d"
+  },
+  "email": "pesho@gmail.com",
+  "password": "$2b$10$42Q3e5p5zilDSs0cjxQqpOdtg5lm2qT3X3gWyaq5IDQDy3GXUQGnq",
+  "fullName": "Pesho Peshev",
+  "role": "user",
+  "created_at": {
+    "$date": "2026-06-12T11:30:10.642Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-04T09:07:24.577Z"
+  },
+  "__v": 0,
+  "phoneNumber": "0895748373",
+  "profileImage": {
+    "publicId": "mhmjdwlimly8xh1qe7ag",
+    "url": "https://res.cloudinary.com/dr0ykfclu/image/upload/v1783154534/mhmjdwlimly8xh1qe7ag.jpg"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a2bede350fad2c26770377e"
+  },
+  "email": "gosho@gmail.com",
+  "password": "$2b$10$o06EdgiOS4bn/Sr3zi6/He/vLZjDSHZDW7kqu73tGyAMLtd5HKQVK",
+  "fullName": "Gosho Goshev",
+  "role": "user",
+  "created_at": {
+    "$date": "2026-06-12T11:30:43.368Z"
+  },
+  "updated_at": {
+    "$date": "2026-06-12T11:30:43.368Z"
+  },
+  "__v": 0,
+  "phoneNumber": "0885748394",
+  "profileImage": {
+    "publicId": "",
+    "url": ""
+  }
+}]

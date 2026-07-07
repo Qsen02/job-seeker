@@ -1,0 +1,138 @@
+[{
+  "_id": {
+    "$oid": "6a2bf7395b4d6af6701391cb"
+  },
+  "name": "Software solutions",
+  "description": "Company with 20 years of experience in IT sector. Software solutions intergate smart software systems like ERP and reservation systems in many countries.",
+  "logo": {
+    "publicId": "342326",
+    "url": "sadasdasdas"
+  },
+  "email": "softwaresoltutions@gmail.com",
+  "phone": "0895748372",
+  "address": "Software street 34 ",
+  "location": "Burgas, Bulgaria",
+  "owner": {
+    "$oid": "6a2bbd7924594a682b6defa5"
+  },
+  "jobs": [
+    {
+      "$oid": "6a2c08e44721c462997303fb"
+    },
+    {
+      "$oid": "6a2c092c4721c462997303fd"
+    }
+  ],
+  "created_at": {
+    "$date": "2026-06-12T12:10:33.585Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T07:39:37.154Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a300df34bb5c6f4b52a2296"
+  },
+  "name": "Great company",
+  "description": "Great company is an IT company with 10 years of experience in this field.",
+  "logo": {
+    "publicId": "erztkhbycnpqtmdjo1by",
+    "url": "https://res.cloudinary.com/dr0ykfclu/image/upload/v1782116090/erztkhbycnpqtmdjo1by.png"
+  },
+  "email": "greatcompany@gmail.com",
+  "phone": "0893758483",
+  "address": "Sofia, Bulgaria",
+  "location": "Great street 75",
+  "owner": {
+    "$oid": "6a2bbd7924594a682b6defa5"
+  },
+  "jobs": [
+    {
+      "$oid": "6a3b86b60fff907a82dda587"
+    },
+    {
+      "$oid": "6a4cb64f5c8cd40417784d6a"
+    }
+  ],
+  "created_at": {
+    "$date": "2026-06-15T14:36:35.011Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:18:23.948Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a300e3e4bb5c6f4b52a2298"
+  },
+  "name": "Smart company",
+  "description": "Smart company integrate smart software solutions for 15 years in IT field.",
+  "logo": {
+    "publicId": "qt4tcbq6izhawccv6bym",
+    "url": "https://res.cloudinary.com/dr0ykfclu/image/upload/v1782374920/qt4tcbq6izhawccv6bym.png"
+  },
+  "email": "smartcompany@gmail.com",
+  "phone": "0893758963",
+  "address": "Varna, Bulgaria",
+  "location": "Smart street 64",
+  "owner": {
+    "$oid": "6a2bbd7924594a682b6defa5"
+  },
+  "jobs": [
+    {
+      "$oid": "6a3ce0931f993c1cb6d04e4e"
+    },
+    {
+      "$oid": "6a4cb2a05c8cd40417784d67"
+    },
+    {
+      "$oid": "6a4cb3975c8cd40417784d68"
+    },
+    {
+      "$oid": "6a4cb4a15c8cd40417784d69"
+    }
+  ],
+  "created_at": {
+    "$date": "2026-06-15T14:37:50.741Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:11:13.880Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a43762ebab9468063ac2e40"
+  },
+  "name": "Smart solutions",
+  "description": "A highly developed company with many years of experience in the IT sector.",
+  "logo": {
+    "publicId": "c1prwigjx6nqye0taqna",
+    "url": "https://res.cloudinary.com/dr0ykfclu/image/upload/v1782806062/c1prwigjx6nqye0taqna.png"
+  },
+  "email": "smartsolutions@gmail.com",
+  "phone": "0883746583",
+  "address": "Some street 50",
+  "location": "Varna, Bulgaria",
+  "owner": {
+    "$oid": "6a2bbd7924594a682b6defa5"
+  },
+  "jobs": [
+    {
+      "$oid": "6a4cb8135c8cd40417784d6b"
+    },
+    {
+      "$oid": "6a4cb8c95c8cd40417784d6c"
+    }
+  ],
+  "created_at": {
+    "$date": "2026-06-30T07:54:22.628Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:28:57.432Z"
+  },
+  "__v": 0
+}]

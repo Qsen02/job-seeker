@@ -1,0 +1,617 @@
+[{
+  "_id": {
+    "$oid": "6a2c08e44721c462997303fb"
+  },
+  "title": "Junior C# developer",
+  "description": [
+    "#Job Description",
+    "    Software Solutions is looking for a motivated Junior C# Developer to join our growing development team. This is an excellent opportunity for recent graduates or developers with up to two years of experience who are eager to build modern software solutions and advance their careers in a collaborative environment.",
+    "    As a Junior C# Developer, you will work alongside experienced engineers to develop, maintain, and improve enterprise applications using Microsoft technologies. You will participate in the full software development lifecycle while receiving mentorship and continuous learning opportunities.",
+    "#Responsibilities",
+    "- Develop and maintain applications using C# and .NET.",
+    "- Implement new features based on business requirements.",
+    "- Troubleshoot, debug, and resolve software issues.",
+    "- Write clean, maintainable, and well-documented code.",
+    "- Collaborate with senior developers, QA engineers, and product managers.",
+    "- Participate in code reviews and Agile development processes.",
+    "- Work with SQL databases and REST APIs.",
+    "#Requirements",
+    "- Basic knowledge of C# and the .NET platform.",
+    "- Understanding of Object-Oriented - Programming (OOP) principles.",
+    "- Familiarity with SQL and relational databases.",
+    "- Experience with Git or other version control systems.",
+    "- Strong problem-solving and analytical skills.",
+    "- Good communication skills and willingness to learn.",
+    "- Intermediate English (written and spoken).",
+    "#Nice to Have",
+    "- Experience with ASP.NET Core.",
+    "- Knowledge of Entity Framework Core.",
+    "- Basic understanding of HTML, CSS, and JavaScript.",
+    "- Personal, university, or open-source projects.",
+    "- Familiarity with Agile methodologies.",
+    "#What We Offer",
+    "- Competitive salary.",
+    "- Flexible working hours.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Paid training courses and certification support.",
+    "- Career development and mentorship program.",
+    "- Modern office environment with the latest equipment.",
+    "- Friendly and supportive team culture.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "junior",
+  "companyId": {
+    "$oid": "6a2bf7395b4d6af6701391cb"
+  },
+  "candidatures": [],
+  "type": "on-site",
+  "salary": 1500,
+  "created_at": {
+    "$date": "2026-06-12T13:25:56.269Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:12:09.936Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2c092c4721c462997303fd"
+  },
+  "title": "Senior React Developer",
+  "description": [
+    "#Job Description",
+    "Software Solutions is seeking an experienced Senior React Developer to join our engineering team and help build scalable, high-performance web applications used by thousands of users worldwide. In this role, you will take ownership of key frontend initiatives, contribute to architectural decisions, and mentor junior developers while working closely with product managers, designers, and backend engineers.",
+    "The ideal candidate has extensive experience with React, modern JavaScript/TypeScript, and frontend architecture, along with a passion for creating exceptional user experiences.",
+    "#Responsibilities",
+    "- Design, develop, and maintain complex web applications using React and TypeScript.",
+    "- Lead frontend architecture discussions and technical decision-making.",
+    "- Collaborate with UX/UI designers to deliver responsive and accessible user interfaces.",
+    "- Optimize application performance, scalability, and maintainability.",
+    "- Conduct code reviews and ensure adherence to best practices.",
+    "- Mentor junior and mid-level developers.",
+    "- Integrate frontend applications with RESTful APIs and third-party services.",
+    "- Participate in Agile ceremonies and contribute to product planning.",
+    "#Requirements",
+    "- 5+ years of professional experience in frontend development.",
+    "- 3+ years of hands-on experience with React.",
+    "- Strong proficiency in JavaScript (ES6+) and TypeScript.",
+    "- Experience with state management libraries such as Redux, Zustand, or Context API.",
+    "- Solid understanding of component-based architecture and modern frontend patterns.",
+    "- Experience with Git and collaborative development workflows.",
+    "- Knowledge of web performance optimization techniques.",
+    "- Strong problem-solving and communication skills.",
+    "- Professional working proficiency in English.",
+    "- Preferred Qualifications",
+    "- Experience with Next.js.",
+    "- Familiarity with automated testing frameworks such as Jest and React Testing Library.",
+    "- Knowledge of CI/CD pipelines.",
+    "- Experience with cloud platforms such as AWS or Azure.",
+    "- Understanding of SEO best practices for modern web applications.",
+    "- Previous experience leading development teams or projects.",
+    "#What We Offer",
+    "- Competitive compensation package.",
+    "- Hybrid work model with flexible scheduling.",
+    "- Private health insurance.",
+    "- Annual performance bonuses.",
+    "- Learning and development budget for courses and certifications.",
+    "- Modern equipment and home office support.",
+    "- Opportunity to work on large-scale international projects.",
+    "- Collaborative and innovative work environment.",
+    "- 25 days of paid annual leave.",
+    "- Clear career growth opportunities into Lead or Engineering Manager roles."
+  ],
+  "level": "senior",
+  "companyId": {
+    "$oid": "6a2bf7395b4d6af6701391cb"
+  },
+  "candidatures": [
+    {
+      "$oid": "6a3d28fabb3ed20d28e00a51"
+    },
+    {
+      "$oid": "6a3d29a7bb3ed20d28e00a52"
+    }
+  ],
+  "type": "hybrid",
+  "salary": 3400,
+  "created_at": {
+    "$date": "2026-06-12T13:27:08.823Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T09:12:26.997Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3b86b60fff907a82dda587"
+  },
+  "title": "Junior Python Developer",
+  "description": [
+    "#Job Description",
+    "Great Company is looking for a passionate Junior Python Developer to join our software development team. This is an excellent opportunity for aspiring developers who want to build practical experience working on real-world applications while learning from experienced professionals.",
+    "As a Junior Python Developer, you will contribute to the development of backend services, automation tools, and internal applications. You will work in a collaborative environment where continuous learning and professional growth are encouraged.",
+    "#Responsibilities",
+    "- Develop and maintain applications using Python.",
+    "- Assist in designing and implementing backend services and APIs.",
+    "- Write clean, readable, and maintainable code.",
+    "- Debug, test, and troubleshoot software issues.",
+    "- Collaborate with developers, QA engineers, and product managers.",
+    "- Participate in code reviews and Agile development processes.",
+    "- Work with databases and integrate third-party services.",
+    "- Document technical solutions and development processes.",
+    "#Requirements",
+    "- Basic knowledge of Python.",
+    "- Understanding of Object-Oriented Programming (OOP).",
+    "- Familiarity with SQL and relational databases.",
+    "- Basic knowledge of REST APIs.",
+    "- Experience with Git or other version control systems.",
+    "- Strong analytical and problem-solving skills.",
+    "- Eagerness to learn new technologies and best practices.",
+    "- Good written and spoken English.",
+    "#Nice to Have",
+    "- Experience with Django or Flask.",
+    "- Familiarity with PostgreSQL or MySQL.",
+    "- Basic knowledge of Docker.",
+    "- Personal, university, or open-source Python projects.",
+    "- Understanding of unit testing with pytest or unittest.",
+    "- Basic Linux command-line experience.",
+    "#What We Offer",
+    "- Competitive salary.",
+    "- Modern office with a collaborative working environment.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Mentorship from experienced software engineers.",
+    "- Paid training courses and certification support.",
+    "- Career development opportunities.",
+    "- Team-building events and social activities.",
+    "- Modern hardware and development tools.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "junior",
+  "companyId": {
+    "$oid": "6a300df34bb5c6f4b52a2296"
+  },
+  "candidatures": [],
+  "type": "on-site",
+  "salary": 1300,
+  "created_at": {
+    "$date": "2026-06-24T07:26:46.334Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:15:36.979Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3ce0931f993c1cb6d04e4e"
+  },
+  "title": "Mid Java Developer",
+  "description": [
+    "#Job Description",
+    "Smart Company is looking for a talented Mid Java Developer to join our fully remote engineering team. As a Mid Java Developer, you will contribute to the design, development, and maintenance of scalable backend systems that power modern web applications and enterprise solutions.",
+    "You will work closely with software engineers, QA specialists, and product managers in an Agile environment, helping to deliver reliable, high-quality software while continuously expanding your technical expertise.",
+    "#Responsibilities",
+    "- Develop, test, and maintain backend applications using Java and Spring Boot.",
+    "- Design and implement RESTful APIs and microservices.",
+    "- Collaborate with front-end developers to integrate backend services.",
+    "- Optimize application performance and ensure system reliability.",
+    "- Write clean, maintainable, and well-documented code.",
+    "- Participate in code reviews and contribute to technical discussions.",
+    "- Troubleshoot and resolve production issues.",
+    "- Work with relational databases and version control systems.",
+    "#Requirements",
+    "- 3+ years of professional experience with Java development.",
+    "- Strong knowledge of Java 17 or newer.",
+    "- Experience with Spring Boot and the Spring ecosystem.",
+    "- Solid understanding of REST APIs and microservices architecture.",
+    "- Experience working with SQL databases such as PostgreSQL or MySQL.",
+    "- Familiarity with Git and collaborative development workflows.",
+    "- Understanding of software design principles and object-oriented programming.",
+    "- Good written and spoken English.",
+    "#Nice to Have",
+    "- Experience with Docker and Kubernetes.",
+    "- Knowledge of Apache Kafka or RabbitMQ.",
+    "- Familiarity with cloud platforms such as AWS or Azure.",
+    "- Experience with JUnit and integration testing.",
+    "- Understanding of CI/CD pipelines using GitHub Actions or Jenkins.",
+    "- Basic knowledge of NoSQL databases.",
+    "#What We Offer",
+    "- Fully remote work from anywhere.",
+    "- Competitive salary based on experience.",
+    "- Flexible working hours.",
+    "- Home office equipment allowance.",
+    "- Private health insurance.",
+    "-Annual learning and development budget.",
+    "- Access to online courses and certification programs.",
+    "-Friendly, international team with a collaborative culture.",
+    "- Regular virtual team events.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "mid",
+  "companyId": {
+    "$oid": "6a300e3e4bb5c6f4b52a2298"
+  },
+  "candidatures": [],
+  "type": "remote",
+  "salary": 2300,
+  "created_at": {
+    "$date": "2026-06-25T08:02:27.038Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T07:59:18.828Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a4cb2a05c8cd40417784d67"
+  },
+  "title": "Junior Angular Developer",
+  "description": [
+    "#Job Description",
+    "Smart Company is looking for an enthusiastic Junior Angular Developer to join our on-site development team. This role is ideal for developers who are eager to build their careers in front-end development while working on modern web applications in a collaborative office environment.",
+    "You will work alongside experienced developers, receive mentorship, and participate in the development of responsive and user-friendly applications using Angular and related technologies.",
+    "#Responsibilities",
+    "- Develop and maintain web applications using Angular.",
+    "- Build responsive and reusable UI components.",
+    "- Collaborate with designers, backend developers, and QA engineers.",
+    "- Debug and resolve front-end issues.",
+    "- Write clean, maintainable, and well-documented code.",
+    "- Participate in code reviews and Agile ceremonies.",
+    "- Learn and apply front-end development best practices.",
+    "#Requirements",
+    "- Basic knowledge of Angular and TypeScript.",
+    "- Understanding of HTML5, CSS3, and JavaScript.",
+    "- Familiarity with responsive web design principles.",
+    "- Basic understanding of REST APIs.",
+    "- Experience with Git or another version control system.",
+    "- Strong willingness to learn and grow professionally.",
+    "- Good communication and teamwork skills.",
+    "Intermediate English proficiency.",
+    "#Nice to Have",
+    "- Experience with RxJS.",
+    "- Familiarity with Angular Material.",
+    "- Basic knowledge of SCSS.",
+    "- Personal or university projects built with Angular.",
+    "- Understanding of Agile development methodologies.",
+    "#What We Offer",
+    "- Competitive salary.",
+    "- Modern office environment with the latest equipment.",
+    "- Mentorship from experienced developers.",
+    "- Career growth opportunities.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Paid training courses and certification support.",
+    "- Friendly and collaborative team culture.",
+    "- Company-sponsored events and team-building activities.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "junior",
+  "companyId": {
+    "$oid": "6a300e3e4bb5c6f4b52a2298"
+  },
+  "candidatures": [],
+  "type": "on-site",
+  "salary": 1200,
+  "created_at": {
+    "$date": "2026-07-07T08:02:40.356Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:02:40.356Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a4cb3975c8cd40417784d68"
+  },
+  "title": "Senior DevOps Engineer",
+  "description": [
+    "#Job Description",
+    "Smart Company is seeking an experienced Senior DevOps Engineer to join our fully remote infrastructure team. In this role, you will be responsible for designing, automating, and maintaining scalable cloud infrastructure while improving the reliability, security, and performance of our systems.",
+    "You will work closely with software engineers, security specialists, and platform teams to streamline deployment processes, enhance monitoring capabilities, and implement DevOps best practices across the organization.",
+    "#Responsibilities",
+    "- Design, build, and maintain scalable cloud infrastructure.",
+    "- Develop and manage CI/CD pipelines for automated deployments.",
+    "- Automate infrastructure provisioning using Infrastructure as Code (IaC).",
+    "- Monitor system performance and ensure high availability.",
+    "- Troubleshoot production issues and perform root cause analysis.",
+    "- Collaborate with development teams to improve deployment workflows.",
+    "- Implement security best practices and compliance standards.",
+    "- Optimize cloud costs and infrastructure performance.",
+    "- Mentor junior engineers and contribute to technical strategy.",
+    "#Requirements",
+    "- 5+ years of professional experience in DevOps or Site Reliability Engineering.",
+    "- Strong experience with AWS, Azure, or Google Cloud Platform.",
+    "- Proficiency with Docker and Kubernetes.",
+    "- Experience with Terraform or similar Infrastructure as Code tools.",
+    "- Strong knowledge of Linux system administration.",
+    "- Experience building and maintaining CI/CD pipelines using GitHub Actions, GitLab CI, Azure DevOps, or Jenkins.",
+    "- Experience with monitoring tools such as Prometheus, Grafana, or ELK Stack.",
+    "- Scripting experience with Bash, Python, or PowerShell.",
+    "- Strong understanding of networking, security, and cloud architecture.",
+    "- Professional working proficiency in English.",
+    "#Nice to Have",
+    "- Experience with Helm and Kubernetes Operators.",
+    "- Knowledge of service mesh technologies such as Istio.",
+    "- Experience with Ansible or Puppet.",
+    "- Familiarity with PostgreSQL, MongoDB, or Redis administration.",
+    "- Experience implementing security scanning and DevSecOps practices.",
+    "- Cloud certifications (AWS, Azure, or GCP).",
+    "#What We Offer",
+    "- Fully remote work from anywhere.",
+    "- Competitive salary with annual performance reviews.",
+    "- Flexible working hours.",
+    "- Home office allowance and modern equipment.",
+    "- Private health insurance.",
+    "- Annual learning and certification budget.",
+    "- Access to premium online training platforms.",
+    "- Career advancement opportunities.",
+    "- Collaborative international engineering team.",
+    "- Company-sponsored virtual events and wellness initiatives.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "senior",
+  "companyId": {
+    "$oid": "6a300e3e4bb5c6f4b52a2298"
+  },
+  "candidatures": [],
+  "type": "remote",
+  "salary": 3500,
+  "created_at": {
+    "$date": "2026-07-07T08:06:47.391Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:31:01.938Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a4cb4a15c8cd40417784d69"
+  },
+  "title": "Automation QA Engineer (JavaScript)",
+  "description": [
+    "#Job Description",
+    "Smart Company is looking for a QA Automation Engineer (JavaScript) to join our quality assurance team. In this role, you will be responsible for developing and maintaining automated test suites that ensure the reliability, performance, and quality of our web applications.",
+    "You will work closely with software developers, product managers, and fellow QA engineers to identify issues early in the development cycle and continuously improve our testing processes.",
+    "#Responsibilities",
+    "- Design, develop, and maintain automated test scripts using JavaScript.",
+    "- Execute functional, regression, integration, and end-to-end tests.",
+    "- Collaborate with developers to identify and resolve software defects.",
+    "- Create and maintain detailed test plans and test cases.",
+    "- Integrate automated tests into CI/CD pipelines.",
+    "- Report, track, and verify software defects.",
+    "- Contribute to improving QA processes and testing standards.",
+    "- Participate in Agile ceremonies and sprint planning.",
+    "#Requirements",
+    "- 2+ years of experience in software quality assurance or test automation.",
+    "- Strong knowledge of JavaScript.",
+    "- Experience with Playwright, Cypress, or Selenium WebDriver.",
+    "- Understanding of REST APIs and API testing.",
+    "- Familiarity with Git and version control workflows.",
+    "- Basic knowledge of SQL.",
+    "- Strong analytical and problem-solving skills.",
+    "- Good communication skills and attention to detail.",
+    "- Intermediate English proficiency.",
+    "#Nice to Have",
+    "- Experience with TypeScript.",
+    "- Knowledge of Jest or other testing frameworks.",
+    "- Familiarity with CI/CD tools such as GitHub Actions or Jenkins.",
+    "- Experience with performance or load testing.",
+    "- Understanding of Agile and Scrum methodologies.",
+    "#What We Offer",
+    "- Competitive salary.",
+    "- Modern office environment with the latest equipment.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Professional training and certification support.",
+    "- Career growth opportunities.",
+    "- Collaborative and supportive team culture.",
+    "- Company events and team-building activities.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "mid",
+  "companyId": {
+    "$oid": "6a300e3e4bb5c6f4b52a2298"
+  },
+  "candidatures": [],
+  "type": "on-site",
+  "salary": 2100,
+  "created_at": {
+    "$date": "2026-07-07T08:11:13.879Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:11:13.879Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a4cb64f5c8cd40417784d6a"
+  },
+  "title": "Project Manager",
+  "description": [
+    "#Job Description",
+    "Great Company is looking for an organized and proactive Project Manager to lead cross-functional teams and ensure the successful delivery of software projects. In this role, you will coordinate project activities, manage timelines and budgets, and act as the primary point of communication between stakeholders and development teams.",
+    "The ideal candidate is an excellent communicator with strong leadership skills and experience managing projects in an Agile environment.",
+    "#Responsibilities",
+    "- Plan, coordinate, and oversee software development projects from initiation to delivery.",
+    "- Define project scope, objectives, timelines, and deliverables.",
+    "- Lead cross-functional teams and facilitate effective collaboration.",
+    "- Monitor project progress and manage risks, issues, and dependencies.",
+    "- Communicate project status and updates to stakeholders.",
+    "- Organize sprint planning, daily stand-ups, retrospectives, and review meetings.",
+    "- Ensure projects are delivered on time, within scope, and within budget.",
+    "- Continuously improve project management processes and team efficiency.",
+    "#Requirements",
+    "- 3+ years of experience in project management, preferably in the software industry.",
+    "- Strong understanding of Agile and Scrum methodologies.",
+    "- Excellent leadership, organizational, and communication skills.",
+    "- Experience using project management tools such as Jira, Confluence, or Azure DevOps.",
+    "- Ability to manage multiple projects and priorities simultaneously.",
+    "- Strong problem-solving and decision-making abilities.",
+    "- Professional working proficiency in English.",
+    "#Nice to Have",
+    "- Scrum Master or PMP certification.",
+    "- Technical background or experience working with software development teams.",
+    "- Familiarity with risk management and project budgeting.",
+    "- Experience managing distributed or cross-functional teams.",
+    "- Knowledge of Kanban and Lean methodologies.",
+    "#What We Offer",
+    "- Competitive salary and annual performance reviews.",
+    "- Modern office environment with state-of-the-art equipment.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Professional development and certification support.",
+    "- Career advancement opportunities.",
+    "- Friendly and collaborative workplace culture.",
+    "- Company-sponsored events and team-building activities.",
+    "- Flexible working hours.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "senior",
+  "companyId": {
+    "$oid": "6a300df34bb5c6f4b52a2296"
+  },
+  "candidatures": [],
+  "type": "on-site",
+  "salary": 5000,
+  "created_at": {
+    "$date": "2026-07-07T08:18:23.947Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:18:23.947Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a4cb8135c8cd40417784d6b"
+  },
+  "title": "Senior Full Stack Developer (Node.js/React)",
+  "description": [
+    "#Job Description",
+    "Smart Solutions is looking for an experienced Senior Full Stack Developer (Node.js/React) to join our engineering team. In this role, you will lead the development of scalable web applications, contribute to architectural decisions, and collaborate with cross-functional teams to deliver high-quality software solutions.",
+    "As a senior member of the team, you will mentor developers, promote engineering best practices, and play a key role in building reliable and performant applications used by clients worldwide.",
+    "#Responsibilities",
+    "- Design, develop, and maintain full-stack web applications using React and Node.js.",
+    "- Build scalable RESTful APIs and backend services.",
+    "- Develop responsive and intuitive user interfaces.",
+    "- Collaborate with UI/UX designers, QA engineers, and product managers.",
+    "- Review code, provide technical guidance, and mentor junior developers.",
+    "- Optimize application performance, security, and scalability.",
+    "- Participate in architecture discussions and technical planning.",
+    "- Write clean, maintainable, and well-tested code.",
+    "- Contribute to CI/CD processes and deployment strategies.",
+    "#Requirements",
+    "- 5+ years of professional experience in full-stack web development.",
+    "- Strong expertise in React, Node.js, and TypeScript.",
+    "- Experience with Express.js or NestJS.",
+    "- Solid understanding of REST APIs and microservices architecture.",
+    "- Experience with PostgreSQL, MySQL, or MongoDB.",
+    "- Strong knowledge of Git and collaborative development workflows.",
+    "- Experience with Docker and containerized applications.",
+    "- Familiarity with cloud platforms such as AWS, Azure, or Google Cloud.",
+    "- Strong understanding of software architecture and design patterns.",
+    "- Excellent communication skills and professional English proficiency.",
+    "#Nice to Have",
+    "- Experience with GraphQL.",
+    "- Knowledge of Next.js.",
+    "- Experience with Redis, RabbitMQ, or Apache Kafka.",
+    "- Familiarity with Kubernetes and Infrastructure as Code.",
+    "- Experience with automated testing using Jest, Playwright, or Cypress.",
+    "- Previous experience leading technical teams or mentoring developers.",
+    "#What We Offer",
+    "- Competitive salary with annual performance reviews.",
+    "- Hybrid work model with flexible working hours.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Annual learning and certification budget.",
+    "- Modern hardware and development tools.",
+    "- Career growth and leadership opportunities.",
+    "- Friendly, collaborative, and innovative work environment.",
+    "- Team-building events and company-sponsored activities.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "senior",
+  "companyId": {
+    "$oid": "6a43762ebab9468063ac2e40"
+  },
+  "candidatures": [],
+  "type": "hybrid",
+  "salary": 4000,
+  "created_at": {
+    "$date": "2026-07-07T08:25:55.157Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:29:38.338Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a4cb8c95c8cd40417784d6c"
+  },
+  "title": "UI/UX Designer",
+  "description": [
+    "#Job Description",
+    "Smart Solutions is looking for a creative and detail-oriented UI/UX Designer to join our product team. In this role, you will be responsible for designing intuitive, engaging, and user-friendly digital experiences for web and mobile applications.",
+    "You will work closely with product managers, developers, and other stakeholders to transform ideas and requirements into effective design solutions. The ideal candidate combines strong visual design skills with a deep understanding of user experience principles.",
+    "#Responsibilities",
+    "- Create user-centered designs for web and mobile applications.",
+    "- Design wireframes, prototypes, and high-fidelity user interfaces.",
+    "- Conduct user research and analyze user feedback to improve products.",
+    "- Collaborate with developers to ensure accurate design implementation.",
+    "- Maintain and improve design systems and UI components.",
+    "- Create user flows, mockups, and interactive prototypes.",
+    "- Participate in product discussions and contribute design ideas.",
+    "- Ensure consistency and usability across different platforms.",
+    "#Requirements",
+    "- 2+ years of experience in UI/UX or product design.",
+    "- Strong knowledge of design tools such as Figma or Adobe XD.",
+    "- Understanding of user experience principles and design patterns.",
+    "- Experience creating responsive designs for web and mobile platforms.",
+    "- Ability to create wireframes, prototypes, and design documentation.",
+    "- Good understanding of HTML and CSS basics.",
+    "- Strong attention to detail and problem-solving skills.",
+    "- Good communication and collaboration abilities.",
+    "- Intermediate English proficiency.",
+    "#Nice to Have",
+    "- Experience designing SaaS products.",
+    "- Knowledge of design systems and component libraries.",
+    "- Experience working with Agile development teams.",
+    "- Basic understanding of accessibility standards.",
+    "- Experience with user testing and analytics tools.",
+    "- Familiarity with front-end development workflows.",
+    "#What We Offer",
+    "- Competitive salary.",
+    "- Hybrid work model with flexible working hours.",
+    "- Private health insurance.",
+    "- Meal vouchers.",
+    "- Modern equipment and professional design tools.",
+    "- Budget for courses and professional development.",
+    "- Opportunity to work on innovative digital products.",
+    "- Friendly and creative team environment.",
+    "- Regular team-building activities.",
+    "- 25 days of paid annual leave."
+  ],
+  "level": "mid",
+  "companyId": {
+    "$oid": "6a43762ebab9468063ac2e40"
+  },
+  "candidatures": [],
+  "type": "hybrid",
+  "salary": 2000,
+  "created_at": {
+    "$date": "2026-07-07T08:28:57.431Z"
+  },
+  "updated_at": {
+    "$date": "2026-07-07T08:28:57.431Z"
+  },
+  "__v": 0
+}]
