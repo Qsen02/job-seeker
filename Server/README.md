@@ -39,9 +39,9 @@ This is the list of routes, authentication and enviroments of the server.
 - User guard
 - Admin guard
 ## Environments
-PORT = 3000
-COOKIE_SECRET = Secrect for cookies
-TOKEN_SECRET = Secret for json web token
-CLOUDINARY_CLOUD_NAME = Cloudinary storage name
-CLOUDINARY_API_KEY = Api key for Cloudinary
-CLOUDINARY_API_SECRET = Api secret for Cloudinary
+- PORT = 3000
+- COOKIE_SECRET = Secrect for cookies
+- TOKEN_SECRET = Secret for json web token
+- CLOUDINARY_CLOUD_NAME = Cloudinary storage name
+- CLOUDINARY_API_KEY = Api key for Cloudinary
+- CLOUDINARY_API_SECRET = Api secret for Cloudinary
