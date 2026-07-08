@@ -2,7 +2,7 @@
 This is a web application for searching jobs. You can make your profile, search and apply for jobs.
 # Tecnologies
 - Back-end: Typescript, Node.js, Express and MongoDB for database.
-- Front-end: Typescript and React.
+- Front-end: Typescript, React and Zustand state management library.
 # Features
 ## Users
 - You can create your account and search and apply for jobs.
