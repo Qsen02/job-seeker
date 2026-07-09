@@ -2,8 +2,6 @@ import { Activity } from "react";
 import { Link } from "react-router-dom";
 import styles from "./JobCandidaturesItem.module.css";
 import type { CandidatureStatus } from "../../../../types/candidatures";
-import { label } from "framer-motion/client";
-import { useLanguage } from "../../../../store/language";
 
 interface JobCandidatureItemProps {
 	id: string;

@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import { useGetCompaniesForOwner } from "../../../../hooks/useCompanies";
 import type { UserAttributes } from "../../../../types/users";
-import { logoErrorHandler } from "../../../../utils/error_images";
 import styles from "./AdminCompanies.module.css";
 import CompanyItem from "../../../../commons/company_item/CompanyItem";
 
