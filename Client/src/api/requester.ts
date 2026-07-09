@@ -1,4 +1,5 @@
-const host = "http://localhost:3000/";
+//const host = "http://localhost:3000/";
+const host = "https://job-seeker-uu19.onrender.com/";
 
 async function request(method: string, url: string, data?: object) {
 	const headers: Record<string, string> = {};
