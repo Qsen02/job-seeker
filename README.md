@@ -18,6 +18,9 @@ This is a web application for searching jobs. You can make your profile, search 
 - Server: Open folder server and write command `npm run dev` in terminal to start the server.
 - Client: Open folder client and again in terminal write comman `npm run dev` and you must see link that you can open.
 - Data: In this folder you have all test data that you can add to your local database in MongoDB compass.
+# Deployment link
+- https://job-seeker-gq5k.onrender.com
+- Warning: For deployment is used free Render instance and application may load after 50 seconds.
 # API References
 - https://github.com/Qsen02/job-seeker/tree/main/Server
 # Screenshots
