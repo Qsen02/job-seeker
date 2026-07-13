@@ -1,8 +1,8 @@
 .wrapper {
 	position: fixed;
 	right: 0;
-	width: 50vw;
-	height: 100vh;
+	width: 55vw;
+	height: 100%;
 	background-color: white;
 	color: var(--color-text);
     display: flex;
