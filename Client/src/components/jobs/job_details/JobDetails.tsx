@@ -32,13 +32,13 @@ export default function JobDetails() {
 						<h1>{job?.title.trim() || ""}</h1>
 						<div className={styles.description}>
 							{job?.description.map((el, i) => (
-								<>
+								<div key={i}>
 									{el.startsWith("#") ? (
-										<h2 key={i}>{el.replace("#", "")}</h2>
+										<h2>{el.replace("#", "")}</h2>
 									) : (
-										<p key={i}>{el}</p>
+										<p>{el}</p>
 									)}
-								</>
+								</div>
 							))}
 						</div>
 						<div className="buttons">
